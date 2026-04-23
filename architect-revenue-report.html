@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Architect — Revenue & Traction Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+<style>
+:root{
+  --bg:#ebe5dc; --fg:#2a1f1a; --deep:#1e1610; --deeper:#160f0b;
+  --ink:#2a1f1a; --ink2:#3a2820;
+  --primary:#6b4c4c; --primary2:#8a6060;
+  --muted:rgba(107,94,82,.75); --border:#d4cbc0;
+  --cream:#f2ede8; --secondary:#f4f0eb; --parch:#f9f5f1; --warm:#e6dfd5;
+  --rose:hsl(4,55%,65%); --rosem:hsl(4,55%,72%);
+  --green:hsl(140,60%,42%);
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'DM Sans',system-ui,sans-serif;
+  --sh1:0 2px 16px rgba(40,20,10,.06);
+  --sh2:0 8px 32px rgba(40,20,10,.09);
+  --sh3:0 20px 64px rgba(40,20,10,.13);
+  --r:14px; --rL:22px; --rXL:36px;
+  --out:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--bg);color:var(--fg);-webkit-font-smoothing:antialiased;line-height:1.65;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:300;line-height:1.1}
+::selection{background:rgba(107,76,76,.15)}
+
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+.eyebrow{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--primary);margin-bottom:14px;display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:'';width:24px;height:1px;background:var(--primary)}
+.eyebrow.light{color:var(--rose)}
+.eyebrow.light::before{background:var(--rose)}
+.section-title{font-family:var(--font-display);font-size:clamp(2rem,3.4vw,3rem);font-weight:300;letter-spacing:-.025em;line-height:1.1;color:var(--fg);margin-bottom:14px}
+.section-title em{font-style:italic;color:var(--primary)}
+.section-title.wh{color:#fff}
+.section-title.wh em{color:var(--rose)}
+.section-sub{font-size:14px;color:rgba(26,17,14,.55);max-width:640px;line-height:1.75}
+.section-sub.wh{color:rgba(255,255,255,.42)}
+
+/* HERO */
+.hero{position:relative;background:var(--deeper);padding:130px 0 90px;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-10%;left:-5%;width:650px;height:650px;border-radius:50%;background:radial-gradient(circle,rgba(107,76,76,.17),transparent 60%);filter:blur(90px);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-20%;right:-5%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(107,76,76,.09),transparent 60%);filter:blur(90px);pointer-events:none}
+.hero-inner{position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:12px;padding:7px 18px 7px 10px;border-radius:9999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);margin-bottom:28px}
+.hero-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--rose);box-shadow:0 0 12px hsla(4,55%,65%,.6);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)}}
+.hero-badge-text{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.42);font-weight:600}
+.hero-badge-tag{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rose);padding:3px 12px;background:rgba(107,76,76,.15);border-radius:9999px;border:1px solid rgba(107,76,76,.3)}
+.hero-h1{font-size:clamp(2.8rem,5vw,4.4rem);color:#fff;letter-spacing:-.03em;line-height:1.05;margin-bottom:18px;font-weight:300}
+.hero-h1 em{font-style:italic;color:var(--rose)}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.46);line-height:1.85;max-width:540px;margin-bottom:56px}
+
+.hero-metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+.hm{padding:30px 28px;border-right:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;gap:6px;position:relative;overflow:hidden}
+.hm:last-child{border-right:none}
+.hm::before{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--primary),var(--rose));transform:scaleX(0);transform-origin:left;transition:transform .5s var(--out)}
+.hm:hover::before{transform:scaleX(1)}
+.hm-lbl{font-size:11px;color:#fff;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+.hm-val{font-family:var(--font-display);font-size:clamp(2rem,3vw,2.8rem);font-weight:300;color:#fff;letter-spacing:-.03em;line-height:1}
+.hm-val sup{font-size:.5em;color:var(--rose);vertical-align:super;font-weight:400}
+.hm-note{font-size:11px;color:rgba(255,255,255,.35);margin-top:4px}
+
+/* SECTIONS */
+section.page{padding:100px 0}
+section.alt{background:var(--cream)}
+section.dark{background:var(--deeper);color:#fff}
+
+.sec-head{margin-bottom:52px;max-width:720px}
+
+/* MOM TABLE-CARD */
+.mom-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:32px}
+.mom-card{background:var(--parch);border:1px solid rgba(42,28,24,.09);border-radius:var(--rL);padding:28px 26px;transition:all .4s var(--out);position:relative;overflow:hidden}
+.mom-card:hover{transform:translateY(-4px);box-shadow:var(--sh2);border-color:rgba(107,76,76,.18)}
+.mom-card.partial{border-style:dashed;background:rgba(249,245,241,.55)}
+.mom-card-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:18px;border-bottom:1px solid rgba(42,28,24,.08);margin-bottom:18px}
+.mom-card-month{font-family:var(--font-display);font-size:20px;font-weight:500;color:var(--fg);letter-spacing:-.01em}
+.mom-card-range{font-size:11px;color:var(--muted);margin-top:2px}
+.mom-chip{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:9999px;background:rgba(107,76,76,.08);color:var(--primary);border:1px solid rgba(107,76,76,.18)}
+.mom-chip.partial{background:rgba(240,148,85,.12);color:#a35c20;border-color:rgba(240,148,85,.3)}
+.mom-rows{display:flex;flex-direction:column;gap:14px}
+.mom-row{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.mom-row-lbl{font-size:12px;color:var(--muted);letter-spacing:.02em}
+.mom-row-val{font-family:var(--font-display);font-size:22px;font-weight:400;color:var(--fg);letter-spacing:-.01em}
+.mom-row-val.big{font-size:30px}
+.mom-row-val em{font-style:italic;color:var(--primary)}
+
+/* CHART CARD */
+.chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+.chart-card{background:var(--parch);border:1px solid rgba(42,28,24,.09);border-radius:var(--rXL);padding:32px;transition:all .4s var(--out)}
+.chart-card:hover{box-shadow:var(--sh2);border-color:rgba(107,76,76,.14)}
+.chart-card.dark{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08);color:#fff}
+.chart-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+.chart-title{font-family:var(--font-display);font-size:22px;font-weight:400;color:var(--fg);letter-spacing:-.01em}
+.chart-title em{font-style:italic;color:var(--primary)}
+.chart-card.dark .chart-title{color:#fff}
+.chart-card.dark .chart-title em{color:var(--rose)}
+.chart-meta{font-size:11px;color:var(--muted);letter-spacing:.04em}
+.chart-card.dark .chart-meta{color:rgba(255,255,255,.4)}
+.chart-wrap{position:relative;height:280px}
+.chart-wrap.tall{height:340px}
+
+/* KV STRIP */
+.kv-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+.kv{background:var(--parch);border:1px solid rgba(42,28,24,.09);border-radius:var(--rL);padding:24px}
+.kv-lbl{font-size:10px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+.kv-val{font-family:var(--font-display);font-size:32px;font-weight:300;color:var(--fg);letter-spacing:-.02em;line-height:1}
+.kv-val em{font-style:italic;color:var(--primary)}
+.kv-note{font-size:12px;color:var(--muted);margin-top:6px}
+
+/* SUB MOM CARDS (new subscriptions by month — dot-matrix visual) */
+.sub-mom-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.sub-mom-card{background:#fff;border:1px solid rgba(42,28,24,.09);border-radius:var(--rL);padding:28px 26px;transition:all .4s var(--out);display:flex;flex-direction:column;gap:22px}
+.sub-mom-card:hover{transform:translateY(-4px);box-shadow:var(--sh2);border-color:rgba(107,76,76,.18)}
+.sub-mom-card.partial{border-style:dashed;background:rgba(255,255,255,.55)}
+.sub-mom-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding-bottom:18px;border-bottom:1px solid rgba(42,28,24,.08)}
+.sub-mom-month{font-family:var(--font-display);font-size:20px;font-weight:500;color:var(--fg);letter-spacing:-.01em}
+.sub-mom-range{font-size:11px;color:var(--muted);margin-top:2px}
+.sub-mom-total{font-family:var(--font-display);font-size:40px;font-weight:300;color:var(--primary);font-style:italic;letter-spacing:-.02em;line-height:1;display:flex;align-items:baseline;gap:8px}
+.sub-mom-total span{font-family:var(--font-body);font-style:normal;font-size:10px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.sub-dots{display:flex;flex-wrap:wrap;gap:6px;min-height:28px}
+.sd{width:14px;height:14px;border-radius:50%;display:inline-block;transition:transform .2s}
+.sd:hover{transform:scale(1.3)}
+.sd-p1{background:#6b4c4c}
+.sd-p2{background:#8a6060}
+.sd-p3{background:hsl(4,55%,65%)}
+.sd-p4{background:hsl(4,55%,75%)}
+.sub-tiers{display:flex;flex-direction:column;gap:10px;padding-top:4px;border-top:1px solid rgba(42,28,24,.06)}
+.sub-tier{display:flex;align-items:center;gap:10px;padding-top:10px}
+.sub-tier-swatch{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.sub-tier-swatch.p1{background:#6b4c4c}
+.sub-tier-swatch.p2{background:#8a6060}
+.sub-tier-swatch.p3{background:hsl(4,55%,65%)}
+.sub-tier-swatch.p4{background:hsl(4,55%,75%)}
+.sub-tier-name{flex:1;font-size:12.5px;font-weight:500;color:var(--fg)}
+.sub-tier-count{font-family:var(--font-display);font-size:16px;font-weight:500;color:var(--primary);font-style:italic}
+.sub-tier.muted .sub-tier-swatch{opacity:.25}
+.sub-tier.muted .sub-tier-name{color:var(--muted)}
+.sub-tier.muted .sub-tier-count{color:var(--muted);font-style:normal;opacity:.6}
+
+/* SUB TIERS */
+.tier-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.tier-card{background:#fff;border:1px solid rgba(42,28,24,.08);border-radius:var(--rL);padding:22px;transition:all .35s var(--out)}
+.tier-card:hover{transform:translateY(-3px);box-shadow:var(--sh1);border-color:rgba(107,76,76,.2)}
+.tier-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px}
+.tier-price{font-family:var(--font-display);font-size:22px;font-weight:500;color:var(--fg);letter-spacing:-.01em}
+.tier-price em{font-style:italic;color:var(--primary)}
+.tier-cycle{font-size:10px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+.tier-users{font-family:var(--font-display);font-size:40px;font-weight:300;color:var(--fg);line-height:1;margin-top:8px}
+.tier-users-lbl{font-size:11px;color:var(--muted);margin-top:4px}
+.tier-bar{height:5px;background:rgba(42,28,24,.08);border-radius:9999px;overflow:hidden;margin-top:16px}
+.tier-bar-fill{height:100%;border-radius:9999px;background:linear-gradient(90deg,var(--primary),var(--rosem))}
+
+/* TOPUP */
+.topup-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.topup-card{background:#fff;border:1px solid rgba(42,28,24,.08);border-radius:var(--rL);padding:28px;display:flex;flex-direction:column;gap:14px;transition:all .35s var(--out)}
+.topup-card:hover{transform:translateY(-3px);box-shadow:var(--sh2)}
+.topup-denom{font-family:var(--font-display);font-size:18px;font-weight:500;color:var(--primary);font-style:italic}
+.topup-row{display:flex;align-items:baseline;justify-content:space-between}
+.topup-count{font-family:var(--font-display);font-size:34px;font-weight:300;letter-spacing:-.02em}
+.topup-total{font-size:13px;color:var(--muted)}
+.topup-total strong{color:var(--fg);font-weight:600}
+
+/* ENTERPRISE */
+.ent-grid{display:grid;grid-template-columns:2fr 3fr;gap:24px;margin-top:40px}
+.ent-col{display:flex;flex-direction:column;gap:14px}
+.ent-card{background:var(--parch);border:1px solid rgba(42,28,24,.09);border-radius:var(--rL);padding:24px;transition:all .4s var(--out)}
+.ent-card:hover{transform:translateY(-3px);box-shadow:var(--sh1);border-color:rgba(107,76,76,.22)}
+.ent-card.deal{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.ent-card-name{font-family:var(--font-display);font-size:18px;font-weight:500;color:var(--fg);letter-spacing:-.01em}
+.ent-card-meta{font-size:12px;color:var(--muted);margin-top:3px}
+.ent-val{font-family:var(--font-display);font-size:22px;font-weight:400;color:var(--primary);font-style:italic;white-space:nowrap}
+.ent-status{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border-radius:9999px;border:1px solid}
+.ent-status.done{background:rgba(26,160,100,.08);color:hsl(140,55%,30%);border-color:rgba(26,160,100,.25)}
+.ent-status.active{background:rgba(107,76,76,.08);color:var(--primary);border-color:rgba(107,76,76,.22)}
+.ent-status.funnel{background:rgba(240,148,85,.12);color:#a35c20;border-color:rgba(240,148,85,.3)}
+.ent-section-lbl{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--primary);margin-bottom:4px;padding-left:4px}
+
+/* COMPANIES TABLE */
+.comp-card{background:var(--parch);border:1px solid rgba(42,28,24,.09);border-radius:var(--rXL);padding:36px;margin-top:32px}
+.comp-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:16px}
+.comp-head-title{font-family:var(--font-display);font-size:24px;font-weight:400;letter-spacing:-.01em}
+.comp-head-title em{font-style:italic;color:var(--primary)}
+.comp-head-meta{font-size:12px;color:var(--muted)}
+.comp-head-meta strong{color:var(--fg);font-weight:600}
+.comp-cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px 28px}
+.comp-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(42,28,24,.06);gap:12px}
+.comp-name{font-size:13px;color:var(--fg);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.comp-domain{font-size:10.5px;color:var(--muted);font-family:var(--font-body)}
+.comp-count{font-family:var(--font-display);font-size:16px;font-weight:500;color:var(--primary);font-style:italic;min-width:24px;text-align:right}
+
+/* FUNNEL */
+.funnel-wrap{position:relative;margin-top:40px}
+.funnel-stage{display:grid;grid-template-columns:140px 1fr 180px;align-items:center;gap:24px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.funnel-stage:last-child{border-bottom:none}
+.funnel-num{font-family:var(--font-display);font-size:14px;color:rgba(255,255,255,.35);font-weight:500;letter-spacing:.14em}
+.funnel-num-big{font-family:var(--font-display);font-size:clamp(2.4rem,4vw,3.6rem);font-weight:300;color:#fff;letter-spacing:-.03em;line-height:1}
+.funnel-num-big em{font-style:italic;color:var(--rose)}
+.funnel-lbl{font-size:13px;color:rgba(255,255,255,.7);font-weight:500}
+.funnel-lbl-sub{font-size:11px;color:rgba(255,255,255,.35);margin-top:3px}
+.funnel-bar{height:8px;background:rgba(255,255,255,.06);border-radius:9999px;overflow:hidden;position:relative}
+.funnel-bar-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--rose));border-radius:9999px;transition:width 1.2s var(--out)}
+.funnel-conv{font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.06em;margin-top:8px}
+
+/* MARKETING */
+.mkt-grid{display:grid;grid-template-columns:5fr 4fr;gap:24px;margin-top:40px}
+.mkt-card{background:var(--parch);border:1px solid rgba(42,28,24,.09);border-radius:var(--rXL);padding:36px}
+.mkt-total{font-family:var(--font-display);font-size:72px;font-weight:300;color:var(--fg);letter-spacing:-.04em;line-height:1}
+.mkt-total em{font-style:italic;color:var(--primary)}
+.mkt-total-lbl{font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-top:6px}
+.mkt-divider{height:1px;background:rgba(42,28,24,.1);margin:28px 0}
+.mkt-channel{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
+.mkt-channel-name{font-size:13px;font-weight:500;color:var(--fg)}
+.mkt-channel-sub{font-size:11px;color:var(--muted);margin-top:2px}
+.mkt-channel-val{font-family:var(--font-display);font-size:18px;font-weight:500;color:var(--primary);font-style:italic}
+
+/* EMAIL TABLE */
+.email-card{background:var(--parch);border:1px solid rgba(42,28,24,.09);border-radius:var(--rXL);padding:32px;margin-top:40px;overflow:hidden}
+.email-scroll{overflow-x:auto;margin:0 -8px;padding:0 8px}
+table.email{width:100%;border-collapse:collapse;font-size:12.5px}
+table.email th{text-align:left;padding:12px 14px;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);border-bottom:1.5px solid rgba(107,76,76,.2);white-space:nowrap}
+table.email td{padding:12px 14px;border-bottom:1px solid rgba(42,28,24,.06);color:var(--fg);white-space:nowrap}
+table.email tr:hover td{background:rgba(107,76,76,.03)}
+.email-name{font-weight:500}
+.email-num{font-family:var(--font-display);font-size:14px;font-style:italic;color:var(--primary)}
+.email-pct{color:var(--muted)}
+.email-pct.hi{color:hsl(140,55%,35%);font-weight:600}
+.email-pct.lo{color:#a35c20}
+
+/* SOURCES + BUILDS */
+.sources-grid{display:grid;grid-template-columns:2fr 3fr;gap:24px;margin-top:40px}
+.src-card{background:var(--parch);border:1px solid rgba(42,28,24,.09);border-radius:var(--rXL);padding:32px}
+.src-head{margin-bottom:24px}
+.src-row{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid rgba(42,28,24,.06)}
+.src-row:last-child{border-bottom:none}
+.src-name{flex:1;font-size:13px;font-weight:500;color:var(--fg)}
+.src-bar{flex:2;height:6px;background:rgba(42,28,24,.06);border-radius:9999px;overflow:hidden}
+.src-bar-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--rosem));border-radius:9999px}
+.src-count{font-family:var(--font-display);font-size:16px;font-style:italic;color:var(--primary);font-weight:500;min-width:28px;text-align:right}
+
+.builds-list{display:flex;flex-direction:column;gap:2px;max-height:640px;overflow-y:auto;padding-right:8px}
+.builds-list::-webkit-scrollbar{width:5px}
+.builds-list::-webkit-scrollbar-track{background:rgba(42,28,24,.04);border-radius:10px}
+.builds-list::-webkit-scrollbar-thumb{background:rgba(107,76,76,.3);border-radius:10px}
+.build-row{display:grid;grid-template-columns:36px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid rgba(42,28,24,.05);align-items:start}
+.build-num{font-family:var(--font-display);font-size:14px;color:var(--primary);font-style:italic;font-weight:500}
+.build-body{display:flex;flex-direction:column;gap:4px}
+.build-user{font-size:11px;color:var(--muted);font-family:var(--font-body);letter-spacing:.01em}
+.build-what{font-size:13px;color:var(--fg);line-height:1.6}
+
+/* MICRO PRODUCTS */
+.mp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:40px}
+.mp-card{background:var(--parch);border:1px solid rgba(42,28,24,.09);border-radius:var(--rL);padding:24px;display:flex;gap:16px;align-items:flex-start;transition:all .4s var(--out)}
+.mp-card:hover{transform:translateY(-3px);box-shadow:var(--sh1);border-color:rgba(107,76,76,.22)}
+.mp-num{font-family:var(--font-display);font-size:22px;font-weight:300;color:rgba(107,76,76,.35);font-style:italic;flex-shrink:0;min-width:32px;line-height:1.2}
+.mp-body{flex:1}
+.mp-title{font-family:var(--font-display);font-size:15px;font-weight:500;color:var(--fg);margin-bottom:6px;letter-spacing:-.005em}
+.mp-desc{font-size:12.5px;color:var(--muted);line-height:1.65}
+
+/* FOOTER */
+footer{background:var(--deeper);padding:56px 0;color:rgba(255,255,255,.4);text-align:center;font-size:12px;letter-spacing:.06em}
+footer em{font-family:var(--font-display);font-style:italic;color:var(--rose)}
+
+@media (max-width:960px){
+  .hero-metrics,.chart-grid,.mom-grid,.tier-grid,.topup-grid,.ent-grid,.comp-cols,.mkt-grid,.kv-strip,.sources-grid,.mp-grid,.sub-mom-grid{grid-template-columns:1fr}
+  section.page{padding:72px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      <span class="hero-badge-text">Architect</span>
+      <span style="width:1px;height:13px;background:rgba(255,255,255,.15)"></span>
+      <span class="hero-badge-text" style="color:var(--rose);font-weight:700">Revenue &amp; Traction</span>
+    </div>
+    <h1 class="hero-h1">Revenue, traction &amp;<br/><em>user insights.</em></h1>
+    <p class="hero-sub">Architect — month-on-month performance, pipeline, funnel, and paid-user insights. Source: Stripe &amp; internal analytics. Snapshot through Apr 23.</p>
+
+    <div class="hero-metrics">
+      <div class="hm"><span class="hm-lbl">LTR</span><span class="hm-val">$5,725</span><span class="hm-note">Lifetime revenue</span></div>
+      <div class="hm"><span class="hm-lbl">ARR</span><span class="hm-val">$15,160</span><span class="hm-note">Annualized</span></div>
+      <div class="hm"><span class="hm-lbl">MRR</span><span class="hm-val">$1,263.33</span><span class="hm-note">Monthly recurring</span></div>
+      <div class="hm"><span class="hm-lbl">Paid Subs</span><span class="hm-val">45<sup>↑</sup></span><span class="hm-note">37 active · 8 cancelled</span></div>
+      <div class="hm"><span class="hm-lbl">Studio → Architect</span><span class="hm-val">19</span><span class="hm-note">Cross-product conversions</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MOM REVENUE -->
+<section class="page">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">01 · MOM Revenue</span>
+      <h2 class="section-title">Three months of <em>revenue & subscriptions.</em></h2>
+      <p class="section-sub">Month-on-month comparison — each metric reflects that month only, not cumulative. Month 3 is a partial window (6 days).</p>
+    </div>
+
+    <div class="chart-grid">
+      <div class="chart-card">
+        <div class="chart-head">
+          <div>
+            <div class="chart-title">Revenue <em>per month</em></div>
+            <div class="chart-meta" style="margin-top:4px">Stripe · USD</div>
+          </div>
+        </div>
+        <div class="chart-wrap"><canvas id="revChart"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-head">
+          <div>
+            <div class="chart-title"><em>MRR</em> & ARR trajectory</div>
+            <div class="chart-meta" style="margin-top:4px">End-of-month snapshot</div>
+          </div>
+        </div>
+        <div class="chart-wrap"><canvas id="mrrChart"></canvas></div>
+      </div>
+    </div>
+
+    <div class="mom-grid">
+      <div class="mom-card">
+        <div class="mom-card-head">
+          <div>
+            <div class="mom-card-month">Month 1</div>
+            <div class="mom-card-range">Feb 16 — Mar 16</div>
+          </div>
+          <span class="mom-chip">Full month</span>
+        </div>
+        <div class="mom-rows">
+          <div class="mom-row"><span class="mom-row-lbl">Revenue</span><span class="mom-row-val big"><em>$3,145</em></span></div>
+          <div class="mom-row"><span class="mom-row-lbl">New subscriptions</span><span class="mom-row-val">27</span></div>
+          <div class="mom-row"><span class="mom-row-lbl">Churned</span><span class="mom-row-val">6</span></div>
+          <div class="mom-row"><span class="mom-row-lbl">MRR</span><span class="mom-row-val">$1,065</span></div>
+          <div class="mom-row"><span class="mom-row-lbl">ARR</span><span class="mom-row-val">$12,780</span></div>
+        </div>
+      </div>
+      <div class="mom-card">
+        <div class="mom-card-head">
+          <div>
+            <div class="mom-card-month">Month 2</div>
+            <div class="mom-card-range">Mar 17 — Apr 17</div>
+          </div>
+          <span class="mom-chip">Full month</span>
+        </div>
+        <div class="mom-rows">
+          <div class="mom-row"><span class="mom-row-lbl">Revenue</span><span class="mom-row-val big"><em>$2,270</em></span></div>
+          <div class="mom-row"><span class="mom-row-lbl">New subscriptions</span><span class="mom-row-val">17</span></div>
+          <div class="mom-row"><span class="mom-row-lbl">Churned</span><span class="mom-row-val">2</span></div>
+          <div class="mom-row"><span class="mom-row-lbl">MRR</span><span class="mom-row-val">$1,243.33</span></div>
+          <div class="mom-row"><span class="mom-row-lbl">ARR</span><span class="mom-row-val">$14,920</span></div>
+        </div>
+      </div>
+      <div class="mom-card partial">
+        <div class="mom-card-head">
+          <div>
+            <div class="mom-card-month">Month 3<span style="color:var(--primary)">*</span></div>
+            <div class="mom-card-range">Apr 18 — Apr 23</div>
+          </div>
+          <span class="mom-chip partial">Partial · 6 days</span>
+        </div>
+        <div class="mom-rows">
+          <div class="mom-row"><span class="mom-row-lbl">Revenue</span><span class="mom-row-val big"><em>$310</em></span></div>
+          <div class="mom-row"><span class="mom-row-lbl">New subscriptions</span><span class="mom-row-val">1</span></div>
+          <div class="mom-row"><span class="mom-row-lbl">Churned</span><span class="mom-row-val">0</span></div>
+          <div class="mom-row"><span class="mom-row-lbl">MRR</span><span class="mom-row-val">$1,263.33</span></div>
+          <div class="mom-row"><span class="mom-row-lbl">ARR</span><span class="mom-row-val">$15,160</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEW SUBSCRIPTIONS BREAKDOWN -->
+<section class="page alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">02 · Subscriptions</span>
+      <h2 class="section-title">New subscriptions <em>by plan.</em></h2>
+      <p class="section-sub">Distribution of newly-acquired paid users across Architect's four pricing tiers, by month.</p>
+    </div>
+
+    <div class="sub-mom-grid">
+      <div class="sub-mom-card">
+        <div class="sub-mom-head">
+          <div>
+            <div class="sub-mom-month">Month 1</div>
+            <div class="sub-mom-range">Feb 16 — Mar 16</div>
+          </div>
+          <div class="sub-mom-total">27<span>new</span></div>
+        </div>
+        <div class="sub-dots">
+          <span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p3" title="$420/yr"></span><span class="sd sd-p3"></span><span class="sd sd-p3"></span>
+        </div>
+        <div class="sub-tiers">
+          <div class="sub-tier"><span class="sub-tier-swatch p1"></span><span class="sub-tier-name">$40/mo</span><span class="sub-tier-count">24</span></div>
+          <div class="sub-tier"><span class="sub-tier-swatch p3"></span><span class="sub-tier-name">$420/yr</span><span class="sub-tier-count">3</span></div>
+          <div class="sub-tier muted"><span class="sub-tier-swatch p2"></span><span class="sub-tier-name">$20/mo</span><span class="sub-tier-count">0</span></div>
+          <div class="sub-tier muted"><span class="sub-tier-swatch p4"></span><span class="sub-tier-name">$200/yr</span><span class="sub-tier-count">0</span></div>
+        </div>
+      </div>
+
+      <div class="sub-mom-card">
+        <div class="sub-mom-head">
+          <div>
+            <div class="sub-mom-month">Month 2</div>
+            <div class="sub-mom-range">Mar 17 — Apr 17</div>
+          </div>
+          <div class="sub-mom-total">17<span>new</span></div>
+        </div>
+        <div class="sub-dots">
+          <span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p1"></span><span class="sd sd-p2"></span><span class="sd sd-p2"></span><span class="sd sd-p2"></span><span class="sd sd-p2"></span><span class="sd sd-p2"></span><span class="sd sd-p2"></span><span class="sd sd-p2"></span><span class="sd sd-p4"></span><span class="sd sd-p4"></span>
+        </div>
+        <div class="sub-tiers">
+          <div class="sub-tier"><span class="sub-tier-swatch p1"></span><span class="sub-tier-name">$40/mo</span><span class="sub-tier-count">8</span></div>
+          <div class="sub-tier"><span class="sub-tier-swatch p2"></span><span class="sub-tier-name">$20/mo</span><span class="sub-tier-count">7</span></div>
+          <div class="sub-tier"><span class="sub-tier-swatch p4"></span><span class="sub-tier-name">$200/yr</span><span class="sub-tier-count">2</span></div>
+          <div class="sub-tier muted"><span class="sub-tier-swatch p3"></span><span class="sub-tier-name">$420/yr</span><span class="sub-tier-count">0</span></div>
+        </div>
+      </div>
+
+      <div class="sub-mom-card partial">
+        <div class="sub-mom-head">
+          <div>
+            <div class="sub-mom-month">Month 3<span style="color:var(--primary)">*</span></div>
+            <div class="sub-mom-range">Apr 18 — Apr 23 · partial</div>
+          </div>
+          <div class="sub-mom-total">1<span>new</span></div>
+        </div>
+        <div class="sub-dots">
+          <span class="sd sd-p2"></span>
+        </div>
+        <div class="sub-tiers">
+          <div class="sub-tier"><span class="sub-tier-swatch p2"></span><span class="sub-tier-name">$20/mo</span><span class="sub-tier-count">1</span></div>
+          <div class="sub-tier muted"><span class="sub-tier-swatch p1"></span><span class="sub-tier-name">$40/mo</span><span class="sub-tier-count">0</span></div>
+          <div class="sub-tier muted"><span class="sub-tier-swatch p3"></span><span class="sub-tier-name">$420/yr</span><span class="sub-tier-count">0</span></div>
+          <div class="sub-tier muted"><span class="sub-tier-swatch p4"></span><span class="sub-tier-name">$200/yr</span><span class="sub-tier-count">0</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:48px">
+      <span class="eyebrow">Active subscriptions today · 37 total</span>
+      <div class="tier-grid">
+        <div class="tier-card">
+          <div class="tier-head"><span class="tier-price"><em>$40</em></span><span class="tier-cycle">Monthly</span></div>
+          <div class="tier-users">25</div>
+          <div class="tier-users-lbl">active users</div>
+          <div class="tier-bar"><div class="tier-bar-fill" style="width:100%"></div></div>
+        </div>
+        <div class="tier-card">
+          <div class="tier-head"><span class="tier-price"><em>$20</em></span><span class="tier-cycle">Monthly</span></div>
+          <div class="tier-users">8</div>
+          <div class="tier-users-lbl">active users</div>
+          <div class="tier-bar"><div class="tier-bar-fill" style="width:32%"></div></div>
+        </div>
+        <div class="tier-card">
+          <div class="tier-head"><span class="tier-price"><em>$420</em></span><span class="tier-cycle">Yearly</span></div>
+          <div class="tier-users">2</div>
+          <div class="tier-users-lbl">active users</div>
+          <div class="tier-bar"><div class="tier-bar-fill" style="width:8%"></div></div>
+        </div>
+        <div class="tier-card">
+          <div class="tier-head"><span class="tier-price"><em>$200</em></span><span class="tier-cycle">Yearly</span></div>
+          <div class="tier-users">2</div>
+          <div class="tier-users-lbl">active users</div>
+          <div class="tier-bar"><div class="tier-bar-fill" style="width:8%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOP-UPS -->
+<section class="page">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">03 · Top-ups</span>
+      <h2 class="section-title">Top-up <em>purchases.</em></h2>
+      <p class="section-sub">One-time credit top-ups across three denominations. Lifetime counts and MOM breakdown.</p>
+    </div>
+
+    <div class="chart-grid">
+      <div class="chart-card">
+        <div class="chart-head">
+          <div>
+            <div class="chart-title">Top-ups <em>lifetime</em></div>
+            <div class="chart-meta" style="margin-top:4px">Count × value</div>
+          </div>
+        </div>
+        <div class="chart-wrap"><canvas id="topupLifetime"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-head">
+          <div>
+            <div class="chart-title">Top-up revenue <em>by month</em></div>
+            <div class="chart-meta" style="margin-top:4px">USD</div>
+          </div>
+        </div>
+        <div class="chart-wrap"><canvas id="topupMOM"></canvas></div>
+      </div>
+    </div>
+
+    <span class="eyebrow" style="margin-top:48px;display:inline-flex">Lifetime totals</span>
+    <div class="topup-grid">
+      <div class="topup-card">
+        <div class="topup-denom">$25 denomination</div>
+        <div class="topup-row"><span class="topup-count">41</span><span class="topup-total">× $25 = <strong>$1,025</strong></span></div>
+      </div>
+      <div class="topup-card">
+        <div class="topup-denom">$50 denomination</div>
+        <div class="topup-row"><span class="topup-count">12</span><span class="topup-total">× $50 = <strong>$600</strong></span></div>
+      </div>
+      <div class="topup-card">
+        <div class="topup-denom">$100 denomination</div>
+        <div class="topup-row"><span class="topup-count">5</span><span class="topup-total">× $100 = <strong>$500</strong></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOM TRACTION -->
+<section class="page alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">04 · MOM Traction</span>
+      <h2 class="section-title">Traction <em>funnel</em> month-over-month.</h2>
+      <p class="section-sub">Visits, sign-ups, apps built, and paid conversions for each month.</p>
+    </div>
+
+    <div class="chart-card" style="background:#fff">
+      <div class="chart-head">
+        <div>
+          <div class="chart-title">Traction <em>by stage</em></div>
+          <div class="chart-meta" style="margin-top:4px">Visits → Sign-ups → Apps Built → Paid Users</div>
+        </div>
+      </div>
+      <div class="chart-wrap tall"><canvas id="tractionChart"></canvas></div>
+    </div>
+
+    <div class="kv-strip">
+      <div class="kv"><div class="kv-lbl">Total Visits</div><div class="kv-val"><em>49,827</em></div><div class="kv-note">across 3 months</div></div>
+      <div class="kv"><div class="kv-lbl">New Sign Ups</div><div class="kv-val"><em>9,141</em></div><div class="kv-note">18.3% of visits</div></div>
+      <div class="kv"><div class="kv-lbl">Apps Built</div><div class="kv-val"><em>3,310</em></div><div class="kv-note">36.2% of sign-ups</div></div>
+      <div class="kv"><div class="kv-lbl">Paid Users</div><div class="kv-val"><em>45</em></div><div class="kv-note">0.49% of sign-ups</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ENTERPRISE PIPELINE -->
+<section class="page">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">05 · Enterprise</span>
+      <h2 class="section-title">Enterprise <em>pipeline.</em></h2>
+      <p class="section-sub">Active deals with revenue attached, plus top-of-funnel prospects under discussion.</p>
+    </div>
+
+    <div class="ent-grid">
+      <div class="ent-col">
+        <span class="ent-section-lbl">Active deals</span>
+        <div class="ent-card deal">
+          <div>
+            <div class="ent-card-name">Prophet</div>
+            <div class="ent-card-meta">Deployment done</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+            <span class="ent-val">$25,000</span>
+            <span class="ent-status done">Deployed</span>
+          </div>
+        </div>
+        <div class="ent-card deal">
+          <div>
+            <div class="ent-card-name">Willis Towers Watson</div>
+            <div class="ent-card-meta">Revenue realized</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+            <span class="ent-val">$5,000</span>
+            <span class="ent-status active">Active</span>
+          </div>
+        </div>
+        <div class="ent-card deal">
+          <div>
+            <div class="ent-card-name">Accenture</div>
+            <div class="ent-card-meta">$1,000 limit deployed</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+            <span class="ent-val">$1,000</span>
+            <span class="ent-status active">Active</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ent-col">
+        <span class="ent-section-lbl">Top of funnel</span>
+        <div class="ent-card deal">
+          <div>
+            <div class="ent-card-name">Accenture BOA</div>
+            <div class="ent-card-meta">16,000 licenses under discussion</div>
+          </div>
+          <span class="ent-status funnel">Funnel</span>
+        </div>
+        <div class="ent-card deal">
+          <div>
+            <div class="ent-card-name">MSP Corp</div>
+            <div class="ent-card-meta">Co-building session scheduled</div>
+          </div>
+          <span class="ent-status funnel">Funnel</span>
+        </div>
+        <div class="ent-card" style="background:var(--deeper);color:#fff;border-color:rgba(255,255,255,.08);padding:32px;display:flex;flex-direction:column;gap:10px;justify-content:center">
+          <span style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35);font-weight:600">Pipeline value</span>
+          <div style="font-family:var(--font-display);font-size:48px;font-weight:300;letter-spacing:-.03em;color:#fff">$31,000<sup style="font-size:.4em;color:var(--rose);vertical-align:super">+</sup></div>
+          <div style="font-size:12px;color:rgba(255,255,255,.42)">Realized across three active enterprise deals</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FUNNEL SINCE FEB 16 -->
+<section class="page dark">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow light">06 · Lifetime funnel</span>
+      <h2 class="section-title wh">Full funnel <em>since Feb 16.</em></h2>
+      <p class="section-sub wh">Top-of-funnel → paid conversion across the entire lifetime of Architect.</p>
+    </div>
+
+    <div class="funnel-wrap">
+      <div class="funnel-stage">
+        <div class="funnel-num">STAGE 01</div>
+        <div>
+          <div class="funnel-lbl">Total Visits</div>
+          <div class="funnel-lbl-sub">Entry to architect.new</div>
+          <div class="funnel-bar" style="margin-top:12px"><div class="funnel-bar-fill" style="width:100%"></div></div>
+          <div class="funnel-conv">100% · baseline</div>
+        </div>
+        <div class="funnel-num-big">458,537</div>
+      </div>
+      <div class="funnel-stage">
+        <div class="funnel-num">STAGE 02</div>
+        <div>
+          <div class="funnel-lbl">Total New Sign-ups</div>
+          <div class="funnel-lbl-sub">Account created</div>
+          <div class="funnel-bar" style="margin-top:12px"><div class="funnel-bar-fill" style="width:2%"></div></div>
+          <div class="funnel-conv">1.99% of visits</div>
+        </div>
+        <div class="funnel-num-big">9,128</div>
+      </div>
+      <div class="funnel-stage">
+        <div class="funnel-num">STAGE 03</div>
+        <div>
+          <div class="funnel-lbl">Total Apps Built</div>
+          <div class="funnel-lbl-sub">First app shipped</div>
+          <div class="funnel-bar" style="margin-top:12px"><div class="funnel-bar-fill" style="width:0.71%;min-width:8px"></div></div>
+          <div class="funnel-conv">35.9% of sign-ups · 0.71% of visits</div>
+        </div>
+        <div class="funnel-num-big">3,276</div>
+      </div>
+      <div class="funnel-stage">
+        <div class="funnel-num">STAGE 04</div>
+        <div>
+          <div class="funnel-lbl"><em style="color:var(--rose);font-family:var(--font-display);font-weight:400">Paid Users</em></div>
+          <div class="funnel-lbl-sub">Subscription purchased</div>
+          <div class="funnel-bar" style="margin-top:12px"><div class="funnel-bar-fill" style="width:0.01%;min-width:6px"></div></div>
+          <div class="funnel-conv">0.49% of sign-ups · 1.37% of app builders</div>
+        </div>
+        <div class="funnel-num-big"><em>45</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKETING SPEND -->
+<section class="page">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">07 · Marketing spend</span>
+      <h2 class="section-title">Marketing <em>spend mix.</em></h2>
+      <p class="section-sub">As of 13th March. Total spend across channels.</p>
+    </div>
+
+    <div class="mkt-grid">
+      <div class="mkt-card">
+        <div class="chart-wrap tall"><canvas id="mktChart"></canvas></div>
+      </div>
+      <div class="mkt-card">
+        <div class="mkt-total"><em>$91K</em></div>
+        <div class="mkt-total-lbl">Total spend to date</div>
+        <div class="mkt-divider"></div>
+        <div>
+          <div class="mkt-channel">
+            <div>
+              <div class="mkt-channel-name">Social &amp; PR</div>
+              <div class="mkt-channel-sub">Instagram, TikTok, LinkedIn · influencers, UGC, AI avatars</div>
+            </div>
+            <span class="mkt-channel-val">$70K</span>
+          </div>
+          <div class="mkt-channel">
+            <div>
+              <div class="mkt-channel-name">Demo Day</div>
+              <div class="mkt-channel-sub">Live events</div>
+            </div>
+            <span class="mkt-channel-val">$8K</span>
+          </div>
+          <div class="mkt-channel">
+            <div>
+              <div class="mkt-channel-name">Ads</div>
+              <div class="mkt-channel-sub">Meta &amp; LinkedIn Ads</div>
+            </div>
+            <span class="mkt-channel-val">$7K</span>
+          </div>
+          <div class="mkt-channel">
+            <div>
+              <div class="mkt-channel-name">Product Hunt</div>
+              <div class="mkt-channel-sub">Launch campaign</div>
+            </div>
+            <span class="mkt-channel-val">$6K</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAID USER SOURCES + BUILDS -->
+<section class="page">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">09 · Paid user insights</span>
+      <h2 class="section-title">Where paid users <em>come from</em> &amp; what they <em>build.</em></h2>
+      <p class="section-sub">Acquisition source distribution alongside the shipped product of every paid user.</p>
+    </div>
+
+    <div class="sources-grid">
+      <div class="src-card">
+        <div class="src-head">
+          <div class="chart-title"><em>Acquisition</em> sources</div>
+          <div class="chart-meta" style="margin-top:4px">27 paid users tracked</div>
+        </div>
+        <div id="sourcesList"></div>
+      </div>
+      <div class="src-card">
+        <div class="src-head" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px">
+          <div>
+            <div class="chart-title">What paid users <em>are building</em></div>
+            <div class="chart-meta" style="margin-top:4px">37 shipped products</div>
+          </div>
+        </div>
+        <div class="builds-list" id="buildsList"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Architect — Revenue &amp; Traction Report · Source: Stripe &amp; internal analytics · Snapshot through <em>Apr 23</em>.
+</footer>
+
+<script>
+// ═══════════════════════════ DATA ═══════════════════════════
+
+const MONTHS = ['Month 1 · Feb 16–Mar 16','Month 2 · Mar 17–Apr 17','Month 3 · Apr 18–Apr 23*'];
+
+// Top companies
+const COMPANIES = [
+  ['Accenture',43,'accenture.com'],['Willis Towers Watson',23,'wtwco.com'],['JSW',18,'jsw.in'],
+  ['Tata AIA',17,'tataaia.com'],['Firstsource',17,'firstsource.com'],['LTIMindtree',11,'ltimindtree.com'],
+  ['Avaali',11,'avaali.com'],['Grid Dynamics',7,'griddynamics.com'],['Cleverse',7,'cleverse.com'],
+  ['Swisscom',6,'swisscom.com'],['Publicis',5,'publicis.com'],['TxTech',5,'txtech.co'],
+  ['Fingent',5,'fingent.com'],['Prophet',4,'prophet.com'],['Kore.ai',4,'kore.com'],
+  ['IIM Ahmedabad',3,'iima.ac.in'],['EXL Service',3,'exlservice.com'],['PepsiCo',3,'pepsico.com'],
+  ['HCL',3,'hcl.in'],['Flow Traders',3,'flowtraders.com'],['Citi',3,'citi.com'],['Paytm',3,'paytm.com'],
+  ['Publicis Sapient',2,'publicissapient.com'],['Publicis Groupe',2,'publicisgroupe.net'],
+  ['HackerRank',2,'hackerrank.com'],['Nextiva',2,'nextiva.com'],['Ciklum',2,'ciklum.com'],
+  ['Photon',2,'photon.com'],['Perennial Systems',2,'perennialsys.com'],['Bitstone',2,'bitstone.com'],
+  ['Columbia University',2,'columbia.edu'],['Google',2,'google.com'],['Joist.ai',2,'joist.ai'],
+  ['Voltair Tech',2,'voltairtech.com'],['Growth School',2,'growthschool.io'],
+  ['BCG',1,'bcg.com'],['Deloitte',1,'deloitte.com'],['PwC',1,'pwc.com'],['IBM',1,'ibm.com'],
+  ['Wipro',1,'wipro.com'],['SAP',1,'sap.com'],['Nvidia',1,'nvidia.com'],
+  ['Palo Alto Networks',1,'paloaltonetworks.com'],['Holcim',1,'holcim.com'],['Rubrik',1,'rubrik.com'],
+  ['Netlify',1,'netlify.com'],['Zebra Technologies',1,'zebra.com'],['Capgemini',1,'capgemini.com'],
+  ['Avanade',1,'avanade.com'],['Gartner',1,'gartner.com'],['American Express',1,'americanexpress.com'],
+  ['Flipkart',1,'flipkart.com'],['Swiggy',1,'swiggy.in'],['OLA Electric',1,'olaelectric.com'],
+  ['Saxo Bank',1,'saxobank.com'],['Tenable',1,'tenable.com'],['Sabre',1,'sabre.com'],
+  ['Verifone',1,'verifone.com'],['Wolt',1,'wolt.com'],['Live Nation',1,'livenation.com'],
+  ['Crown Castle',1,'crowncastle.com'],['WebMD',1,'webmd.net'],['British Council',1,'britishcouncil.org'],
+  ['Randstad Digital',1,'randstaddigital.com'],['NRI (Nomura)',1,'nri.com'],['Smallcase',1,'smallcase.com'],
+  ['Shiprocket',1,'shiprocket.com'],['Ninjacart',1,'ninjacart.com'],['Exotel',1,'exotel.com'],
+  ['Whatfix',1,'whatfix.com'],['SurveySparrow',1,'surveysparrow.com'],['Docsumo',1,'docsumo.com'],
+  ['Tredence',1,'tredence.com'],['Searce',1,'searce.com'],['Paisabazaar',1,'paisabazaar.com'],
+  ['ChrysCapital',1,'chryscapital.com'],['Pipefy',1,'pipefy.com'],['GoHighLevel',1,'gohighlevel.com'],
+  ['Pocket FM',1,'pocketfm.com'],['CrewAI',1,'crewai.com'],['G42',1,'g42.ai'],
+  ['EC-Council',1,'eccouncil.org'],['Acquia',1,'acquia.com'],['General Catalyst',1,'generalcatalyst.com'],
+  ['Everest Group',1,'everestgrp.com'],['Edelweiss Financial',1,'edelweissfin.com'],
+  ['Merkle',1,'merkle.com'],['Cooler Master',1,'coolermaster.com.tw'],['Manhattan Associates',1,'manh.com'],
+  ['Innowise',1,'innowise.com'],['Innominds',1,'innominds.com'],['Envoy',1,'envoy.com'],
+  ['Cornell University',1,'cornell.edu'],['NYU',1,'nyu.edu'],['University of Texas',1,'utexas.edu'],
+  ['IIT Bombay',1,'iitbombay.org'],['Rupeek',1,'rupeek.com'],['Wiz.ai',1,'wiz.ai'],['IQT (In-Q-Tel)',1,'iqt.org']
+];
+
+const EMAIL = [
+  ['Analyst Profile · Step 1',880,55.45,3.18,1,0],
+  ['Analyst Profile · Step 2',764,58.77,3.01,0,0],
+  ['Dev Shop Owners',150,40.67,7.33,0,0],
+  ['Insurance Underwriters',314,27.07,2.23,0,0],
+  ['Sales Reps',554,46.21,3.43,0,0],
+  ['Gartner Nurture · Step 1',397,14.86,0,0,0],
+  ['Gartner Nurture · Step 2',373,13.94,0,0,0],
+  ['Gartner Nurture · Step 3',341,5.57,0,0,0],
+  ['Gartner Nurture · Step 4',295,20,0,0,0],
+  ['Gartner Nurture · Step 5',113,15.04,0,0,0],
+  ['Gartner Enterprise · Step 1',147,73.47,0,0,0],
+  ['Gartner Enterprise · Step 2',147,51.7,0,0,0],
+  ['Gartner Enterprise · Step 3',124,0,0,0,0],
+  ['Gartner Enterprise · Step 4',101,0,0,0,0],
+  ['IDC–Forrester · Step 1',855,45.96,0.12,0,0],
+  ['IDC–Forrester · Step 2',512,27.15,0,0,0],
+  ['IDC–Forrester · Step 3',420,47.38,0,0,0],
+  ['Architect Webinar · Step 1',189,50.56,3.37,1,0],
+  ['Architect Webinar · Step 2',88,51.14,3.41,0,0],
+  ['Architect Webinar · Step 3',87,39.08,1.15,0,0],
+  ['Architect Webinar · Step 4',87,43.68,2.3,0,0],
+  ['Architect Webinar · Step 5',87,37.93,1.15,0,0],
+  ['LTM Consultant',136,49.26,0.74,0,0],
+  ['Architect Newsletter 1',1717,5.56,0.18,'—','—'],
+  ['Architect Newsletter 2',7295,8.7,0.26,'—','—'],
+  ['Architect Newsletter 3',7247,5.30,0.17,'—','—'],
+  ['Architect Studio Newsletter',2199,12.20,0.32,'—','—']
+];
+
+const SOURCES = [
+  ['Direct',13],['Direct (Google)',5],['Unknown',3],['studio.lyzr.ai',2],
+  ['lyzr.ai website',1],['LinkedIn',1],['UTM · aifire.co',1],['lyzr.ai/agent-architect-cohort',1]
+];
+
+const BUILDS = [
+  ['barry@dataprivacyanalytics.com','AI governance compliance tool based on EU AI Act and ISO 42001.'],
+  ['mamula.brian@gmail.com','Market intelligence and sales strategy tool for Skilled Nursing Facilities (SNFs).'],
+  ['harihara.thanaseelan@gmail.com','Agentic restaurant cleaning compliance app with GPS-locked zones and photo/video proof submission.'],
+  ['rjekar73@gmail.com','AI agent to monitor and manage Amazon UK listings for a wholesale vape business.'],
+  ['luan.dias@lxlbusiness.com','Automation tool to send Airbnb guest info (names, IDs, car plates) to building concierge.'],
+  ['agentbas44@gmail.com','AI sales assistant for cold calls and an AI accountant agent for a crypto art platform.'],
+  ['dimplefrancis@gmail.com','Automated multi-agent newsletter app delivering daily AI engineering briefings.'],
+  ['raoshreya2020@gmail.com','Voice-first Socratic teaching web app (TESA) for competency assessment and learning.'],
+  ['prashanth.saradesai@gmail.com','AI agent to automate business process re-engineering (BPR) discovery for consulting firms.'],
+  ['roy@roybarberi.com','AI agent monitoring Gmail, Slack, and Calendar to automate PM communication and task updates.'],
+  ['victorbe1597@gmail.com','Field app for insurance risk inspectors to log recommendations and track fulfillment via dashboard.'],
+  ['kaseyrandall.design@gmail.com','Agent to extract user behavior data from Pendo and deliver actionable product design insights.'],
+  ['amandeepbedi692@gmail.com','AI documentation and product spec generation tool.'],
+  ['jhcpeixoto741@gmail.com','Autonomous AI trading agent for Bybit futures with self-improvement capabilities.'],
+  ['karmicsynergyofficial@gmail.com','Premium Jewish matchmaking SaaS platform called "Bsheret Matchmaking."'],
+  ['melissa.rojo@ltm.com','AI-powered procurement RFP evaluation system.'],
+  ['mbquezzz@gmail.com','AI voice agent for motel bookings via calls, GoHighLevel, and Google Calendar sync.'],
+  ['alex.canion@gmail.com','AI wellness assistant for neuro-diverse creatives to track energy, focus, and daily habits.'],
+  ['ar7714@gmail.com','Chinese-language daily insights app covering AI, coding, and app rankings.'],
+  ['kevin@repeatable.ai','Competitor intelligence agent for product managers with Notion and Slack delivery.'],
+  ['raqi.ai.team@gmail.com','Replicate the Rumora.ai platform as a fully functional, launch-ready product.'],
+  ['shinderajesh06@gmail.com','Internal device qualification and compliance management system (EDQ) for Electracom.'],
+  ['mail@3xlabs.xyz','AI agent to auto-transcribe videos and publish content across Instagram, TikTok, YouTube, Substack, and LinkedIn.'],
+  ['riojones03@gmail.com','AI goal-setting system (GroPact) generating micro-goals, behavioral nudges, and weekly action plans.'],
+  ['kuhailamin@gmail.com','Multi-agent discussion room platform with admin-configured AI agents and human participants.'],
+  ['silverbuffalo2012@gmail.com','Restaurant app that scrapes the internet for new openings, closings, and reviews from social accounts with 50k+ followers.'],
+  ['meauxdigital469@gmail.com','Marketing team of agents that edits downloaded videos (watermarks, mirror lines), writes captions, adds trending hashtags, and optimizes for Meta, TikTok, and YouTube Shorts.'],
+  ['lavinia.nica883@gmail.com','Assistant that takes notes and creates meeting minutes with task assignments from recordings and MP3 files.'],
+  ['thomas.tkfrancis@gmail.com','Multi-agent system to analyze and design End-to-End Value Chain Optimization for 24×7 Linear Channels.'],
+  ['meauxdigital469@gmail.com','Marketing team of agents that can edit downloaded videos by adding watermarks or mirror lines to make them unique.'],
+  ['nicole@tothesource.com','Sales Support Agent in Slack that synthesizes live insights from Salesforce, Asana, and Gong into unified account summaries and plans.'],
+  ['fadimeayilmaz@gmail.com',"AI marketing intelligence agent to identify potential nano and micro influencers from L'Oréal's existing customer base across brands."],
+  ['sorobitg@gmail.com','Voice AI receptionist for business and customer service platform.'],
+  ['filipegsantos@gmail.com','Instagram management agent (posts, stories, reels, insights) + Autonomous Sales Ecosystem / Super CRM managing the full customer lifecycle.'],
+  ['aditya.raj7@ltimindtree.com','Sales Analytics Dashboard — connected dashboard showing region-wise sales performance and forecasting.'],
+  ['priyangshu.ganguly@ltimindtree.com','Production-ready web dashboard for Carrier that converts installed-base signals into prioritized, explainable sales/service/marketing opportunities.'],
+  ['blacksunz.ag@gmail.com','Complete sales funnel & tier-based membership website ("The Discipline Academy") for online learning courses.']
+];
+
+const MICROPRODUCTS = [
+  ['VC Fit Matcher','Find the right investors—not just any investors. Matches your startup with VCs based on stage, sector, and portfolio signals, and ranks them by likelihood to invest.'],
+  ['Fundraise Readiness Checker','Know if you\'re actually ready to raise. Scores your pitch deck and story like a YC/VC partner and tells you exactly what\'s weak.'],
+  ['Reddit Comment Miner','Discover what people really want. Pulls top pain points from subreddits and turns them into startup ideas, features, and content angles.'],
+  ['"Your LinkedIn Is Lying" Agent','Fix your positioning + grow your audience. Analyzes your profile, tells you what you\'re actually signaling, rewrites it, and gives a viral content plan.'],
+  ['Influencer Outreach Agent','Daily news + "who should I pitch today for brand deals".'],
+  ['Startup Idea Validator','Check if someone\'s already building your idea, market size, competitors.'],
+  ['Wealth Planning Agent','For Deepak Shenoi\'s audience — fill in details, get a personal finance plan.'],
+  ['"Find My Niche" Agent','Answer 5 questions about your skills, it finds 3 underserved niches you could own on social or as a consultant.'],
+  ['"Why Did This Company Fail" Agent','Type any failed startup, get a brutal forensic breakdown — what went wrong, when, who was responsible.'],
+  ['"Roast My Startup" Agent','Paste your landing page, it tears it apart like a brutal YC partner. Super shareable — Twitter bait.']
+];
+
+// ═══════════════════════════ RENDER LISTS ═══════════════════════════
+
+// Sources
+(function(){
+  const ul = document.getElementById('sourcesList');
+  const max = Math.max(...SOURCES.map(s=>s[1]));
+  SOURCES.forEach(([name,count])=>{
+    const w = (count/max)*100;
+    ul.innerHTML += `<div class="src-row">
+      <span class="src-name">${name}</span>
+      <div class="src-bar"><div class="src-bar-fill" style="width:${w}%"></div></div>
+      <span class="src-count">${count}</span>
+    </div>`;
+  });
+})();
+
+// Builds
+(function(){
+  const bl = document.getElementById('buildsList');
+  BUILDS.forEach(([user,what],i)=>{
+    bl.innerHTML += `<div class="build-row">
+      <span class="build-num">${String(i+1).padStart(2,'0')}</span>
+      <div class="build-body">
+        <span class="build-user">${user}</span>
+        <span class="build-what">${what}</span>
+      </div>
+    </div>`;
+  });
+})();
+
+// ═══════════════════════════ CHARTS ═══════════════════════════
+
+Chart.register(ChartDataLabels);
+Chart.defaults.font.family = "DM Sans, system-ui, sans-serif";
+Chart.defaults.font.size = 12;
+Chart.defaults.color = 'rgba(42,28,24,.55)';
+Chart.defaults.borderColor = 'rgba(42,28,24,.08)';
+Chart.defaults.set('plugins.datalabels', {display:false});
+
+const COL = {
+  primary:'#6b4c4c', primary2:'#8a6060', rose:'hsl(4,55%,65%)', rosem:'hsl(4,55%,72%)',
+  green:'hsl(140,60%,42%)', warm:'#a98876', cream:'#f2ede8', ink:'#2a1f1a'
+};
+
+// Revenue chart
+new Chart(document.getElementById('revChart'), {
+  type:'bar',
+  data:{
+    labels:MONTHS,
+    datasets:[{
+      label:'Revenue',
+      data:[3145,2270,310],
+      backgroundColor:[COL.primary,COL.primary2,COL.warm],
+      borderRadius:10,
+      barPercentage:.65
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    layout:{padding:{top:28}},
+    plugins:{
+      legend:{display:false},
+      tooltip:{callbacks:{label:c=>'$'+c.raw.toLocaleString()}},
+      datalabels:{display:true,anchor:'end',align:'end',offset:4,color:COL.ink,font:{family:'Playfair Display',size:14,weight:'500',style:'italic'},formatter:v=>'$'+v.toLocaleString()}
+    },
+    scales:{
+      x:{grid:{display:false},ticks:{font:{size:11}}},
+      y:{beginAtZero:true,grid:{color:'rgba(42,28,24,.06)'},ticks:{callback:v=>'$'+v.toLocaleString(),font:{size:11}}}
+    }
+  }
+});
+
+// MRR / ARR chart
+new Chart(document.getElementById('mrrChart'), {
+  type:'line',
+  data:{
+    labels:MONTHS,
+    datasets:[
+      {label:'MRR',data:[1065,1243.33,1263.33],borderColor:COL.primary,backgroundColor:'rgba(107,76,76,.12)',tension:.4,fill:true,pointRadius:5,pointBackgroundColor:COL.primary,pointBorderColor:'#fff',pointBorderWidth:2,yAxisID:'y'},
+      {label:'ARR',data:[12780,14920,15160],borderColor:COL.rose,backgroundColor:'transparent',borderDash:[4,4],tension:.4,pointRadius:4,pointBackgroundColor:COL.rose,pointBorderColor:'#fff',pointBorderWidth:2,yAxisID:'y1'}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    layout:{padding:{top:24,right:12}},
+    plugins:{
+      legend:{position:'top',align:'end',labels:{boxWidth:8,usePointStyle:true,pointStyle:'circle',padding:14,font:{size:11}}},
+      tooltip:{callbacks:{label:c=>c.dataset.label+': $'+c.raw.toLocaleString()}},
+      datalabels:{
+        display:true,
+        align:(ctx)=>ctx.datasetIndex===0?'top':'bottom',
+        offset:8,
+        color:(ctx)=>ctx.datasetIndex===0?COL.primary:COL.rose,
+        font:{family:'Playfair Display',size:12,weight:'600',style:'italic'},
+        backgroundColor:'rgba(249,245,241,.85)',
+        borderRadius:6,
+        padding:{top:3,bottom:3,left:7,right:7},
+        formatter:v=>'$'+v.toLocaleString()
+      }
+    },
+    scales:{
+      x:{grid:{display:false},ticks:{font:{size:11}}},
+      y:{position:'left',grid:{color:'rgba(42,28,24,.06)'},ticks:{callback:v=>'$'+(v/1000).toFixed(1)+'K',font:{size:11}},title:{display:true,text:'MRR',font:{size:10},color:'rgba(42,28,24,.5)'}},
+      y1:{position:'right',grid:{display:false},ticks:{callback:v=>'$'+(v/1000).toFixed(0)+'K',font:{size:11}},title:{display:true,text:'ARR',font:{size:10},color:'rgba(42,28,24,.5)'}}
+    }
+  }
+});
+
+// Top-ups lifetime
+new Chart(document.getElementById('topupLifetime'), {
+  type:'doughnut',
+  data:{
+    labels:['$25 × 41 = $1,025','$50 × 12 = $600','$100 × 5 = $500'],
+    datasets:[{
+      data:[1025,600,500],
+      backgroundColor:[COL.primary,COL.primary2,COL.warm],
+      borderWidth:0,
+      hoverOffset:6
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    cutout:'62%',
+    plugins:{
+      legend:{position:'right',labels:{boxWidth:10,usePointStyle:true,pointStyle:'circle',padding:14,font:{size:12}}},
+      tooltip:{callbacks:{label:c=>c.label+' ('+(c.raw/2125*100).toFixed(1)+'%)'}},
+      datalabels:{
+        display:true,
+        color:'#fff',
+        font:{family:'Playfair Display',size:14,weight:'500',style:'italic'},
+        formatter:(v)=>'$'+v.toLocaleString()
+      }
+    }
+  }
+});
+
+// Top-ups MOM
+new Chart(document.getElementById('topupMOM'), {
+  type:'bar',
+  data:{
+    labels:MONTHS,
+    datasets:[
+      {label:'$25',data:[425,600,0],backgroundColor:COL.primary,borderRadius:6},
+      {label:'$50',data:[200,250,150],backgroundColor:COL.primary2,borderRadius:6},
+      {label:'$100',data:[300,200,0],backgroundColor:COL.warm,borderRadius:6}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    layout:{padding:{top:20}},
+    plugins:{
+      legend:{position:'top',align:'end',labels:{boxWidth:10,usePointStyle:true,pointStyle:'circle',padding:14,font:{size:11}}},
+      tooltip:{callbacks:{label:c=>c.dataset.label+' top-ups: $'+c.raw}},
+      datalabels:{
+        display:(ctx)=>ctx.dataset.data[ctx.dataIndex]>0,
+        anchor:'end',align:'end',offset:2,
+        color:COL.ink,
+        font:{family:'Playfair Display',size:11,weight:'500',style:'italic'},
+        formatter:v=>'$'+v
+      }
+    },
+    scales:{
+      x:{grid:{display:false}},
+      y:{beginAtZero:true,grid:{color:'rgba(42,28,24,.06)'},ticks:{callback:v=>'$'+v,font:{size:11}}}
+    }
+  }
+});
+
+// Traction (log scale to show all metrics)
+new Chart(document.getElementById('tractionChart'), {
+  type:'bar',
+  data:{
+    labels:MONTHS,
+    datasets:[
+      {label:'Total Visits',data:[29120,17849,2858],backgroundColor:COL.primary,borderRadius:6},
+      {label:'New Sign Ups',data:[5298,3295,548],backgroundColor:COL.primary2,borderRadius:6},
+      {label:'Apps Built',data:[2107,1034,169],backgroundColor:COL.warm,borderRadius:6},
+      {label:'Paid Users',data:[27,17,1],backgroundColor:COL.rose,borderRadius:6}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    layout:{padding:{top:22}},
+    plugins:{
+      legend:{position:'top',align:'end',labels:{boxWidth:10,usePointStyle:true,pointStyle:'circle',padding:16,font:{size:11}}},
+      tooltip:{callbacks:{label:c=>c.dataset.label+': '+c.raw.toLocaleString()}},
+      datalabels:{
+        display:true,
+        anchor:'end',align:'end',offset:2,
+        color:COL.ink,
+        font:{family:'Playfair Display',size:11,weight:'500',style:'italic'},
+        formatter:v=>v.toLocaleString()
+      }
+    },
+    scales:{
+      x:{grid:{display:false}},
+      y:{type:'logarithmic',grid:{color:'rgba(42,28,24,.06)'},ticks:{callback:v=>v.toLocaleString(),font:{size:11}},title:{display:true,text:'Count (log scale)',font:{size:10},color:'rgba(42,28,24,.5)'}}
+    }
+  }
+});
+
+// Marketing horizontal bar
+new Chart(document.getElementById('mktChart'), {
+  type:'bar',
+  data:{
+    labels:['Social & PR','Demo Day','Ads','Product Hunt'],
+    datasets:[{
+      data:[70,8,7,6],
+      backgroundColor:[COL.primary,COL.primary2,COL.warm,COL.rose],
+      borderRadius:10,
+      barPercentage:.65
+    }]
+  },
+  options:{
+    indexAxis:'y',
+    responsive:true,maintainAspectRatio:false,
+    layout:{padding:{right:48}},
+    plugins:{
+      legend:{display:false},
+      tooltip:{callbacks:{label:c=>'$'+c.raw+'K'}},
+      datalabels:{
+        display:true,
+        anchor:'end',align:'end',offset:6,
+        color:COL.ink,
+        font:{family:'Playfair Display',size:15,weight:'600',style:'italic'},
+        formatter:v=>'$'+v+'K'
+      }
+    },
+    scales:{
+      x:{grid:{color:'rgba(42,28,24,.06)'},ticks:{callback:v=>'$'+v+'K',font:{size:11}}},
+      y:{grid:{display:false},ticks:{font:{size:12,weight:'500'}}}
+    }
+  }
+});
+</script>
+</body>
+</html>
