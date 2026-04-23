@@ -26,12 +26,40 @@
   --out:cubic-bezier(.16,1,.3,1);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
 body{font-family:var(--font-body);background:var(--bg);color:var(--fg);-webkit-font-smoothing:antialiased;line-height:1.65;overflow-x:hidden}
 h1,h2,h3,h4{font-family:var(--font-display);font-weight:300;line-height:1.1}
 ::selection{background:rgba(107,76,76,.15)}
 
 .wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:all .4s var(--out)}
+.nav.on-dark{background:rgba(22,15,11,.78);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav.on-light{background:rgba(235,229,220,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(42,28,24,.08);box-shadow:0 1px 16px rgba(40,20,10,.04)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav-brand{display:flex;align-items:center;gap:10px;flex-shrink:0;cursor:pointer}
+.nav-dot{width:7px;height:7px;border-radius:50%;background:var(--rose);box-shadow:0 0 10px hsla(4,55%,65%,.6);animation:pulse 2s infinite}
+.nav-title{font-family:var(--font-display);font-size:15px;font-weight:500;letter-spacing:-.01em}
+.nav.on-dark .nav-title{color:#fff}
+.nav.on-light .nav-title{color:var(--fg)}
+.nav-title em{font-style:italic;color:var(--rose)}
+.nav.on-light .nav-title em{color:var(--primary)}
+.nav-links{display:flex;align-items:center;gap:4px;overflow-x:auto;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-link{padding:7px 12px;border-radius:9999px;font-size:11.5px;font-weight:500;letter-spacing:.01em;font-family:var(--font-body);cursor:pointer;transition:all .2s;white-space:nowrap;border:none;background:transparent}
+.nav.on-dark .nav-link{color:rgba(255,255,255,.5)}
+.nav.on-dark .nav-link:hover{color:#fff;background:rgba(255,255,255,.06)}
+.nav.on-dark .nav-link.active{color:var(--rose);background:rgba(107,76,76,.18)}
+.nav.on-light .nav-link{color:rgba(42,28,24,.55)}
+.nav.on-light .nav-link:hover{color:var(--fg);background:rgba(107,76,76,.06)}
+.nav.on-light .nav-link.active{color:var(--primary);background:rgba(107,76,76,.1)}
+.nav-num{opacity:.55;margin-right:4px;font-weight:600}
+@media (max-width:960px){
+  .nav-links{gap:2px}
+  .nav-link{padding:6px 9px;font-size:11px}
+  .nav-link .nav-label{display:none}
+}
 .eyebrow{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--primary);margin-bottom:14px;display:inline-flex;align-items:center;gap:10px}
 .eyebrow::before{content:'';width:24px;height:1px;background:var(--primary)}
 .eyebrow.light{color:var(--rose)}
@@ -233,21 +261,19 @@ table.email tr:hover td{background:rgba(107,76,76,.03)}
 .email-pct.hi{color:hsl(140,55%,35%);font-weight:600}
 .email-pct.lo{color:#a35c20}
 
-/* PAID USER PROFILES — grouped by category */
-.profile-groups{display:flex;flex-direction:column;gap:48px;margin-top:8px}
+/* PAID USER PROFILES — minimalist list */
+.profile-groups{display:flex;flex-direction:column;gap:44px;margin-top:8px}
 .pg-section{}
-.pg-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-bottom:14px;margin-bottom:18px;border-bottom:1px solid rgba(42,28,24,.1)}
-.pg-title{font-family:var(--font-display);font-size:clamp(1.2rem,1.8vw,1.6rem);font-weight:400;color:var(--fg);letter-spacing:-.01em}
+.pg-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-bottom:12px;margin-bottom:8px;border-bottom:1px solid rgba(42,28,24,.12)}
+.pg-title{font-family:var(--font-display);font-size:18px;font-weight:500;color:var(--fg);letter-spacing:-.005em}
 .pg-title em{font-style:italic;color:var(--primary)}
-.pg-count{font-family:var(--font-display);font-size:15px;font-style:italic;color:var(--primary);font-weight:500}
-.pg-count span{font-family:var(--font-body);font-style:normal;color:var(--muted);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-left:8px;font-weight:600}
-.pg-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px 40px}
-.pg-row{display:grid;grid-template-columns:28px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid rgba(42,28,24,.06);align-items:start}
-.pg-num{font-family:var(--font-display);font-size:13px;color:rgba(107,76,76,.45);font-style:italic;font-weight:500;padding-top:1px}
-.pg-body{display:flex;flex-direction:column;gap:5px;min-width:0}
-.pg-role{font-size:14.5px;font-weight:600;color:var(--fg);line-height:1.35;letter-spacing:-.005em}
-.pg-role em{font-family:var(--font-display);font-style:italic;color:var(--primary);font-weight:500;margin-left:6px}
-.pg-email{font-size:11.5px;color:var(--muted);font-family:var(--font-body);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pg-count{font-size:11px;color:var(--muted);letter-spacing:.04em}
+.pg-list{display:flex;flex-direction:column}
+.pg-row{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:baseline;padding:10px 0;border-bottom:1px solid rgba(42,28,24,.06)}
+.pg-row:last-child{border-bottom:none}
+.pg-left{font-size:13.5px;color:var(--fg);line-height:1.5}
+.pg-left .co{font-family:var(--font-display);font-style:italic;color:var(--primary);font-size:13px;margin-left:4px}
+.pg-email{font-size:12px;color:var(--muted);font-family:var(--font-body)}
 
 /* SOURCES + BUILDS */
 .sources-grid{display:grid;grid-template-columns:2fr 3fr;gap:24px;margin-top:40px}
@@ -291,6 +317,27 @@ footer em{font-family:var(--font-display);font-style:italic;color:var(--rose)}
 </head>
 <body>
 
+<!-- NAV -->
+<nav class="nav on-dark" id="nav">
+  <div class="nav-inner">
+    <div class="nav-brand" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      <span class="nav-dot"></span>
+      <span class="nav-title">Architect · <em>Revenue Report</em></span>
+    </div>
+    <div class="nav-links">
+      <button class="nav-link" data-target="s1">MOM Revenue</button>
+      <button class="nav-link" data-target="s2">Subscriptions</button>
+      <button class="nav-link" data-target="s3">Top-ups</button>
+      <button class="nav-link" data-target="s4">Traction</button>
+      <button class="nav-link" data-target="s5">Enterprise</button>
+      <button class="nav-link" data-target="s6">Funnel</button>
+      <button class="nav-link" data-target="s7">Marketing</button>
+      <button class="nav-link" data-target="s8">Profiles</button>
+      <button class="nav-link" data-target="s9">Insights</button>
+    </div>
+  </div>
+</nav>
+
 <!-- HERO -->
 <section class="hero">
   <div class="wrap hero-inner">
@@ -314,7 +361,7 @@ footer em{font-family:var(--font-display);font-style:italic;color:var(--rose)}
 </section>
 
 <!-- MOM REVENUE -->
-<section class="page">
+<section class="page" id="s1">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">01 · MOM Revenue</span>
@@ -397,7 +444,7 @@ footer em{font-family:var(--font-display);font-style:italic;color:var(--rose)}
 </section>
 
 <!-- NEW SUBSCRIPTIONS BREAKDOWN -->
-<section class="page alt">
+<section class="page alt" id="s2">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">02 · Subscriptions</span>
@@ -497,7 +544,7 @@ footer em{font-family:var(--font-display);font-style:italic;color:var(--rose)}
 </section>
 
 <!-- TOP-UPS -->
-<section class="page">
+<section class="page" id="s3">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">03 · Top-ups</span>
@@ -545,7 +592,7 @@ footer em{font-family:var(--font-display);font-style:italic;color:var(--rose)}
 </section>
 
 <!-- MOM TRACTION -->
-<section class="page alt">
+<section class="page alt" id="s4">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">04 · MOM Traction</span>
@@ -573,7 +620,7 @@ footer em{font-family:var(--font-display);font-style:italic;color:var(--rose)}
 </section>
 
 <!-- ENTERPRISE PIPELINE -->
-<section class="page">
+<section class="page" id="s5">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">05 · Enterprise</span>
@@ -644,7 +691,7 @@ footer em{font-family:var(--font-display);font-style:italic;color:var(--rose)}
 </section>
 
 <!-- FUNNEL SINCE FEB 16 -->
-<section class="page dark">
+<section class="page dark" id="s6">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow light">06 · Lifetime funnel</span>
@@ -698,7 +745,7 @@ footer em{font-family:var(--font-display);font-style:italic;color:var(--rose)}
 </section>
 
 <!-- MARKETING SPEND -->
-<section class="page">
+<section class="page" id="s7">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">07 · Marketing spend</span>
@@ -750,7 +797,7 @@ footer em{font-family:var(--font-display);font-style:italic;color:var(--rose)}
 </section>
 
 <!-- PAID USER PROFILES -->
-<section class="page">
+<section class="page" id="s8">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">08 · Paid user profiles</span>
@@ -763,7 +810,7 @@ footer em{font-family:var(--font-display);font-style:italic;color:var(--rose)}
 </section>
 
 <!-- PAID USER SOURCES + BUILDS -->
-<section class="page alt">
+<section class="page alt" id="s9">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">09 · Paid user insights</span>
@@ -869,64 +916,40 @@ const EMAIL = [
 ];
 
 const PROFILE_GROUPS = [
-  {
-    title:'Founders & <em>CEOs</em>',
-    count:4,
-    people:[
-      ['CEO','Repeatable AI','kevin@repeatable.ai'],
-      ['CEO','Source','nicole@tothesource.com'],
-      ['Managing Director','','shinderajesh06@gmail.com'],
-      ['Tech Due Diligence · Valuations · Custom AI','','raqi.ai.team@gmail.com']
-    ]
-  },
-  {
-    title:'Enterprise · <em>LTIMindtree</em>',
-    count:5,
-    people:[
-      ['Global Product Leader','','melissa.rojo@ltm.com'],
-      ['Senior AI Strategist','','raoshreya2020@gmail.com'],
-      ['AI Product Strategist','','fadimeayilmaz@gmail.com'],
-      ['Senior Business Analyst','','priyangshu.ganguly@ltimindtree.com'],
-      ['Software Engineer','','aditya.raj7@ltimindtree.com']
-    ]
-  },
-  {
-    title:'Enterprise · <em>Accenture</em>',
-    count:1,
-    people:[
-      ['Media & Telecom Consultant','','thomas.tkfrancis@gmail.com']
-    ]
-  },
-  {
-    title:'Product & <em>Design</em>',
-    count:3,
-    people:[
-      ['Product Design Lead','','kaseyrandall.design@gmail.com'],
-      ['Graphic Designer','','alex.canion@gmail.com'],
-      ['Product Owner','','lavinia.nica883@gmail.com']
-    ]
-  },
-  {
-    title:'Sales, Marketing & <em>Data</em>',
-    count:5,
-    people:[
-      ['Account Executive','','harihara.thanaseelan@gmail.com'],
-      ['Sales Executive','LXL Business','luan.dias@lxlbusiness.com'],
-      ['Market Manager','','roy@roybarberi.com'],
-      ['Data and AI Technologist','','dimplefrancis@gmail.com'],
-      ['Data Analyst','','meauxdigital469@gmail.com']
-    ]
-  },
-  {
-    title:'Advisors, Consultants & <em>Academics</em>',
-    count:4,
-    people:[
-      ['Advisor · Business Consultant','','mamula.brian@gmail.com'],
-      ['Integrated Data Privacy & AI Governance Expert','','barry@dataprivacyanalytics.com'],
-      ['Associate Professor','','kuhailamin@gmail.com'],
-      ['Executive Consultant & Systems Architect','','sorobitg@gmail.com']
-    ]
-  }
+  {cat:'founder',icon:'C',sub:'Leadership',title:'Founders & <em>CEOs</em>',count:4,people:[
+    ['CEO','Repeatable AI','kevin@repeatable.ai'],
+    ['CEO','Source','nicole@tothesource.com'],
+    ['Managing Director','','shinderajesh06@gmail.com'],
+    ['Tech Due Diligence · Valuations · Custom AI','','raqi.ai.team@gmail.com']
+  ]},
+  {cat:'enterprise',icon:'L',sub:'Enterprise account',title:'Enterprise · <em>LTIMindtree</em>',count:5,people:[
+    ['Global Product Leader','LTIMindtree','melissa.rojo@ltm.com'],
+    ['Senior AI Strategist','LTIMindtree','raoshreya2020@gmail.com'],
+    ['AI Product Strategist','LTIMindtree','fadimeayilmaz@gmail.com'],
+    ['Senior Business Analyst','LTIMindtree','priyangshu.ganguly@ltimindtree.com'],
+    ['Software Engineer','LTIMindtree','aditya.raj7@ltimindtree.com']
+  ]},
+  {cat:'enterprise',icon:'A',sub:'Enterprise account',title:'Enterprise · <em>Accenture</em>',count:1,people:[
+    ['Media & Telecom Consultant','Accenture','thomas.tkfrancis@gmail.com']
+  ]},
+  {cat:'product',icon:'P',sub:'Product builders',title:'Product & <em>Design</em>',count:3,people:[
+    ['Product Design Lead','','kaseyrandall.design@gmail.com'],
+    ['Graphic Designer','','alex.canion@gmail.com'],
+    ['Product Owner','','lavinia.nica883@gmail.com']
+  ]},
+  {cat:'sales',icon:'S',sub:'Go-to-market',title:'Sales, Marketing & <em>Data</em>',count:5,people:[
+    ['Account Executive','','harihara.thanaseelan@gmail.com'],
+    ['Sales Executive','LXL Business','luan.dias@lxlbusiness.com'],
+    ['Market Manager','','roy@roybarberi.com'],
+    ['Data and AI Technologist','','dimplefrancis@gmail.com'],
+    ['Data Analyst','','meauxdigital469@gmail.com']
+  ]},
+  {cat:'advisor',icon:'A',sub:'Independent expertise',title:'Advisors, Consultants & <em>Academics</em>',count:4,people:[
+    ['Advisor · Business Consultant','','mamula.brian@gmail.com'],
+    ['Integrated Data Privacy & AI Governance Expert','','barry@dataprivacyanalytics.com'],
+    ['Associate Professor','','kuhailamin@gmail.com'],
+    ['Executive Consultant & Systems Architect','','sorobitg@gmail.com']
+  ]}
 ];
 
 const SOURCES = [
@@ -989,26 +1012,23 @@ const MICROPRODUCTS = [
 
 // ═══════════════════════════ RENDER LISTS ═══════════════════════════
 
-// Profiles (grouped)
+// Profiles (minimalist grouped list)
 (function(){
   const g = document.getElementById('profileGroups');
   PROFILE_GROUPS.forEach(grp=>{
     let rows = '';
-    grp.people.forEach(([role,company,email],i)=>{
+    grp.people.forEach(([role,company,email])=>{
       rows += `<div class="pg-row">
-        <span class="pg-num">${String(i+1).padStart(2,'0')}</span>
-        <div class="pg-body">
-          <div class="pg-role">${role}${company?`<em>@ ${company}</em>`:''}</div>
-          <div class="pg-email">${email}</div>
-        </div>
+        <div class="pg-left">${role}${company?`<span class="co">${company}</span>`:''}</div>
+        <div class="pg-email">${email}</div>
       </div>`;
     });
     g.innerHTML += `<div class="pg-section">
       <div class="pg-head">
         <div class="pg-title">${grp.title}</div>
-        <div class="pg-count">${grp.count}<span>paying users</span></div>
+        <div class="pg-count">${grp.count} paying users</div>
       </div>
-      <div class="pg-grid">${rows}</div>
+      <div class="pg-list">${rows}</div>
     </div>`;
   });
 })();
@@ -1039,6 +1059,37 @@ const MICROPRODUCTS = [
       </div>
     </div>`;
   });
+})();
+
+// ═══════════════════════════ NAV ═══════════════════════════
+(function(){
+  const nav = document.getElementById('nav');
+  const links = document.querySelectorAll('.nav-link');
+  const sections = Array.from(links).map(l=>document.getElementById(l.dataset.target)).filter(Boolean);
+  const hero = document.querySelector('.hero');
+  const darkSection = document.getElementById('s6');
+
+  links.forEach(l=>l.addEventListener('click',()=>{
+    const t = document.getElementById(l.dataset.target);
+    if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+  }));
+
+  function onScroll(){
+    const y = window.scrollY + 90;
+    // theme
+    const heroBottom = (hero?.offsetTop || 0) + (hero?.offsetHeight || 0);
+    const darkTop = darkSection?.offsetTop || Infinity;
+    const darkBottom = darkTop + (darkSection?.offsetHeight || 0);
+    const onDark = y < heroBottom || (y >= darkTop && y < darkBottom);
+    nav.classList.toggle('on-dark',onDark);
+    nav.classList.toggle('on-light',!onDark);
+    // active
+    let active = null;
+    sections.forEach(s=>{if(s.offsetTop <= y) active = s.id});
+    links.forEach(l=>l.classList.toggle('active',l.dataset.target===active));
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
 })();
 
 // ═══════════════════════════ CHARTS ═══════════════════════════
