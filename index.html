@@ -233,6 +233,16 @@ table.email tr:hover td{background:rgba(107,76,76,.03)}
 .email-pct.hi{color:hsl(140,55%,35%);font-weight:600}
 .email-pct.lo{color:#a35c20}
 
+/* PAID USER PROFILES */
+.profile-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+.pc{background:var(--parch);border:1px solid rgba(42,28,24,.09);border-radius:var(--rL);padding:22px 22px;display:flex;gap:14px;align-items:flex-start;transition:all .4s var(--out)}
+.pc:hover{transform:translateY(-3px);box-shadow:var(--sh1);border-color:rgba(107,76,76,.22)}
+.pc-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--rose));display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-display);font-size:15px;font-weight:500;font-style:italic;flex-shrink:0;letter-spacing:.01em}
+.pc-body{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+.pc-role{font-size:13.5px;font-weight:600;color:var(--fg);line-height:1.35;letter-spacing:-.005em}
+.pc-company{font-size:11px;color:var(--primary);font-family:var(--font-display);font-style:italic;font-weight:500}
+.pc-email{font-size:11px;color:var(--muted);font-family:var(--font-body);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
 /* SOURCES + BUILDS */
 .sources-grid{display:grid;grid-template-columns:2fr 3fr;gap:24px;margin-top:40px}
 .src-card{background:var(--parch);border:1px solid rgba(42,28,24,.09);border-radius:var(--rXL);padding:32px}
@@ -268,7 +278,7 @@ footer{background:var(--deeper);padding:56px 0;color:rgba(255,255,255,.4);text-a
 footer em{font-family:var(--font-display);font-style:italic;color:var(--rose)}
 
 @media (max-width:960px){
-  .hero-metrics,.chart-grid,.mom-grid,.tier-grid,.topup-grid,.ent-grid,.comp-cols,.mkt-grid,.kv-strip,.sources-grid,.mp-grid,.sub-mom-grid{grid-template-columns:1fr}
+  .hero-metrics,.chart-grid,.mom-grid,.tier-grid,.topup-grid,.ent-grid,.comp-cols,.mkt-grid,.kv-strip,.sources-grid,.mp-grid,.sub-mom-grid,.profile-grid{grid-template-columns:1fr}
   section.page{padding:72px 0}
 }
 </style>
@@ -733,8 +743,21 @@ footer em{font-family:var(--font-display);font-style:italic;color:var(--rose)}
   </div>
 </section>
 
-<!-- PAID USER SOURCES + BUILDS -->
+<!-- PAID USER PROFILES -->
 <section class="page">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">08 · Paid user profiles</span>
+      <h2 class="section-title">Who the <em>paid users</em> are.</h2>
+      <p class="section-sub">Roles, companies, and context for every paying user on Architect today.</p>
+    </div>
+
+    <div class="profile-grid" id="profileGrid"></div>
+  </div>
+</section>
+
+<!-- PAID USER SOURCES + BUILDS -->
+<section class="page alt">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">09 · Paid user insights</span>
@@ -839,6 +862,31 @@ const EMAIL = [
   ['Architect Studio Newsletter',2199,12.20,0.32,'—','—']
 ];
 
+const PROFILES = [
+  ['Integrated Data Privacy & AI Governance Expert','','barry@dataprivacyanalytics.com'],
+  ['Advisor · Business Consultant','','mamula.brian@gmail.com'],
+  ['Account Executive','','harihara.thanaseelan@gmail.com'],
+  ['Sales Executive','LXL Business','luan.dias@lxlbusiness.com'],
+  ['Data and AI Technologist','','dimplefrancis@gmail.com'],
+  ['Market Manager','','roy@roybarberi.com'],
+  ['Product Design Lead','','kaseyrandall.design@gmail.com'],
+  ['Graphic Designer','','alex.canion@gmail.com'],
+  ['CEO','Repeatable AI','kevin@repeatable.ai'],
+  ['Tech Due Diligence · Valuations · Custom AI','','raqi.ai.team@gmail.com'],
+  ['Managing Director','','shinderajesh06@gmail.com'],
+  ['Associate Professor','','kuhailamin@gmail.com'],
+  ['Media & Telecom Consultant','Accenture','thomas.tkfrancis@gmail.com'],
+  ['Product Owner','','lavinia.nica883@gmail.com'],
+  ['Data Analyst','','meauxdigital469@gmail.com'],
+  ['CEO','Source','nicole@tothesource.com'],
+  ['Global Product Leader','LTIMindtree','melissa.rojo@ltm.com'],
+  ['Senior AI Strategist','LTIMindtree','raoshreya2020@gmail.com'],
+  ['AI Product Strategist','LTIMindtree','fadimeayilmaz@gmail.com'],
+  ['Executive Consultant & Systems Architect','','sorobitg@gmail.com'],
+  ['Senior Business Analyst','LTIMindtree','priyangshu.ganguly@ltimindtree.com'],
+  ['Software Engineer','LTIMindtree','aditya.raj7@ltimindtree.com']
+];
+
 const SOURCES = [
   ['Direct',13],['Direct (Google)',5],['Unknown',3],['studio.lyzr.ai',2],
   ['lyzr.ai website',1],['LinkedIn',1],['UTM · aifire.co',1],['lyzr.ai/agent-architect-cohort',1]
@@ -898,6 +946,22 @@ const MICROPRODUCTS = [
 ];
 
 // ═══════════════════════════ RENDER LISTS ═══════════════════════════
+
+// Profiles
+(function(){
+  const g = document.getElementById('profileGrid');
+  PROFILES.forEach(([role,company,email])=>{
+    const initials = email.split('@')[0].replace(/[._-]/g,' ').split(' ').filter(Boolean).slice(0,2).map(s=>s[0].toUpperCase()).join('');
+    g.innerHTML += `<div class="pc">
+      <div class="pc-avatar">${initials}</div>
+      <div class="pc-body">
+        <div class="pc-role">${role}</div>
+        ${company?`<div class="pc-company">@ ${company}</div>`:''}
+        <div class="pc-email">${email}</div>
+      </div>
+    </div>`;
+  });
+})();
 
 // Sources
 (function(){
