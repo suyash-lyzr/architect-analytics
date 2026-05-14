@@ -1631,9 +1631,7 @@
         letter-spacing: 0.02em;
       }
       .growth-charts {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
+        display: block;
         margin-top: 28px;
       }
 
@@ -1827,20 +1825,11 @@
           <div class="chart-card">
             <div class="chart-head">
               <div>
-                <div class="chart-title">Active user <em>composition</em></div>
-                <div class="chart-meta" style="margin-top: 4px">Stacked by plan at end of each month</div>
+                <div class="chart-title">Active users vs <em>top-up purchases</em></div>
+                <div class="chart-meta" style="margin-top: 4px">Total active users (bar) and top-up purchase count (line) per month</div>
               </div>
             </div>
-            <div class="chart-wrap tall"><canvas id="activeUsersChart"></canvas></div>
-          </div>
-          <div class="chart-card">
-            <div class="chart-head">
-              <div>
-                <div class="chart-title">Top-up <em>purchases</em></div>
-                <div class="chart-meta" style="margin-top: 4px">Count of transactions by denomination</div>
-              </div>
-            </div>
-            <div class="chart-wrap tall"><canvas id="topupCountsChart"></canvas></div>
+            <div class="chart-wrap tall"><canvas id="combinedTotalsChart"></canvas></div>
           </div>
         </div>
       </div>
@@ -3630,157 +3619,6 @@
         },
       });
 
-      // Active users composition (stacked)
-      new Chart(document.getElementById("activeUsersChart"), {
-        type: "bar",
-        data: {
-          labels: MONTHS,
-          datasets: [
-            {
-              label: "$40/mo",
-              data: [14, 24, 25, 25],
-              backgroundColor: COL.primary,
-              borderRadius: 6,
-              stack: "u",
-            },
-            {
-              label: "$20/mo",
-              data: [0, 2, 9, 11],
-              backgroundColor: COL.primary2,
-              borderRadius: 6,
-              stack: "u",
-            },
-            {
-              label: "$420/yr",
-              data: [0, 2, 2, 2],
-              backgroundColor: COL.rose,
-              borderRadius: 6,
-              stack: "u",
-            },
-            {
-              label: "$200/yr",
-              data: [0, 2, 2, 2],
-              backgroundColor: COL.rosem,
-              borderRadius: 6,
-              stack: "u",
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          layout: { padding: { top: 16 } },
-          plugins: {
-            legend: {
-              position: "top",
-              align: "end",
-              labels: {
-                boxWidth: 10,
-                usePointStyle: true,
-                pointStyle: "circle",
-                padding: 14,
-                font: { size: 11 },
-              },
-            },
-            datalabels: {
-              display: (ctx) => ctx.dataset.data[ctx.dataIndex] > 0,
-              color: "#fff",
-              font: { family: "DM Sans", size: 11, weight: "700" },
-              formatter: (v) => v,
-            },
-          },
-          scales: {
-            x: { stacked: true, grid: { display: false } },
-            y: {
-              stacked: true,
-              beginAtZero: true,
-              grid: { color: "rgba(42,28,24,.06)" },
-              ticks: { font: { size: 11 } },
-              title: {
-                display: true,
-                text: "Active users",
-                font: { size: 10 },
-                color: "rgba(42,28,24,.5)",
-              },
-            },
-          },
-        },
-      });
-
-      // Top-up purchase counts
-      new Chart(document.getElementById("topupCountsChart"), {
-        type: "bar",
-        data: {
-          labels: MONTHS,
-          datasets: [
-            {
-              label: "$25 count",
-              data: [2, 29, 16, 4],
-              backgroundColor: COL.primary,
-              borderRadius: 6,
-            },
-            {
-              label: "$50 count",
-              data: [0, 8, 4, 3],
-              backgroundColor: COL.primary2,
-              borderRadius: 6,
-            },
-            {
-              label: "$100 count",
-              data: [1, 4, 1, 0],
-              backgroundColor: COL.warm,
-              borderRadius: 6,
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          layout: { padding: { top: 20 } },
-          plugins: {
-            legend: {
-              position: "top",
-              align: "end",
-              labels: {
-                boxWidth: 10,
-                usePointStyle: true,
-                pointStyle: "circle",
-                padding: 14,
-                font: { size: 11 },
-              },
-            },
-            datalabels: {
-              display: (ctx) => ctx.dataset.data[ctx.dataIndex] > 0,
-              anchor: "end",
-              align: "end",
-              offset: 2,
-              color: COL.ink,
-              font: {
-                family: "Playfair Display",
-                size: 11,
-                weight: "500",
-                style: "italic",
-              },
-              formatter: (v) => v,
-            },
-          },
-          scales: {
-            x: { grid: { display: false } },
-            y: {
-              beginAtZero: true,
-              grid: { color: "rgba(42,28,24,.06)" },
-              ticks: { font: { size: 11 } },
-              title: {
-                display: true,
-                text: "Purchase count",
-                font: { size: 10 },
-                color: "rgba(42,28,24,.5)",
-              },
-            },
-          },
-        },
-      });
-
       // Marketing horizontal bar
       new Chart(document.getElementById("mktChart"), {
         type: "bar",
@@ -3831,68 +3669,92 @@
         },
       });
 
-      // Active users composition (stacked bar)
-      new Chart(document.getElementById("activeUsersChart"), {
-        type: "bar",
-        data: {
-          labels: MONTHS,
-          datasets: [
-            { label: "$40/mo", data: [14, 24, 25, 25], backgroundColor: COL.primary, borderRadius: 6, stack: "a" },
-            { label: "$20/mo", data: [0, 2, 9, 11], backgroundColor: COL.primary2, borderRadius: 6, stack: "a" },
-            { label: "$420/yr", data: [0, 2, 2, 2], backgroundColor: COL.rose, borderRadius: 6, stack: "a" },
-            { label: "$200/yr", data: [0, 2, 2, 2], backgroundColor: COL.rosem, borderRadius: 6, stack: "a" },
-          ],
-        },
-        options: {
-          responsive: true, maintainAspectRatio: false,
-          layout: { padding: { top: 20 } },
-          plugins: {
-            legend: { position: "top", align: "end", labels: { boxWidth: 10, usePointStyle: true, pointStyle: "circle", padding: 14, font: { size: 11 } } },
-            tooltip: { callbacks: { label: c => c.dataset.label + ": " + c.raw + " users" } },
-            datalabels: {
-              display: ctx => ctx.dataset.data[ctx.dataIndex] > 0,
-              color: "#fff",
-              font: { family: "DM Sans", size: 11, weight: "700" },
-              formatter: v => v
-            }
-          },
-          scales: {
-            x: { stacked: true, grid: { display: false } },
-            y: { stacked: true, grid: { color: "rgba(42,28,24,.06)" }, ticks: { font: { size: 11 } }, title: { display: true, text: "Active users", font: { size: 10 }, color: "rgba(42,28,24,.5)" } }
-          }
-        }
-      });
 
-      // Top-up purchase counts (grouped bar)
-      new Chart(document.getElementById("topupCountsChart"), {
+      // Combined: active users (bar) + top-up purchase counts (line) per month
+      new Chart(document.getElementById("combinedTotalsChart"), {
         type: "bar",
         data: {
           labels: MONTHS,
           datasets: [
-            { label: "$25", data: [2, 29, 16, 4], backgroundColor: COL.primary, borderRadius: 6 },
-            { label: "$50", data: [0, 8, 4, 3], backgroundColor: COL.primary2, borderRadius: 6 },
-            { label: "$100", data: [1, 4, 1, 0], backgroundColor: COL.warm, borderRadius: 6 },
+            {
+              type: "bar",
+              label: "Total active users",
+              data: [14, 30, 38, 40],
+              backgroundColor: COL.primary,
+              borderRadius: 8,
+              barPercentage: 0.55,
+              yAxisID: "y",
+              order: 2,
+            },
+            {
+              type: "line",
+              label: "Top-up purchases",
+              data: [3, 41, 21, 7],
+              borderColor: COL.rose,
+              backgroundColor: "rgba(216, 122, 122, 0.12)",
+              borderWidth: 3,
+              tension: 0.4,
+              fill: true,
+              pointRadius: 6,
+              pointBackgroundColor: COL.rose,
+              pointBorderColor: "#fff",
+              pointBorderWidth: 2,
+              yAxisID: "y1",
+              order: 1,
+            },
           ],
         },
         options: {
-          responsive: true, maintainAspectRatio: false,
-          layout: { padding: { top: 22 } },
+          responsive: true,
+          maintainAspectRatio: false,
+          layout: { padding: { top: 28, right: 12 } },
           plugins: {
-            legend: { position: "top", align: "end", labels: { boxWidth: 10, usePointStyle: true, pointStyle: "circle", padding: 14, font: { size: 11 } } },
-            tooltip: { callbacks: { label: c => c.dataset.label + ": " + c.raw + " purchases" } },
+            legend: {
+              position: "top",
+              align: "end",
+              labels: { boxWidth: 10, usePointStyle: true, pointStyle: "circle", padding: 16, font: { size: 12 } },
+            },
+            tooltip: {
+              callbacks: {
+                label: (c) => c.dataset.label + ": " + c.raw.toLocaleString(),
+              },
+            },
             datalabels: {
-              display: ctx => ctx.dataset.data[ctx.dataIndex] > 0,
-              anchor: "end", align: "end", offset: 2,
-              color: COL.ink,
-              font: { family: "Playfair Display", size: 11, weight: "500", style: "italic" },
-              formatter: v => v
-            }
+              display: true,
+              anchor: (ctx) => (ctx.dataset.type === "line" ? "end" : "end"),
+              align: (ctx) => (ctx.dataset.type === "line" ? "top" : "end"),
+              offset: (ctx) => (ctx.dataset.type === "line" ? 10 : 4),
+              color: (ctx) => (ctx.dataset.type === "line" ? COL.rose : COL.ink),
+              backgroundColor: (ctx) => (ctx.dataset.type === "line" ? "rgba(249,245,241,.9)" : "transparent"),
+              borderRadius: 6,
+              padding: (ctx) => (ctx.dataset.type === "line" ? { top: 3, bottom: 3, left: 7, right: 7 } : 0),
+              font: {
+                family: "Playfair Display",
+                size: 13,
+                weight: "600",
+                style: "italic",
+              },
+              formatter: (v) => v.toLocaleString(),
+            },
           },
           scales: {
-            x: { grid: { display: false } },
-            y: { beginAtZero: true, grid: { color: "rgba(42,28,24,.06)" }, ticks: { font: { size: 11 }, stepSize: 5 }, title: { display: true, text: "Purchase count", font: { size: 10 }, color: "rgba(42,28,24,.5)" } }
-          }
-        }
+            x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+            y: {
+              position: "left",
+              beginAtZero: true,
+              grid: { color: "rgba(42,28,24,.06)" },
+              ticks: { font: { size: 11 } },
+              title: { display: true, text: "Active users", font: { size: 10 }, color: "rgba(42,28,24,.5)" },
+            },
+            y1: {
+              position: "right",
+              beginAtZero: true,
+              grid: { display: false },
+              ticks: { font: { size: 11 } },
+              title: { display: true, text: "Top-up purchases", font: { size: 10 }, color: "rgba(42,28,24,.5)" },
+            },
+          },
+        },
       });
     </script>
   </body>
