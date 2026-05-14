@@ -448,15 +448,15 @@
       /* MOM TABLE-CARD */
       .mom-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 16px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
         margin-top: 32px;
       }
       .mom-card {
         background: var(--parch);
         border: 1px solid rgba(42, 28, 24, 0.09);
         border-radius: var(--rL);
-        padding: 28px 26px;
+        padding: 24px 20px;
         transition: all 0.4s var(--out);
         position: relative;
         overflow: hidden;
@@ -640,18 +640,24 @@
       /* SUB MOM CARDS (new subscriptions by month — dot-matrix visual) */
       .sub-mom-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 16px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
       }
       .sub-mom-card {
         background: #fff;
         border: 1px solid rgba(42, 28, 24, 0.09);
         border-radius: var(--rL);
-        padding: 28px 26px;
+        padding: 22px 20px;
         transition: all 0.4s var(--out);
         display: flex;
         flex-direction: column;
-        gap: 22px;
+        gap: 18px;
+      }
+      .sub-mom-month {
+        font-size: 18px;
+      }
+      .sub-mom-total {
+        font-size: 32px;
       }
       .sub-mom-card:hover {
         transform: translateY(-4px);
@@ -1464,6 +1470,214 @@
         line-height: 1.65;
       }
 
+      /* GROWTH AT A GLANCE */
+      .growth-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .growth-card {
+        background: var(--parch);
+        border: 1px solid rgba(42, 28, 24, 0.09);
+        border-radius: var(--rL);
+        padding: 26px 24px;
+        transition: all 0.4s var(--out);
+      }
+      .growth-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--sh1);
+        border-color: rgba(107, 76, 76, 0.18);
+      }
+      .growth-head {
+        padding-bottom: 14px;
+        margin-bottom: 14px;
+        border-bottom: 1px solid rgba(42, 28, 24, 0.08);
+      }
+      .growth-title {
+        font-family: var(--font-display);
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--fg);
+        letter-spacing: -0.005em;
+      }
+      .growth-title em {
+        font-style: italic;
+        color: var(--primary);
+      }
+      .growth-meta {
+        font-size: 11px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+      .growth-rows {
+        display: flex;
+        flex-direction: column;
+      }
+      .gr {
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        gap: 14px;
+        align-items: center;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(42, 28, 24, 0.05);
+      }
+      .gr:last-child {
+        border-bottom: none;
+      }
+      .gr-month {
+        font-size: 12px;
+        color: var(--fg);
+        font-weight: 500;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .gr-month span {
+        font-size: 10px;
+        color: var(--muted);
+        font-weight: 400;
+      }
+      .gr-val {
+        font-family: var(--font-display);
+        font-size: 22px;
+        font-weight: 500;
+        color: var(--primary);
+        font-style: italic;
+        letter-spacing: -0.01em;
+      }
+      .gr-delta {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 4px 10px;
+        border-radius: 9999px;
+        border: 1px solid;
+        white-space: nowrap;
+      }
+      .gr-delta.up {
+        background: rgba(26, 160, 100, 0.08);
+        color: hsl(140, 55%, 30%);
+        border-color: rgba(26, 160, 100, 0.25);
+      }
+      .gr-delta.down {
+        background: rgba(240, 148, 85, 0.12);
+        color: #a35c20;
+        border-color: rgba(240, 148, 85, 0.3);
+      }
+      .gr-delta.neutral {
+        background: rgba(107, 76, 76, 0.06);
+        color: var(--muted);
+        border-color: rgba(107, 76, 76, 0.15);
+      }
+      .growth-charts {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 24px;
+      }
+
+      /* GROWTH AT A GLANCE */
+      .growth-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-top: 32px;
+      }
+      .growth-card {
+        background: var(--parch);
+        border: 1px solid rgba(42, 28, 24, 0.09);
+        border-radius: var(--rL);
+        padding: 26px 24px;
+        transition: all 0.4s var(--out);
+      }
+      .growth-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--sh2);
+        border-color: rgba(107, 76, 76, 0.18);
+      }
+      .growth-head {
+        margin-bottom: 18px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid rgba(42, 28, 24, 0.08);
+      }
+      .growth-title {
+        font-family: var(--font-display);
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--fg);
+        letter-spacing: -0.01em;
+      }
+      .growth-title em {
+        font-style: italic;
+        color: var(--primary);
+      }
+      .growth-meta {
+        font-size: 11px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+      .gr {
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        gap: 14px;
+        align-items: baseline;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(42, 28, 24, 0.05);
+      }
+      .gr:last-child {
+        border-bottom: none;
+      }
+      .gr-month {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--fg);
+      }
+      .gr-month span {
+        display: block;
+        font-size: 10px;
+        font-weight: 400;
+        color: var(--muted);
+        margin-top: 2px;
+        letter-spacing: 0.02em;
+      }
+      .gr-val {
+        font-family: var(--font-display);
+        font-size: 22px;
+        font-weight: 400;
+        color: var(--fg);
+        font-style: italic;
+        letter-spacing: -0.02em;
+      }
+      .gr-delta {
+        font-size: 11px;
+        font-weight: 600;
+        padding: 3px 9px;
+        border-radius: 9999px;
+        white-space: nowrap;
+      }
+      .gr-delta.up {
+        background: hsla(140, 60%, 42%, 0.1);
+        color: hsl(140, 55%, 30%);
+        border: 1px solid hsla(140, 60%, 42%, 0.22);
+      }
+      .gr-delta.down {
+        background: rgba(240, 148, 85, 0.12);
+        color: #a35c20;
+        border: 1px solid rgba(240, 148, 85, 0.3);
+      }
+      .gr-delta.neutral {
+        background: rgba(107, 76, 76, 0.06);
+        color: var(--muted);
+        border: 1px solid rgba(107, 76, 76, 0.15);
+      }
+      .growth-charts {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 24px;
+      }
+
       /* FOOTER */
       footer {
         background: var(--deeper);
@@ -1479,6 +1693,12 @@
         color: var(--rose);
       }
 
+      @media (max-width: 1024px) {
+        .mom-grid,
+        .sub-mom-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
       @media (max-width: 960px) {
         .hero-metrics,
         .chart-grid,
@@ -1492,7 +1712,9 @@
         .sources-grid,
         .mp-grid,
         .sub-mom-grid,
-        .pg-grid {
+        .pg-grid,
+        .growth-grid,
+        .growth-charts {
           grid-template-columns: 1fr;
         }
         section.page {
@@ -1522,6 +1744,8 @@
           <button class="nav-link" data-target="s7">Marketing</button>
           <button class="nav-link" data-target="s8">Profiles</button>
           <button class="nav-link" data-target="s9">Insights</button>
+          <button class="nav-link" data-target="s10">Growth</button>
+          <button class="nav-link" data-target="s10">Growth</button>
         </div>
       </div>
     </nav>
@@ -1551,26 +1775,26 @@
         <p class="hero-sub">
           Architect — month-on-month performance, pipeline, funnel, and
           paid-user insights. Source: Stripe &amp; internal analytics. Snapshot
-          through Apr 30.
+          through May 15.
         </p>
 
         <div class="hero-metrics">
           <div class="hm">
-            <span class="hm-lbl">LTR</span><span class="hm-val">$5,995</span
+            <span class="hm-lbl">LTR</span><span class="hm-val">$6,405</span
             ><span class="hm-note">Lifetime revenue</span>
           </div>
           <div class="hm">
-            <span class="hm-lbl">ARR</span><span class="hm-val">$15,400</span
+            <span class="hm-lbl">ARR</span><span class="hm-val">$15,880</span
             ><span class="hm-note">Annualized</span>
           </div>
           <div class="hm">
-            <span class="hm-lbl">MRR</span><span class="hm-val">$1,283.33</span
+            <span class="hm-lbl">MRR</span><span class="hm-val">$1,323.33</span
             ><span class="hm-note">Monthly recurring</span>
           </div>
           <div class="hm">
             <span class="hm-lbl">Paid Subs</span
-            ><span class="hm-val">46<sup>↑</sup></span
-            ><span class="hm-note">38 active · 8 cancelled</span>
+            ><span class="hm-val">48<sup>↑</sup></span
+            ><span class="hm-note">40 active · 8 cancelled</span>
           </div>
           <div class="hm">
             <span class="hm-lbl">Studio → Architect</span
@@ -1587,11 +1811,11 @@
         <div class="sec-head">
           <span class="eyebrow">01 · MOM Revenue</span>
           <h2 class="section-title">
-            Three months of <em>revenue & subscriptions.</em>
+            Four months of <em>revenue & subscriptions.</em>
           </h2>
           <p class="section-sub">
             Month-on-month comparison — each metric reflects that month only,
-            not cumulative.
+            not cumulative. Month 4 is a partial window (May 1–15).
           </p>
         </div>
 
@@ -1711,6 +1935,37 @@
               <div class="mom-row">
                 <span class="mom-row-lbl">ARR</span
                 ><span class="mom-row-val">$15,400</span>
+              </div>
+            </div>
+          </div>
+          <div class="mom-card partial">
+            <div class="mom-card-head">
+              <div>
+                <div class="mom-card-month">Month 4<span style="color:var(--primary)">*</span></div>
+                <div class="mom-card-range">May 1 — May 15</div>
+              </div>
+              <span class="mom-chip partial">Partial · 15 days</span>
+            </div>
+            <div class="mom-rows">
+              <div class="mom-row">
+                <span class="mom-row-lbl">Revenue</span
+                ><span class="mom-row-val big"><em>$410</em></span>
+              </div>
+              <div class="mom-row">
+                <span class="mom-row-lbl">New subscriptions</span
+                ><span class="mom-row-val">2</span>
+              </div>
+              <div class="mom-row">
+                <span class="mom-row-lbl">Churned</span
+                ><span class="mom-row-val">0</span>
+              </div>
+              <div class="mom-row">
+                <span class="mom-row-lbl">MRR</span
+                ><span class="mom-row-val">$1,323.33</span>
+              </div>
+              <div class="mom-row">
+                <span class="mom-row-lbl">ARR</span
+                ><span class="mom-row-val">$15,880</span>
               </div>
             </div>
           </div>
@@ -1857,10 +2112,45 @@
               </div>
             </div>
           </div>
+
+          <div class="sub-mom-card partial">
+            <div class="sub-mom-head">
+              <div>
+                <div class="sub-mom-month">Month 4<span style="color:var(--primary)">*</span></div>
+                <div class="sub-mom-range">May 1 — May 15 · partial</div>
+              </div>
+              <div class="sub-mom-total">2<span>new</span></div>
+            </div>
+            <div class="sub-dots">
+              <span class="sd sd-p2"></span><span class="sd sd-p2"></span>
+            </div>
+            <div class="sub-tiers">
+              <div class="sub-tier">
+                <span class="sub-tier-swatch p2"></span
+                ><span class="sub-tier-name">$20/mo</span
+                ><span class="sub-tier-count">2</span>
+              </div>
+              <div class="sub-tier muted">
+                <span class="sub-tier-swatch p1"></span
+                ><span class="sub-tier-name">$40/mo</span
+                ><span class="sub-tier-count">0</span>
+              </div>
+              <div class="sub-tier muted">
+                <span class="sub-tier-swatch p3"></span
+                ><span class="sub-tier-name">$420/yr</span
+                ><span class="sub-tier-count">0</span>
+              </div>
+              <div class="sub-tier muted">
+                <span class="sub-tier-swatch p4"></span
+                ><span class="sub-tier-name">$200/yr</span
+                ><span class="sub-tier-count">0</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div style="margin-top: 48px">
-          <span class="eyebrow">Active subscriptions today · 38 total</span>
+          <span class="eyebrow">Active subscriptions today · 40 total</span>
           <div class="tier-grid">
             <div class="tier-card">
               <div class="tier-head">
@@ -1878,10 +2168,10 @@
                 <span class="tier-price"><em>$20</em></span
                 ><span class="tier-cycle">Monthly</span>
               </div>
-              <div class="tier-users">9</div>
+              <div class="tier-users">11</div>
               <div class="tier-users-lbl">active users</div>
               <div class="tier-bar">
-                <div class="tier-bar-fill" style="width: 36%"></div>
+                <div class="tier-bar-fill" style="width: 44%"></div>
               </div>
             </div>
             <div class="tier-card">
@@ -1953,15 +2243,15 @@
           <div class="topup-card">
             <div class="topup-denom">$25 denomination</div>
             <div class="topup-row">
-              <span class="topup-count">47</span
-              ><span class="topup-total">× $25 = <strong>$1,175</strong></span>
+              <span class="topup-count">51</span
+              ><span class="topup-total">× $25 = <strong>$1,275</strong></span>
             </div>
           </div>
           <div class="topup-card">
             <div class="topup-denom">$50 denomination</div>
             <div class="topup-row">
-              <span class="topup-count">12</span
-              ><span class="topup-total">× $50 = <strong>$600</strong></span>
+              <span class="topup-count">15</span
+              ><span class="topup-total">× $50 = <strong>$750</strong></span>
             </div>
           </div>
           <div class="topup-card">
@@ -2235,10 +2525,10 @@
                 ></div>
               </div>
               <div class="funnel-conv">
-                0.47% of sign-ups · 1.23% of app builders
+                0.49% of sign-ups · 1.28% of app builders
               </div>
             </div>
-            <div class="funnel-num-big"><em>46</em></div>
+            <div class="funnel-num-big"><em>48</em></div>
           </div>
         </div>
       </div>
@@ -2366,9 +2656,87 @@
       </div>
     </section>
 
+    <!-- GROWTH AT A GLANCE -->
+    <section class="page" id="s10">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">10 · Growth at a glance</span>
+          <h2 class="section-title">
+            Four months of <em>growth</em> in one view.
+          </h2>
+          <p class="section-sub">
+            New users, active base, and top-up spend tracked month-over-month
+            with change deltas. Month 4 is a partial 15-day window.
+          </p>
+        </div>
+
+        <div class="growth-grid">
+          <div class="growth-card">
+            <div class="growth-head">
+              <div class="growth-title">New users <em>added</em></div>
+              <div class="growth-meta">Per month · with change</div>
+            </div>
+            <div class="growth-rows">
+              <div class="gr"><div class="gr-month">Month 1<span>Feb 16–28</span></div><div class="gr-val">14</div><div class="gr-delta neutral">— launch</div></div>
+              <div class="gr"><div class="gr-month">Month 2<span>Mar 1–31</span></div><div class="gr-val">24</div><div class="gr-delta up">+71% ↑</div></div>
+              <div class="gr"><div class="gr-month">Month 3<span>Apr 1–30</span></div><div class="gr-val">8</div><div class="gr-delta down">−67% ↓</div></div>
+              <div class="gr"><div class="gr-month">Month 4*<span>May 1–15 · partial</span></div><div class="gr-val">2</div><div class="gr-delta down">−75% ↓</div></div>
+            </div>
+          </div>
+
+          <div class="growth-card">
+            <div class="growth-head">
+              <div class="growth-title"><em>Active</em> users at end of month</div>
+              <div class="growth-meta">Cumulative · net of churn</div>
+            </div>
+            <div class="growth-rows">
+              <div class="gr"><div class="gr-month">Month 1<span>Feb 16–28</span></div><div class="gr-val">14</div><div class="gr-delta neutral">baseline</div></div>
+              <div class="gr"><div class="gr-month">Month 2<span>Mar 1–31</span></div><div class="gr-val">30</div><div class="gr-delta up">+16 net</div></div>
+              <div class="gr"><div class="gr-month">Month 3<span>Apr 1–30</span></div><div class="gr-val">38</div><div class="gr-delta up">+8</div></div>
+              <div class="gr"><div class="gr-month">Month 4*<span>May 1–15 · partial</span></div><div class="gr-val">40</div><div class="gr-delta up">+2</div></div>
+            </div>
+          </div>
+
+          <div class="growth-card">
+            <div class="growth-head">
+              <div class="growth-title">Top-up <em>spend</em></div>
+              <div class="growth-meta">Per month · USD</div>
+            </div>
+            <div class="growth-rows">
+              <div class="gr"><div class="gr-month">Month 1<span>Feb 16–28</span></div><div class="gr-val">$150</div><div class="gr-delta neutral">—</div></div>
+              <div class="gr"><div class="gr-month">Month 2<span>Mar 1–31</span></div><div class="gr-val">$1,525</div><div class="gr-delta up">+917% ↑</div></div>
+              <div class="gr"><div class="gr-month">Month 3<span>Apr 1–30</span></div><div class="gr-val">$700</div><div class="gr-delta down">−54% ↓</div></div>
+              <div class="gr"><div class="gr-month">Month 4*<span>May 1–15 · partial</span></div><div class="gr-val">$250</div><div class="gr-delta down">−64% ↓</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="growth-charts">
+          <div class="chart-card">
+            <div class="chart-head">
+              <div>
+                <div class="chart-title">Active user <em>composition</em></div>
+                <div class="chart-meta" style="margin-top: 4px">Stacked by plan at end of each month</div>
+              </div>
+            </div>
+            <div class="chart-wrap tall"><canvas id="activeUsersChart"></canvas></div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-head">
+              <div>
+                <div class="chart-title">Top-up <em>purchases</em></div>
+                <div class="chart-meta" style="margin-top: 4px">Count of transactions by denomination</div>
+              </div>
+            </div>
+            <div class="chart-wrap tall"><canvas id="topupCountsChart"></canvas></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <footer>
       Architect — Revenue &amp; Traction Report · Source: Stripe &amp; internal
-      analytics · Snapshot through <em>Apr 23</em>.
+      analytics · Snapshot through <em>May 15</em>.
     </footer>
 
     <script>
@@ -2378,7 +2746,9 @@
         "Month 1 · Feb 16–Feb 28",
         "Month 2 · Mar 1–Mar 31",
         "Month 3 · Apr 1–Apr 30",
+        "Month 4 · May 1–May 15*",
       ];
+      const TRACTION_MONTHS = MONTHS.slice(0, 3);
 
       // Top companies
       const COMPANIES = [
@@ -2935,8 +3305,8 @@
           datasets: [
             {
               label: "Revenue",
-              data: [670, 4265, 1060],
-              backgroundColor: [COL.primary, COL.primary2, COL.warm],
+              data: [670, 4265, 1060, 410],
+              backgroundColor: [COL.primary, COL.primary2, COL.warm, COL.rose],
               borderRadius: 10,
               barPercentage: 0.65,
             },
@@ -2988,7 +3358,7 @@
           datasets: [
             {
               label: "MRR",
-              data: [560, 1103.33, 1283.33],
+              data: [560, 1103.33, 1283.33, 1323.33],
               borderColor: COL.primary,
               backgroundColor: "rgba(107,76,76,.12)",
               tension: 0.4,
@@ -3001,7 +3371,7 @@
             },
             {
               label: "ARR",
-              data: [6720, 13240, 15400],
+              data: [6720, 13240, 15400, 15880],
               borderColor: COL.rose,
               backgroundColor: "transparent",
               borderDash: [4, 4],
@@ -3090,10 +3460,10 @@
       new Chart(document.getElementById("topupLifetime"), {
         type: "doughnut",
         data: {
-          labels: ["$25 × 47 = $1,175", "$50 × 12 = $600", "$100 × 6 = $600"],
+          labels: ["$25 × 51 = $1,275", "$50 × 15 = $750", "$100 × 6 = $600"],
           datasets: [
             {
-              data: [1175, 600, 600],
+              data: [1275, 750, 600],
               backgroundColor: [COL.primary, COL.primary2, COL.warm],
               borderWidth: 0,
               hoverOffset: 6,
@@ -3118,7 +3488,7 @@
             tooltip: {
               callbacks: {
                 label: (c) =>
-                  c.label + " (" + ((c.raw / 2375) * 100).toFixed(1) + "%)",
+                  c.label + " (" + ((c.raw / 2625) * 100).toFixed(1) + "%)",
               },
             },
             datalabels: {
@@ -3144,19 +3514,19 @@
           datasets: [
             {
               label: "$25",
-              data: [50, 725, 400],
+              data: [50, 725, 400, 100],
               backgroundColor: COL.primary,
               borderRadius: 6,
             },
             {
               label: "$50",
-              data: [0, 400, 200],
+              data: [0, 400, 200, 150],
               backgroundColor: COL.primary2,
               borderRadius: 6,
             },
             {
               label: "$100",
-              data: [100, 400, 100],
+              data: [100, 400, 100, 0],
               backgroundColor: COL.warm,
               borderRadius: 6,
             },
@@ -3213,7 +3583,7 @@
       new Chart(document.getElementById("tractionChart"), {
         type: "bar",
         data: {
-          labels: MONTHS,
+          labels: TRACTION_MONTHS,
           datasets: [
             {
               label: "Total Visits",
@@ -3297,6 +3667,157 @@
         },
       });
 
+      // Active users composition (stacked)
+      new Chart(document.getElementById("activeUsersChart"), {
+        type: "bar",
+        data: {
+          labels: MONTHS,
+          datasets: [
+            {
+              label: "$40/mo",
+              data: [14, 24, 25, 25],
+              backgroundColor: COL.primary,
+              borderRadius: 6,
+              stack: "u",
+            },
+            {
+              label: "$20/mo",
+              data: [0, 2, 9, 11],
+              backgroundColor: COL.primary2,
+              borderRadius: 6,
+              stack: "u",
+            },
+            {
+              label: "$420/yr",
+              data: [0, 2, 2, 2],
+              backgroundColor: COL.rose,
+              borderRadius: 6,
+              stack: "u",
+            },
+            {
+              label: "$200/yr",
+              data: [0, 2, 2, 2],
+              backgroundColor: COL.rosem,
+              borderRadius: 6,
+              stack: "u",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          layout: { padding: { top: 16 } },
+          plugins: {
+            legend: {
+              position: "top",
+              align: "end",
+              labels: {
+                boxWidth: 10,
+                usePointStyle: true,
+                pointStyle: "circle",
+                padding: 14,
+                font: { size: 11 },
+              },
+            },
+            datalabels: {
+              display: (ctx) => ctx.dataset.data[ctx.dataIndex] > 0,
+              color: "#fff",
+              font: { family: "DM Sans", size: 11, weight: "700" },
+              formatter: (v) => v,
+            },
+          },
+          scales: {
+            x: { stacked: true, grid: { display: false } },
+            y: {
+              stacked: true,
+              beginAtZero: true,
+              grid: { color: "rgba(42,28,24,.06)" },
+              ticks: { font: { size: 11 } },
+              title: {
+                display: true,
+                text: "Active users",
+                font: { size: 10 },
+                color: "rgba(42,28,24,.5)",
+              },
+            },
+          },
+        },
+      });
+
+      // Top-up purchase counts
+      new Chart(document.getElementById("topupCountsChart"), {
+        type: "bar",
+        data: {
+          labels: MONTHS,
+          datasets: [
+            {
+              label: "$25 count",
+              data: [2, 29, 16, 4],
+              backgroundColor: COL.primary,
+              borderRadius: 6,
+            },
+            {
+              label: "$50 count",
+              data: [0, 8, 4, 3],
+              backgroundColor: COL.primary2,
+              borderRadius: 6,
+            },
+            {
+              label: "$100 count",
+              data: [1, 4, 1, 0],
+              backgroundColor: COL.warm,
+              borderRadius: 6,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          layout: { padding: { top: 20 } },
+          plugins: {
+            legend: {
+              position: "top",
+              align: "end",
+              labels: {
+                boxWidth: 10,
+                usePointStyle: true,
+                pointStyle: "circle",
+                padding: 14,
+                font: { size: 11 },
+              },
+            },
+            datalabels: {
+              display: (ctx) => ctx.dataset.data[ctx.dataIndex] > 0,
+              anchor: "end",
+              align: "end",
+              offset: 2,
+              color: COL.ink,
+              font: {
+                family: "Playfair Display",
+                size: 11,
+                weight: "500",
+                style: "italic",
+              },
+              formatter: (v) => v,
+            },
+          },
+          scales: {
+            x: { grid: { display: false } },
+            y: {
+              beginAtZero: true,
+              grid: { color: "rgba(42,28,24,.06)" },
+              ticks: { font: { size: 11 } },
+              title: {
+                display: true,
+                text: "Purchase count",
+                font: { size: 10 },
+                color: "rgba(42,28,24,.5)",
+              },
+            },
+          },
+        },
+      });
+
       // Marketing horizontal bar
       new Chart(document.getElementById("mktChart"), {
         type: "bar",
@@ -3345,6 +3866,70 @@
             },
           },
         },
+      });
+
+      // Active users composition (stacked bar)
+      new Chart(document.getElementById("activeUsersChart"), {
+        type: "bar",
+        data: {
+          labels: MONTHS,
+          datasets: [
+            { label: "$40/mo", data: [14, 24, 25, 25], backgroundColor: COL.primary, borderRadius: 6, stack: "a" },
+            { label: "$20/mo", data: [0, 2, 9, 11], backgroundColor: COL.primary2, borderRadius: 6, stack: "a" },
+            { label: "$420/yr", data: [0, 2, 2, 2], backgroundColor: COL.rose, borderRadius: 6, stack: "a" },
+            { label: "$200/yr", data: [0, 2, 2, 2], backgroundColor: COL.rosem, borderRadius: 6, stack: "a" },
+          ],
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          layout: { padding: { top: 20 } },
+          plugins: {
+            legend: { position: "top", align: "end", labels: { boxWidth: 10, usePointStyle: true, pointStyle: "circle", padding: 14, font: { size: 11 } } },
+            tooltip: { callbacks: { label: c => c.dataset.label + ": " + c.raw + " users" } },
+            datalabels: {
+              display: ctx => ctx.dataset.data[ctx.dataIndex] > 0,
+              color: "#fff",
+              font: { family: "DM Sans", size: 11, weight: "700" },
+              formatter: v => v
+            }
+          },
+          scales: {
+            x: { stacked: true, grid: { display: false } },
+            y: { stacked: true, grid: { color: "rgba(42,28,24,.06)" }, ticks: { font: { size: 11 } }, title: { display: true, text: "Active users", font: { size: 10 }, color: "rgba(42,28,24,.5)" } }
+          }
+        }
+      });
+
+      // Top-up purchase counts (grouped bar)
+      new Chart(document.getElementById("topupCountsChart"), {
+        type: "bar",
+        data: {
+          labels: MONTHS,
+          datasets: [
+            { label: "$25", data: [2, 29, 16, 4], backgroundColor: COL.primary, borderRadius: 6 },
+            { label: "$50", data: [0, 8, 4, 3], backgroundColor: COL.primary2, borderRadius: 6 },
+            { label: "$100", data: [1, 4, 1, 0], backgroundColor: COL.warm, borderRadius: 6 },
+          ],
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          layout: { padding: { top: 22 } },
+          plugins: {
+            legend: { position: "top", align: "end", labels: { boxWidth: 10, usePointStyle: true, pointStyle: "circle", padding: 14, font: { size: 11 } } },
+            tooltip: { callbacks: { label: c => c.dataset.label + ": " + c.raw + " purchases" } },
+            datalabels: {
+              display: ctx => ctx.dataset.data[ctx.dataIndex] > 0,
+              anchor: "end", align: "end", offset: 2,
+              color: COL.ink,
+              font: { family: "Playfair Display", size: 11, weight: "500", style: "italic" },
+              formatter: v => v
+            }
+          },
+          scales: {
+            x: { grid: { display: false } },
+            y: { beginAtZero: true, grid: { color: "rgba(42,28,24,.06)" }, ticks: { font: { size: 11 }, stepSize: 5 }, title: { display: true, text: "Purchase count", font: { size: 10 }, color: "rgba(42,28,24,.5)" } }
+          }
+        }
       });
     </script>
   </body>
