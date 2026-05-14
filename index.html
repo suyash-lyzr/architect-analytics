@@ -1470,114 +1470,7 @@
         line-height: 1.65;
       }
 
-      /* GROWTH AT A GLANCE */
-      .growth-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-      }
-      .growth-card {
-        background: var(--parch);
-        border: 1px solid rgba(42, 28, 24, 0.09);
-        border-radius: var(--rL);
-        padding: 26px 24px;
-        transition: all 0.4s var(--out);
-      }
-      .growth-card:hover {
-        transform: translateY(-3px);
-        box-shadow: var(--sh1);
-        border-color: rgba(107, 76, 76, 0.18);
-      }
-      .growth-head {
-        padding-bottom: 14px;
-        margin-bottom: 14px;
-        border-bottom: 1px solid rgba(42, 28, 24, 0.08);
-      }
-      .growth-title {
-        font-family: var(--font-display);
-        font-size: 18px;
-        font-weight: 500;
-        color: var(--fg);
-        letter-spacing: -0.005em;
-      }
-      .growth-title em {
-        font-style: italic;
-        color: var(--primary);
-      }
-      .growth-meta {
-        font-size: 11px;
-        color: var(--muted);
-        margin-top: 4px;
-      }
-      .growth-rows {
-        display: flex;
-        flex-direction: column;
-      }
-      .gr {
-        display: grid;
-        grid-template-columns: 1fr auto auto;
-        gap: 14px;
-        align-items: center;
-        padding: 12px 0;
-        border-bottom: 1px solid rgba(42, 28, 24, 0.05);
-      }
-      .gr:last-child {
-        border-bottom: none;
-      }
-      .gr-month {
-        font-size: 12px;
-        color: var(--fg);
-        font-weight: 500;
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-      }
-      .gr-month span {
-        font-size: 10px;
-        color: var(--muted);
-        font-weight: 400;
-      }
-      .gr-val {
-        font-family: var(--font-display);
-        font-size: 22px;
-        font-weight: 500;
-        color: var(--primary);
-        font-style: italic;
-        letter-spacing: -0.01em;
-      }
-      .gr-delta {
-        font-size: 10px;
-        font-weight: 700;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        padding: 4px 10px;
-        border-radius: 9999px;
-        border: 1px solid;
-        white-space: nowrap;
-      }
-      .gr-delta.up {
-        background: rgba(26, 160, 100, 0.08);
-        color: hsl(140, 55%, 30%);
-        border-color: rgba(26, 160, 100, 0.25);
-      }
-      .gr-delta.down {
-        background: rgba(240, 148, 85, 0.12);
-        color: #a35c20;
-        border-color: rgba(240, 148, 85, 0.3);
-      }
-      .gr-delta.neutral {
-        background: rgba(107, 76, 76, 0.06);
-        color: var(--muted);
-        border-color: rgba(107, 76, 76, 0.15);
-      }
-      .growth-charts {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-        margin-top: 24px;
-      }
-
-      /* GROWTH AT A GLANCE */
+      /* GROWTH AT A GLANCE — visual cards with mini bar charts */
       .growth-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -1587,95 +1480,161 @@
       .growth-card {
         background: var(--parch);
         border: 1px solid rgba(42, 28, 24, 0.09);
-        border-radius: var(--rL);
-        padding: 26px 24px;
+        border-radius: var(--rXL);
+        padding: 28px 26px 22px;
         transition: all 0.4s var(--out);
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
       }
       .growth-card:hover {
         transform: translateY(-4px);
         box-shadow: var(--sh2);
         border-color: rgba(107, 76, 76, 0.18);
       }
-      .growth-head {
-        margin-bottom: 18px;
-        padding-bottom: 14px;
-        border-bottom: 1px solid rgba(42, 28, 24, 0.08);
-      }
-      .growth-title {
+      .growth-eyebrow {
         font-family: var(--font-display);
-        font-size: 18px;
+        font-size: 19px;
         font-weight: 500;
         color: var(--fg);
         letter-spacing: -0.01em;
+        line-height: 1.25;
       }
-      .growth-title em {
+      .growth-eyebrow em {
         font-style: italic;
         color: var(--primary);
       }
-      .growth-meta {
-        font-size: 11px;
-        color: var(--muted);
-        margin-top: 4px;
-      }
-      .gr {
-        display: grid;
-        grid-template-columns: 1fr auto auto;
-        gap: 14px;
+      .growth-hero {
+        display: flex;
         align-items: baseline;
-        padding: 10px 0;
-        border-bottom: 1px solid rgba(42, 28, 24, 0.05);
+        justify-content: space-between;
+        gap: 14px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid rgba(42, 28, 24, 0.08);
       }
-      .gr:last-child {
-        border-bottom: none;
-      }
-      .gr-month {
-        font-size: 12px;
-        font-weight: 600;
-        color: var(--fg);
-      }
-      .gr-month span {
-        display: block;
-        font-size: 10px;
-        font-weight: 400;
-        color: var(--muted);
-        margin-top: 2px;
-        letter-spacing: 0.02em;
-      }
-      .gr-val {
+      .growth-big {
         font-family: var(--font-display);
-        font-size: 22px;
-        font-weight: 400;
-        color: var(--fg);
+        font-size: clamp(2.8rem, 4.2vw, 3.6rem);
+        font-weight: 300;
         font-style: italic;
-        letter-spacing: -0.02em;
+        color: var(--primary);
+        line-height: 1;
+        letter-spacing: -0.03em;
+        display: inline-flex;
+        align-items: baseline;
+        gap: 8px;
       }
-      .gr-delta {
-        font-size: 11px;
-        font-weight: 600;
-        padding: 3px 9px;
+      .growth-big-sup {
+        font-family: var(--font-body);
+        font-style: normal;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        color: var(--muted);
+        background: rgba(107, 76, 76, 0.07);
+        padding: 4px 9px;
+        border-radius: 9999px;
+        text-transform: uppercase;
+        align-self: center;
+      }
+      .growth-delta {
+        font-size: 11.5px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        padding: 6px 12px;
         border-radius: 9999px;
         white-space: nowrap;
       }
-      .gr-delta.up {
+      .growth-delta.up {
         background: hsla(140, 60%, 42%, 0.1);
         color: hsl(140, 55%, 30%);
         border: 1px solid hsla(140, 60%, 42%, 0.22);
       }
-      .gr-delta.down {
+      .growth-delta.down {
         background: rgba(240, 148, 85, 0.12);
         color: #a35c20;
         border: 1px solid rgba(240, 148, 85, 0.3);
       }
-      .gr-delta.neutral {
-        background: rgba(107, 76, 76, 0.06);
+      .growth-bars {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        height: 168px;
+        align-items: end;
+      }
+      .gb {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        height: 100%;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+      .gb-fill {
+        height: var(--h, 50%);
+        min-height: 22px;
+        background: var(--c, var(--primary));
+        border-radius: 8px 8px 4px 4px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 6px 4px 4px;
+        transition: all 0.4s var(--out);
+      }
+      .gb-fill.curr {
+        box-shadow:
+          0 0 0 2px rgba(255, 255, 255, 0.5),
+          0 0 0 3px var(--c);
+      }
+      .gb-num {
+        font-family: var(--font-display);
+        font-size: 12px;
+        font-weight: 600;
+        font-style: italic;
+        color: #fff;
+        line-height: 1;
+        white-space: nowrap;
+      }
+      .gb-tag {
+        font-size: 8.5px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        padding: 2px 6px;
+        border-radius: 9999px;
+        margin-top: 4px;
+        white-space: nowrap;
+        line-height: 1;
+      }
+      .gb-tag.up {
+        background: rgba(255, 255, 255, 0.92);
+        color: hsl(140, 55%, 30%);
+      }
+      .gb-tag.down {
+        background: rgba(255, 255, 255, 0.92);
+        color: #a35c20;
+      }
+      .gb-lbl {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--fg);
+        text-align: center;
+        letter-spacing: 0.02em;
+      }
+      .gb-lbl span {
+        display: block;
+        font-size: 9px;
+        font-weight: 500;
         color: var(--muted);
-        border: 1px solid rgba(107, 76, 76, 0.15);
+        margin-top: 1px;
+        letter-spacing: 0.02em;
       }
       .growth-charts {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 20px;
-        margin-top: 24px;
+        margin-top: 28px;
       }
 
       /* FOOTER */
@@ -1735,17 +1694,16 @@
           <span class="nav-title">Architect · <em>Revenue Report</em></span>
         </div>
         <div class="nav-links">
-          <button class="nav-link" data-target="s1">MOM Revenue</button>
-          <button class="nav-link" data-target="s2">Subscriptions</button>
-          <button class="nav-link" data-target="s3">Top-ups</button>
-          <button class="nav-link" data-target="s4">Traction</button>
-          <button class="nav-link" data-target="s5">Enterprise</button>
-          <button class="nav-link" data-target="s6">Funnel</button>
-          <button class="nav-link" data-target="s7">Marketing</button>
-          <button class="nav-link" data-target="s8">Profiles</button>
-          <button class="nav-link" data-target="s9">Insights</button>
-          <button class="nav-link" data-target="s10">Growth</button>
-          <button class="nav-link" data-target="s10">Growth</button>
+          <button class="nav-link" data-target="s1">Growth</button>
+          <button class="nav-link" data-target="s2">MOM Revenue</button>
+          <button class="nav-link" data-target="s3">Subscriptions</button>
+          <button class="nav-link" data-target="s4">Top-ups</button>
+          <button class="nav-link" data-target="s5">Traction</button>
+          <button class="nav-link" data-target="s6">Enterprise</button>
+          <button class="nav-link" data-target="s7">Funnel</button>
+          <button class="nav-link" data-target="s8">Marketing</button>
+          <button class="nav-link" data-target="s9">Profiles</button>
+          <button class="nav-link" data-target="s10">Insights</button>
         </div>
       </div>
     </nav>
@@ -1804,12 +1762,95 @@
         </div>
       </div>
     </section>
-
-    <!-- MOM REVENUE -->
-    <section class="page" id="s1">
+    <!-- GROWTH AT A GLANCE -->
+    <section class="page alt" id="s1">
       <div class="wrap">
         <div class="sec-head">
-          <span class="eyebrow">01 · MOM Revenue</span>
+          <span class="eyebrow">01 · Growth at a glance</span>
+          <h2 class="section-title">
+            Four months of <em>growth</em> in one view.
+          </h2>
+          <p class="section-sub">
+            New users, active base, and top-up spend tracked month-over-month
+            with change deltas. Month 4 is a partial 15-day window.
+          </p>
+        </div>
+
+        <div class="growth-grid">
+          <!-- New users added -->
+          <div class="growth-card">
+            <div class="growth-eyebrow">New users <em>added</em></div>
+            <div class="growth-hero">
+              <div class="growth-big">2<span class="growth-big-sup">M4</span></div>
+              <div class="growth-delta down">−75% vs M3</div>
+            </div>
+            <div class="growth-bars" data-max="24">
+              <div class="gb"><div class="gb-fill" style="--h:58%;--c:var(--primary)"><span class="gb-num">14</span></div><div class="gb-lbl">M1<span>launch</span></div></div>
+              <div class="gb"><div class="gb-fill" style="--h:100%;--c:var(--primary)"><span class="gb-num">24</span><span class="gb-tag up">+71%</span></div><div class="gb-lbl">M2</div></div>
+              <div class="gb"><div class="gb-fill" style="--h:33%;--c:var(--primary)"><span class="gb-num">8</span><span class="gb-tag down">−67%</span></div><div class="gb-lbl">M3</div></div>
+              <div class="gb"><div class="gb-fill curr" style="--h:8%;--c:var(--rose)"><span class="gb-num">2</span><span class="gb-tag down">−75%</span></div><div class="gb-lbl">M4*<span>partial</span></div></div>
+            </div>
+          </div>
+
+          <!-- Active users at end of month -->
+          <div class="growth-card">
+            <div class="growth-eyebrow"><em>Active</em> users at end of month</div>
+            <div class="growth-hero">
+              <div class="growth-big">40<span class="growth-big-sup">M4</span></div>
+              <div class="growth-delta up">+2 vs M3</div>
+            </div>
+            <div class="growth-bars" data-max="40">
+              <div class="gb"><div class="gb-fill" style="--h:35%;--c:var(--primary)"><span class="gb-num">14</span></div><div class="gb-lbl">M1<span>baseline</span></div></div>
+              <div class="gb"><div class="gb-fill" style="--h:75%;--c:var(--primary)"><span class="gb-num">30</span><span class="gb-tag up">+16</span></div><div class="gb-lbl">M2</div></div>
+              <div class="gb"><div class="gb-fill" style="--h:95%;--c:var(--primary)"><span class="gb-num">38</span><span class="gb-tag up">+8</span></div><div class="gb-lbl">M3</div></div>
+              <div class="gb"><div class="gb-fill curr" style="--h:100%;--c:var(--rose)"><span class="gb-num">40</span><span class="gb-tag up">+2</span></div><div class="gb-lbl">M4*<span>partial</span></div></div>
+            </div>
+          </div>
+
+          <!-- Top-up spend -->
+          <div class="growth-card">
+            <div class="growth-eyebrow">Top-up <em>spend</em></div>
+            <div class="growth-hero">
+              <div class="growth-big">$250<span class="growth-big-sup">M4</span></div>
+              <div class="growth-delta down">−64% vs M3</div>
+            </div>
+            <div class="growth-bars" data-max="1525">
+              <div class="gb"><div class="gb-fill" style="--h:10%;--c:var(--primary)"><span class="gb-num">$150</span></div><div class="gb-lbl">M1</div></div>
+              <div class="gb"><div class="gb-fill" style="--h:100%;--c:var(--primary)"><span class="gb-num">$1.5K</span><span class="gb-tag up">+917%</span></div><div class="gb-lbl">M2</div></div>
+              <div class="gb"><div class="gb-fill" style="--h:46%;--c:var(--primary)"><span class="gb-num">$700</span><span class="gb-tag down">−54%</span></div><div class="gb-lbl">M3</div></div>
+              <div class="gb"><div class="gb-fill curr" style="--h:16%;--c:var(--rose)"><span class="gb-num">$250</span><span class="gb-tag down">−64%</span></div><div class="gb-lbl">M4*<span>partial</span></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="growth-charts">
+          <div class="chart-card">
+            <div class="chart-head">
+              <div>
+                <div class="chart-title">Active user <em>composition</em></div>
+                <div class="chart-meta" style="margin-top: 4px">Stacked by plan at end of each month</div>
+              </div>
+            </div>
+            <div class="chart-wrap tall"><canvas id="activeUsersChart"></canvas></div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-head">
+              <div>
+                <div class="chart-title">Top-up <em>purchases</em></div>
+                <div class="chart-meta" style="margin-top: 4px">Count of transactions by denomination</div>
+              </div>
+            </div>
+            <div class="chart-wrap tall"><canvas id="topupCountsChart"></canvas></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOM REVENUE -->
+    <section class="page" id="s2">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">02 · MOM Revenue</span>
           <h2 class="section-title">
             Four months of <em>revenue & subscriptions.</em>
           </h2>
@@ -1974,10 +2015,10 @@
     </section>
 
     <!-- NEW SUBSCRIPTIONS BREAKDOWN -->
-    <section class="page alt" id="s2">
+    <section class="page alt" id="s3">
       <div class="wrap">
         <div class="sec-head">
-          <span class="eyebrow">02 · Subscriptions</span>
+          <span class="eyebrow">03 · Subscriptions</span>
           <h2 class="section-title">New subscriptions <em>by plan.</em></h2>
           <p class="section-sub">
             Distribution of newly-acquired paid users across Architect's four
@@ -2202,10 +2243,10 @@
     </section>
 
     <!-- TOP-UPS -->
-    <section class="page" id="s3">
+    <section class="page" id="s4">
       <div class="wrap">
         <div class="sec-head">
-          <span class="eyebrow">03 · Top-ups</span>
+          <span class="eyebrow">04 · Top-ups</span>
           <h2 class="section-title">Top-up <em>purchases.</em></h2>
           <p class="section-sub">
             One-time credit top-ups across three denominations. Lifetime counts
@@ -2266,10 +2307,10 @@
     </section>
 
     <!-- MOM TRACTION -->
-    <section class="page alt" id="s4">
+    <section class="page alt" id="s5">
       <div class="wrap">
         <div class="sec-head">
-          <span class="eyebrow">04 · MOM Traction</span>
+          <span class="eyebrow">05 · MOM Traction</span>
           <h2 class="section-title">
             Traction <em>funnel</em> month-over-month.
           </h2>
@@ -2318,10 +2359,10 @@
     </section>
 
     <!-- ENTERPRISE PIPELINE -->
-    <section class="page" id="s5">
+    <section class="page" id="s6">
       <div class="wrap">
         <div class="sec-head">
-          <span class="eyebrow">05 · Enterprise</span>
+          <span class="eyebrow">06 · Enterprise</span>
           <h2 class="section-title">Enterprise <em>pipeline.</em></h2>
           <p class="section-sub">
             Active deals with revenue attached, plus top-of-funnel prospects
@@ -2454,10 +2495,10 @@
     </section>
 
     <!-- FUNNEL SINCE FEB 16 -->
-    <section class="page dark" id="s6">
+    <section class="page dark" id="s7">
       <div class="wrap">
         <div class="sec-head">
-          <span class="eyebrow light">06 · Lifetime funnel</span>
+          <span class="eyebrow light">07 · Lifetime funnel</span>
           <h2 class="section-title wh">Full funnel <em>since Feb 16.</em></h2>
           <p class="section-sub wh">
             Top-of-funnel → paid conversion across the entire lifetime of
@@ -2535,10 +2576,10 @@
     </section>
 
     <!-- MARKETING SPEND -->
-    <section class="page" id="s7">
+    <section class="page" id="s8">
       <div class="wrap">
         <div class="sec-head">
-          <span class="eyebrow">07 · Marketing spend</span>
+          <span class="eyebrow">08 · Marketing spend</span>
           <h2 class="section-title">Marketing <em>spend mix.</em></h2>
           <p class="section-sub">
             As of 13th March. Total spend across channels.
@@ -2591,10 +2632,10 @@
     </section>
 
     <!-- PAID USER PROFILES -->
-    <section class="page" id="s8">
+    <section class="page" id="s9">
       <div class="wrap">
         <div class="sec-head">
-          <span class="eyebrow">08 · Paid user profiles</span>
+          <span class="eyebrow">09 · Paid user profiles</span>
           <h2 class="section-title">Who the <em>paid users</em> are.</h2>
           <p class="section-sub">
             Roles, companies, and context for every paying user on Architect
@@ -2607,10 +2648,10 @@
     </section>
 
     <!-- PAID USER SOURCES + BUILDS -->
-    <section class="page alt" id="s9">
+    <section class="page alt" id="s10">
       <div class="wrap">
         <div class="sec-head">
-          <span class="eyebrow">09 · Paid user insights</span>
+          <span class="eyebrow">10 · Paid user insights</span>
           <h2 class="section-title">
             Where paid users <em>come from</em> &amp; what they <em>build.</em>
           </h2>
@@ -2651,84 +2692,6 @@
               </div>
             </div>
             <div class="builds-list" id="buildsList"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- GROWTH AT A GLANCE -->
-    <section class="page" id="s10">
-      <div class="wrap">
-        <div class="sec-head">
-          <span class="eyebrow">10 · Growth at a glance</span>
-          <h2 class="section-title">
-            Four months of <em>growth</em> in one view.
-          </h2>
-          <p class="section-sub">
-            New users, active base, and top-up spend tracked month-over-month
-            with change deltas. Month 4 is a partial 15-day window.
-          </p>
-        </div>
-
-        <div class="growth-grid">
-          <div class="growth-card">
-            <div class="growth-head">
-              <div class="growth-title">New users <em>added</em></div>
-              <div class="growth-meta">Per month · with change</div>
-            </div>
-            <div class="growth-rows">
-              <div class="gr"><div class="gr-month">Month 1<span>Feb 16–28</span></div><div class="gr-val">14</div><div class="gr-delta neutral">— launch</div></div>
-              <div class="gr"><div class="gr-month">Month 2<span>Mar 1–31</span></div><div class="gr-val">24</div><div class="gr-delta up">+71% ↑</div></div>
-              <div class="gr"><div class="gr-month">Month 3<span>Apr 1–30</span></div><div class="gr-val">8</div><div class="gr-delta down">−67% ↓</div></div>
-              <div class="gr"><div class="gr-month">Month 4*<span>May 1–15 · partial</span></div><div class="gr-val">2</div><div class="gr-delta down">−75% ↓</div></div>
-            </div>
-          </div>
-
-          <div class="growth-card">
-            <div class="growth-head">
-              <div class="growth-title"><em>Active</em> users at end of month</div>
-              <div class="growth-meta">Cumulative · net of churn</div>
-            </div>
-            <div class="growth-rows">
-              <div class="gr"><div class="gr-month">Month 1<span>Feb 16–28</span></div><div class="gr-val">14</div><div class="gr-delta neutral">baseline</div></div>
-              <div class="gr"><div class="gr-month">Month 2<span>Mar 1–31</span></div><div class="gr-val">30</div><div class="gr-delta up">+16 net</div></div>
-              <div class="gr"><div class="gr-month">Month 3<span>Apr 1–30</span></div><div class="gr-val">38</div><div class="gr-delta up">+8</div></div>
-              <div class="gr"><div class="gr-month">Month 4*<span>May 1–15 · partial</span></div><div class="gr-val">40</div><div class="gr-delta up">+2</div></div>
-            </div>
-          </div>
-
-          <div class="growth-card">
-            <div class="growth-head">
-              <div class="growth-title">Top-up <em>spend</em></div>
-              <div class="growth-meta">Per month · USD</div>
-            </div>
-            <div class="growth-rows">
-              <div class="gr"><div class="gr-month">Month 1<span>Feb 16–28</span></div><div class="gr-val">$150</div><div class="gr-delta neutral">—</div></div>
-              <div class="gr"><div class="gr-month">Month 2<span>Mar 1–31</span></div><div class="gr-val">$1,525</div><div class="gr-delta up">+917% ↑</div></div>
-              <div class="gr"><div class="gr-month">Month 3<span>Apr 1–30</span></div><div class="gr-val">$700</div><div class="gr-delta down">−54% ↓</div></div>
-              <div class="gr"><div class="gr-month">Month 4*<span>May 1–15 · partial</span></div><div class="gr-val">$250</div><div class="gr-delta down">−64% ↓</div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="growth-charts">
-          <div class="chart-card">
-            <div class="chart-head">
-              <div>
-                <div class="chart-title">Active user <em>composition</em></div>
-                <div class="chart-meta" style="margin-top: 4px">Stacked by plan at end of each month</div>
-              </div>
-            </div>
-            <div class="chart-wrap tall"><canvas id="activeUsersChart"></canvas></div>
-          </div>
-          <div class="chart-card">
-            <div class="chart-head">
-              <div>
-                <div class="chart-title">Top-up <em>purchases</em></div>
-                <div class="chart-meta" style="margin-top: 4px">Count of transactions by denomination</div>
-              </div>
-            </div>
-            <div class="chart-wrap tall"><canvas id="topupCountsChart"></canvas></div>
           </div>
         </div>
       </div>
@@ -3246,7 +3209,7 @@
           .map((l) => document.getElementById(l.dataset.target))
           .filter(Boolean);
         const hero = document.querySelector(".hero");
-        const darkSection = document.getElementById("s6");
+        const darkSection = document.getElementById("s7");
 
         links.forEach((l) =>
           l.addEventListener("click", () => {
