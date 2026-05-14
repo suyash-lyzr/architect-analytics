@@ -1473,9 +1473,36 @@
       /* GROWTH AT A GLANCE — visual cards with mini bar charts */
       .growth-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 16px;
         margin-top: 32px;
+      }
+      .topup-totals {
+        display: flex;
+        gap: 24px;
+        align-items: baseline;
+      }
+      .tt-stat {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 2px;
+      }
+      .tt-val {
+        font-family: var(--font-display);
+        font-size: 24px;
+        font-weight: 500;
+        font-style: italic;
+        color: var(--primary);
+        line-height: 1;
+        letter-spacing: -0.01em;
+      }
+      .tt-lbl {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
       }
       .growth-card {
         background: var(--parch);
@@ -1787,8 +1814,7 @@
           <div class="growth-card">
             <div class="growth-eyebrow">New users <em>added</em></div>
             <div class="growth-hero">
-              <div class="growth-big">2<span class="growth-big-sup">May</span></div>
-              <div class="growth-delta down">−75% vs Apr</div>
+              <div class="growth-big">48<span class="growth-big-sup">Total</span></div>
             </div>
             <div class="growth-bars" data-max="24">
               <div class="gb"><div class="gb-fill" style="--h:58%;--c:var(--primary)"><span class="gb-num">14</span></div><div class="gb-lbl">Feb<span>launch</span></div></div>
@@ -1802,29 +1828,13 @@
           <div class="growth-card">
             <div class="growth-eyebrow"><em>Active</em> users at end of month</div>
             <div class="growth-hero">
-              <div class="growth-big">40<span class="growth-big-sup">May</span></div>
-              <div class="growth-delta up">+2 vs Apr</div>
+              <div class="growth-big">40<span class="growth-big-sup">Total</span></div>
             </div>
             <div class="growth-bars" data-max="40">
               <div class="gb"><div class="gb-fill" style="--h:35%;--c:var(--primary)"><span class="gb-num">14</span></div><div class="gb-lbl">Feb<span>baseline</span></div></div>
               <div class="gb"><div class="gb-fill" style="--h:75%;--c:var(--primary)"><span class="gb-num">30</span><span class="gb-tag up">+16</span></div><div class="gb-lbl">Mar</div></div>
               <div class="gb"><div class="gb-fill" style="--h:95%;--c:var(--primary)"><span class="gb-num">38</span><span class="gb-tag up">+8</span></div><div class="gb-lbl">Apr</div></div>
               <div class="gb"><div class="gb-fill curr" style="--h:100%;--c:var(--rose)"><span class="gb-num">40</span><span class="gb-tag up">+2</span></div><div class="gb-lbl">May<span>partial</span></div></div>
-            </div>
-          </div>
-
-          <!-- Top-up spend -->
-          <div class="growth-card">
-            <div class="growth-eyebrow">Top-up <em>spend</em></div>
-            <div class="growth-hero">
-              <div class="growth-big">$250<span class="growth-big-sup">May</span></div>
-              <div class="growth-delta down">−64% vs Apr</div>
-            </div>
-            <div class="growth-bars" data-max="1525">
-              <div class="gb"><div class="gb-fill" style="--h:10%;--c:var(--primary)"><span class="gb-num">$150</span></div><div class="gb-lbl">Feb</div></div>
-              <div class="gb"><div class="gb-fill" style="--h:100%;--c:var(--primary)"><span class="gb-num">$1.5K</span><span class="gb-tag up">+917%</span></div><div class="gb-lbl">Mar</div></div>
-              <div class="gb"><div class="gb-fill" style="--h:46%;--c:var(--primary)"><span class="gb-num">$700</span><span class="gb-tag down">−54%</span></div><div class="gb-lbl">Apr</div></div>
-              <div class="gb"><div class="gb-fill curr" style="--h:16%;--c:var(--rose)"><span class="gb-num">$250</span><span class="gb-tag down">−64%</span></div><div class="gb-lbl">May<span>partial</span></div></div>
             </div>
           </div>
         </div>
@@ -1840,10 +1850,14 @@
             <div class="chart-wrap tall"><canvas id="activeUsersChart"></canvas></div>
           </div>
           <div class="chart-card">
-            <div class="chart-head">
+            <div class="chart-head" style="align-items: flex-start; gap: 20px; flex-wrap: wrap;">
               <div>
                 <div class="chart-title">Top-up <em>purchases</em></div>
                 <div class="chart-meta" style="margin-top: 4px">Total top-up spend per month</div>
+              </div>
+              <div class="topup-totals">
+                <div class="tt-stat"><span class="tt-val">$2,625</span><span class="tt-lbl">total spend</span></div>
+                <div class="tt-stat"><span class="tt-val">72</span><span class="tt-lbl">total top-ups</span></div>
               </div>
             </div>
             <div class="chart-wrap tall"><canvas id="topupCountsChart"></canvas></div>
