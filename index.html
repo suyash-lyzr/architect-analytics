@@ -1843,7 +1843,7 @@
             <div class="chart-head">
               <div>
                 <div class="chart-title">Top-up <em>purchases</em></div>
-                <div class="chart-meta" style="margin-top: 4px">Total top-up transactions per month</div>
+                <div class="chart-meta" style="margin-top: 4px">Total top-up spend per month</div>
               </div>
             </div>
             <div class="chart-wrap tall"><canvas id="topupCountsChart"></canvas></div>
@@ -2712,10 +2712,10 @@
       // ═══════════════════════════ DATA ═══════════════════════════
 
       const MONTHS = [
-        "Month 1 · Feb 16–Feb 28",
-        "Month 2 · Mar 1–Mar 31",
-        "Month 3 · Apr 1–Apr 30",
-        "Month 4 · May 1–May 15*",
+        "Feb 16 – Feb 28",
+        "Mar 1 – Mar 31",
+        "Apr 1 – Apr 30",
+        "May 1 – May 15*",
       ];
       const TRACTION_MONTHS = MONTHS.slice(0, 3);
 
@@ -3731,15 +3731,15 @@
         },
       });
 
-      // Top-up purchases — total count per month
+      // Top-up spend — total amount per month
       new Chart(document.getElementById("topupCountsChart"), {
         type: "bar",
         data: {
           labels: MONTHS,
           datasets: [
             {
-              label: "Total top-up purchases",
-              data: [3, 41, 21, 7],
+              label: "Total top-up spend",
+              data: [150, 1525, 700, 250],
               backgroundColor: COL.primary,
               borderRadius: 8,
               barPercentage: 0.55,
@@ -3752,7 +3752,7 @@
           layout: { padding: { top: 28 } },
           plugins: {
             legend: { display: false },
-            tooltip: { callbacks: { label: (c) => c.raw + " purchases" } },
+            tooltip: { callbacks: { label: (c) => "$" + c.raw.toLocaleString() } },
             datalabels: {
               display: true,
               anchor: "end",
@@ -3760,7 +3760,7 @@
               offset: 4,
               color: COL.ink,
               font: { family: "Playfair Display", size: 14, weight: "500", style: "italic" },
-              formatter: (v) => v,
+              formatter: (v) => "$" + v.toLocaleString(),
             },
           },
           scales: {
@@ -3768,8 +3768,8 @@
             y: {
               beginAtZero: true,
               grid: { color: "rgba(42,28,24,.06)" },
-              ticks: { font: { size: 11 } },
-              title: { display: true, text: "Purchase count", font: { size: 10 }, color: "rgba(42,28,24,.5)" },
+              ticks: { callback: (v) => "$" + v.toLocaleString(), font: { size: 11 } },
+              title: { display: true, text: "Top-up spend (USD)", font: { size: 10 }, color: "rgba(42,28,24,.5)" },
             },
           },
         },
