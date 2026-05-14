@@ -1558,77 +1558,73 @@
       .growth-bars {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-        height: 168px;
-        align-items: end;
+        gap: 14px;
+        margin-top: 6px;
       }
       .gb {
+        display: grid;
+        grid-template-rows: 26px 200px 26px 20px;
+        gap: 6px;
+        align-items: end;
+        justify-items: center;
+      }
+      .gb-tag-slot {
         display: flex;
-        flex-direction: column;
-        align-items: stretch;
+        align-items: center;
+        justify-content: center;
         height: 100%;
-        justify-content: flex-end;
-        gap: 8px;
+      }
+      .gb-tag {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        padding: 3px 8px;
+        border-radius: 9999px;
+        white-space: nowrap;
+        line-height: 1;
+        border: 1px solid;
+      }
+      .gb-tag.up {
+        background: hsla(140, 60%, 42%, 0.1);
+        color: hsl(140, 55%, 30%);
+        border-color: hsla(140, 60%, 42%, 0.25);
+      }
+      .gb-tag.down {
+        background: rgba(240, 148, 85, 0.12);
+        color: #a35c20;
+        border-color: rgba(240, 148, 85, 0.3);
       }
       .gb-fill {
         height: var(--h, 50%);
-        min-height: 22px;
+        min-height: 6px;
+        width: 100%;
+        max-width: 56px;
         background: var(--c, var(--primary));
-        border-radius: 8px 8px 4px 4px;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        padding: 6px 4px 4px;
+        border-radius: 8px 8px 0 0;
+        align-self: end;
         transition: all 0.4s var(--out);
       }
       .gb-fill.curr {
         box-shadow:
-          0 0 0 2px rgba(255, 255, 255, 0.5),
+          0 0 0 2px rgba(255, 255, 255, 0.6),
           0 0 0 3px var(--c);
       }
       .gb-num {
         font-family: var(--font-display);
-        font-size: 12px;
-        font-weight: 600;
+        font-size: 15px;
+        font-weight: 500;
         font-style: italic;
-        color: #fff;
+        color: var(--fg);
         line-height: 1;
         white-space: nowrap;
-      }
-      .gb-tag {
-        font-size: 8.5px;
-        font-weight: 700;
-        letter-spacing: 0.04em;
-        padding: 2px 6px;
-        border-radius: 9999px;
-        margin-top: 4px;
-        white-space: nowrap;
-        line-height: 1;
-      }
-      .gb-tag.up {
-        background: rgba(255, 255, 255, 0.92);
-        color: hsl(140, 55%, 30%);
-      }
-      .gb-tag.down {
-        background: rgba(255, 255, 255, 0.92);
-        color: #a35c20;
+        align-self: center;
       }
       .gb-lbl {
         font-size: 11px;
         font-weight: 600;
-        color: var(--fg);
-        text-align: center;
-        letter-spacing: 0.02em;
-      }
-      .gb-lbl span {
-        display: block;
-        font-size: 9px;
-        font-weight: 500;
         color: var(--muted);
-        margin-top: 1px;
-        letter-spacing: 0.02em;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
       }
       .growth-charts {
         display: block;
@@ -1782,11 +1778,11 @@
               <div class="growth-big">2<span class="growth-big-sup">M4</span></div>
               <div class="growth-delta down">−75% vs M3</div>
             </div>
-            <div class="growth-bars" data-max="24">
-              <div class="gb"><div class="gb-fill" style="--h:58%;--c:var(--primary)"><span class="gb-num">14</span></div><div class="gb-lbl">M1<span>launch</span></div></div>
-              <div class="gb"><div class="gb-fill" style="--h:100%;--c:var(--primary)"><span class="gb-num">24</span><span class="gb-tag up">+71%</span></div><div class="gb-lbl">M2</div></div>
-              <div class="gb"><div class="gb-fill" style="--h:33%;--c:var(--primary)"><span class="gb-num">8</span><span class="gb-tag down">−67%</span></div><div class="gb-lbl">M3</div></div>
-              <div class="gb"><div class="gb-fill curr" style="--h:8%;--c:var(--rose)"><span class="gb-num">2</span><span class="gb-tag down">−75%</span></div><div class="gb-lbl">M4*<span>partial</span></div></div>
+            <div class="growth-bars">
+              <div class="gb"><div class="gb-tag-slot"></div><div class="gb-fill" style="--h:58%;--c:var(--primary)"></div><div class="gb-num">14</div><div class="gb-lbl">M1</div></div>
+              <div class="gb"><div class="gb-tag-slot"><span class="gb-tag up">+71%</span></div><div class="gb-fill" style="--h:100%;--c:var(--primary)"></div><div class="gb-num">24</div><div class="gb-lbl">M2</div></div>
+              <div class="gb"><div class="gb-tag-slot"><span class="gb-tag down">−67%</span></div><div class="gb-fill" style="--h:33%;--c:var(--primary)"></div><div class="gb-num">8</div><div class="gb-lbl">M3</div></div>
+              <div class="gb"><div class="gb-tag-slot"><span class="gb-tag down">−75%</span></div><div class="gb-fill curr" style="--h:8%;--c:var(--rose)"></div><div class="gb-num">2</div><div class="gb-lbl">M4*</div></div>
             </div>
           </div>
 
@@ -1797,11 +1793,11 @@
               <div class="growth-big">40<span class="growth-big-sup">M4</span></div>
               <div class="growth-delta up">+2 vs M3</div>
             </div>
-            <div class="growth-bars" data-max="40">
-              <div class="gb"><div class="gb-fill" style="--h:35%;--c:var(--primary)"><span class="gb-num">14</span></div><div class="gb-lbl">M1<span>baseline</span></div></div>
-              <div class="gb"><div class="gb-fill" style="--h:75%;--c:var(--primary)"><span class="gb-num">30</span><span class="gb-tag up">+16</span></div><div class="gb-lbl">M2</div></div>
-              <div class="gb"><div class="gb-fill" style="--h:95%;--c:var(--primary)"><span class="gb-num">38</span><span class="gb-tag up">+8</span></div><div class="gb-lbl">M3</div></div>
-              <div class="gb"><div class="gb-fill curr" style="--h:100%;--c:var(--rose)"><span class="gb-num">40</span><span class="gb-tag up">+2</span></div><div class="gb-lbl">M4*<span>partial</span></div></div>
+            <div class="growth-bars">
+              <div class="gb"><div class="gb-tag-slot"></div><div class="gb-fill" style="--h:35%;--c:var(--primary)"></div><div class="gb-num">14</div><div class="gb-lbl">M1</div></div>
+              <div class="gb"><div class="gb-tag-slot"><span class="gb-tag up">+16</span></div><div class="gb-fill" style="--h:75%;--c:var(--primary)"></div><div class="gb-num">30</div><div class="gb-lbl">M2</div></div>
+              <div class="gb"><div class="gb-tag-slot"><span class="gb-tag up">+8</span></div><div class="gb-fill" style="--h:95%;--c:var(--primary)"></div><div class="gb-num">38</div><div class="gb-lbl">M3</div></div>
+              <div class="gb"><div class="gb-tag-slot"><span class="gb-tag up">+2</span></div><div class="gb-fill curr" style="--h:100%;--c:var(--rose)"></div><div class="gb-num">40</div><div class="gb-lbl">M4*</div></div>
             </div>
           </div>
 
@@ -1812,11 +1808,11 @@
               <div class="growth-big">$250<span class="growth-big-sup">M4</span></div>
               <div class="growth-delta down">−64% vs M3</div>
             </div>
-            <div class="growth-bars" data-max="1525">
-              <div class="gb"><div class="gb-fill" style="--h:10%;--c:var(--primary)"><span class="gb-num">$150</span></div><div class="gb-lbl">M1</div></div>
-              <div class="gb"><div class="gb-fill" style="--h:100%;--c:var(--primary)"><span class="gb-num">$1.5K</span><span class="gb-tag up">+917%</span></div><div class="gb-lbl">M2</div></div>
-              <div class="gb"><div class="gb-fill" style="--h:46%;--c:var(--primary)"><span class="gb-num">$700</span><span class="gb-tag down">−54%</span></div><div class="gb-lbl">M3</div></div>
-              <div class="gb"><div class="gb-fill curr" style="--h:16%;--c:var(--rose)"><span class="gb-num">$250</span><span class="gb-tag down">−64%</span></div><div class="gb-lbl">M4*<span>partial</span></div></div>
+            <div class="growth-bars">
+              <div class="gb"><div class="gb-tag-slot"></div><div class="gb-fill" style="--h:10%;--c:var(--primary)"></div><div class="gb-num">$150</div><div class="gb-lbl">M1</div></div>
+              <div class="gb"><div class="gb-tag-slot"><span class="gb-tag up">+917%</span></div><div class="gb-fill" style="--h:100%;--c:var(--primary)"></div><div class="gb-num">$1.5K</div><div class="gb-lbl">M2</div></div>
+              <div class="gb"><div class="gb-tag-slot"><span class="gb-tag down">−54%</span></div><div class="gb-fill" style="--h:46%;--c:var(--primary)"></div><div class="gb-num">$700</div><div class="gb-lbl">M3</div></div>
+              <div class="gb"><div class="gb-tag-slot"><span class="gb-tag down">−64%</span></div><div class="gb-fill curr" style="--h:16%;--c:var(--rose)"></div><div class="gb-num">$250</div><div class="gb-lbl">M4*</div></div>
             </div>
           </div>
         </div>
