@@ -1689,6 +1689,226 @@
         margin-top: 28px;
       }
 
+      /* LAST WEEK */
+      .lw-summary {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-top: 32px;
+      }
+      .lw-stat {
+        background: var(--parch);
+        border: 1px solid rgba(42, 28, 24, 0.09);
+        border-radius: var(--rL);
+        padding: 22px 22px 20px;
+        transition: all 0.35s var(--out);
+      }
+      .lw-stat:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--sh1);
+        border-color: rgba(107, 76, 76, 0.18);
+      }
+      .lw-stat.total {
+        background: var(--deeper);
+        border-color: rgba(107, 76, 76, 0.4);
+      }
+      .lw-stat.total .lw-stat-lbl {
+        color: rgba(255, 255, 255, 0.42);
+      }
+      .lw-stat.total .lw-stat-val {
+        color: #fff;
+      }
+      .lw-stat.total .lw-stat-val em {
+        color: var(--rose);
+        font-style: italic;
+      }
+      .lw-stat.total .lw-stat-sub {
+        color: rgba(255, 255, 255, 0.35);
+      }
+      .lw-stat-lbl {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 12px;
+      }
+      .lw-stat-val {
+        font-family: var(--font-display);
+        font-size: 36px;
+        font-weight: 400;
+        color: var(--fg);
+        letter-spacing: -0.025em;
+        line-height: 1;
+      }
+      .lw-stat-sub {
+        font-size: 11px;
+        color: var(--muted);
+        margin-top: 8px;
+      }
+
+      .lw-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-top: 24px;
+      }
+      .lw-card {
+        background: var(--parch);
+        border: 1px solid rgba(42, 28, 24, 0.09);
+        border-radius: var(--rL);
+        padding: 24px 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        transition: all 0.4s var(--out);
+      }
+      .lw-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--sh2);
+        border-color: rgba(107, 76, 76, 0.18);
+      }
+      .lw-card-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(42, 28, 24, 0.08);
+      }
+      .lw-card-title {
+        font-family: var(--font-display);
+        font-size: 17px;
+        font-weight: 500;
+        color: var(--fg);
+        letter-spacing: -0.005em;
+      }
+      .lw-card-title em {
+        font-style: italic;
+        color: var(--primary);
+      }
+      .lw-card-meta {
+        font-size: 11px;
+        color: var(--primary);
+        font-family: var(--font-display);
+        font-style: italic;
+        font-weight: 500;
+      }
+      .lw-denoms {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+      .lw-denom {
+        background: #fff;
+        border: 1px solid rgba(42, 28, 24, 0.08);
+        border-radius: 10px;
+        padding: 10px 10px 8px;
+        text-align: center;
+      }
+      .lw-denom-d {
+        font-family: var(--font-display);
+        font-style: italic;
+        color: var(--primary);
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .lw-denom-c {
+        font-size: 10px;
+        color: var(--muted);
+        letter-spacing: 0.04em;
+        margin-top: 2px;
+      }
+      .lw-denom-t {
+        font-family: var(--font-display);
+        color: var(--fg);
+        font-size: 15px;
+        font-weight: 500;
+        margin-top: 2px;
+      }
+      .lw-rows {
+        display: flex;
+        flex-direction: column;
+      }
+      .lw-row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+        align-items: baseline;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(42, 28, 24, 0.05);
+      }
+      .lw-row:last-child {
+        border-bottom: none;
+      }
+      .lw-row-name {
+        font-size: 12.5px;
+        color: var(--fg);
+        font-weight: 500;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .lw-row-meta {
+        font-size: 10.5px;
+        color: var(--muted);
+        margin-top: 2px;
+      }
+      .lw-row-amt {
+        font-family: var(--font-display);
+        font-style: italic;
+        color: var(--primary);
+        font-size: 14px;
+        font-weight: 500;
+        white-space: nowrap;
+      }
+
+      .lw-alerts {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 16px;
+      }
+      .lw-alert {
+        background: rgba(240, 148, 85, 0.08);
+        border: 1px solid rgba(240, 148, 85, 0.3);
+        border-radius: var(--rL);
+        padding: 18px 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .lw-alert.info {
+        background: rgba(107, 76, 76, 0.06);
+        border-color: rgba(107, 76, 76, 0.22);
+      }
+      .lw-alert-tag {
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #a35c20;
+        padding: 4px 10px;
+        background: rgba(240, 148, 85, 0.18);
+        border: 1px solid rgba(240, 148, 85, 0.32);
+        border-radius: 9999px;
+        width: fit-content;
+      }
+      .lw-alert-tag.info {
+        color: var(--primary);
+        background: rgba(107, 76, 76, 0.1);
+        border-color: rgba(107, 76, 76, 0.25);
+      }
+      .lw-alert-body {
+        font-size: 12.5px;
+        color: var(--fg);
+        line-height: 1.65;
+      }
+      .lw-alert-body strong {
+        font-weight: 600;
+        color: var(--primary);
+      }
+
       /* FOOTER */
       footer {
         background: var(--deeper);
@@ -1725,7 +1945,11 @@
         .sub-mom-grid,
         .pg-grid,
         .growth-grid,
-        .growth-charts {
+        .growth-charts,
+        .lw-summary,
+        .lw-grid,
+        .lw-alerts,
+        .lw-denoms {
           grid-template-columns: 1fr;
         }
         section.page {
@@ -1746,6 +1970,7 @@
           <span class="nav-title">Architect · <em>Revenue Report</em></span>
         </div>
         <div class="nav-links">
+          <button class="nav-link" data-target="sLW">Last week</button>
           <button class="nav-link" data-target="s1">Growth</button>
           <button class="nav-link" data-target="s2">MOM Revenue</button>
           <button class="nav-link" data-target="s3">Subscriptions</button>
@@ -1814,6 +2039,192 @@
         </div>
       </div>
     </section>
+
+    <!-- LAST WEEK -->
+    <section class="page" id="sLW">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">Last week · May 15–22, 2026</span>
+          <h2 class="section-title">
+            <em>$665</em> brought in over <em>7 days.</em>
+          </h2>
+          <p class="section-sub">
+            New Architect subscribers, renewals, and credit top-ups recorded
+            on Stripe between May 15 and May 22.
+          </p>
+        </div>
+
+        <div class="lw-summary">
+          <div class="lw-stat">
+            <div class="lw-stat-lbl">New subscriptions</div>
+            <div class="lw-stat-val">$80</div>
+            <div class="lw-stat-sub">2 users · $40/mo each</div>
+          </div>
+          <div class="lw-stat">
+            <div class="lw-stat-lbl">Subscription renewals</div>
+            <div class="lw-stat-val">$160</div>
+            <div class="lw-stat-sub">4 users · $40 each</div>
+          </div>
+          <div class="lw-stat">
+            <div class="lw-stat-lbl">Top-up revenue</div>
+            <div class="lw-stat-val">$425</div>
+            <div class="lw-stat-sub">9 transactions</div>
+          </div>
+          <div class="lw-stat total">
+            <div class="lw-stat-lbl">Total · week</div>
+            <div class="lw-stat-val"><em>$665</em></div>
+            <div class="lw-stat-sub">May 15 — May 22</div>
+          </div>
+        </div>
+
+        <div class="lw-grid">
+          <div class="lw-card">
+            <div class="lw-card-head">
+              <div class="lw-card-title">New <em>subscribers</em></div>
+              <div class="lw-card-meta">2 · $80</div>
+            </div>
+            <div class="lw-rows">
+              <div class="lw-row">
+                <div class="lw-row-l">
+                  <div class="lw-row-name">krunalsheth16@gmail.com</div>
+                  <div class="lw-row-meta">May 19 · $40/mo + 2×$50 top-ups same day</div>
+                </div>
+                <div class="lw-row-amt">$40</div>
+              </div>
+              <div class="lw-row">
+                <div class="lw-row-l">
+                  <div class="lw-row-name">jchesnut.pws@gmail.com</div>
+                  <div class="lw-row-meta">May 17 · $40/mo + $25 Architect top-up same day</div>
+                </div>
+                <div class="lw-row-amt">$40</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lw-card">
+            <div class="lw-card-head">
+              <div class="lw-card-title">Subscription <em>renewals</em></div>
+              <div class="lw-card-meta">4 · $160</div>
+            </div>
+            <div class="lw-rows">
+              <div class="lw-row">
+                <div class="lw-row-l">
+                  <div class="lw-row-name">prashanth.saradesai@gmail.com</div>
+                  <div class="lw-row-meta">May 21</div>
+                </div>
+                <div class="lw-row-amt">$40</div>
+              </div>
+              <div class="lw-row">
+                <div class="lw-row-l">
+                  <div class="lw-row-name">thomas.tkfrancis@gmail.com</div>
+                  <div class="lw-row-meta">May 20</div>
+                </div>
+                <div class="lw-row-amt">$40</div>
+              </div>
+              <div class="lw-row">
+                <div class="lw-row-l">
+                  <div class="lw-row-name">roy@roybarberi.com</div>
+                  <div class="lw-row-meta">May 18</div>
+                </div>
+                <div class="lw-row-amt">$40</div>
+              </div>
+              <div class="lw-row">
+                <div class="lw-row-l">
+                  <div class="lw-row-name">prakash.pasupathy@ltm.com</div>
+                  <div class="lw-row-meta">May 17</div>
+                </div>
+                <div class="lw-row-amt">$40</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lw-card">
+            <div class="lw-card-head">
+              <div class="lw-card-title">Top-ups</div>
+              <div class="lw-card-meta">9 · $425</div>
+            </div>
+            <div class="lw-denoms">
+              <div class="lw-denom">
+                <div class="lw-denom-d">$25</div>
+                <div class="lw-denom-c">3 ×</div>
+                <div class="lw-denom-t">$75</div>
+              </div>
+              <div class="lw-denom">
+                <div class="lw-denom-d">$50</div>
+                <div class="lw-denom-c">5 ×</div>
+                <div class="lw-denom-t">$250</div>
+              </div>
+              <div class="lw-denom">
+                <div class="lw-denom-d">$100</div>
+                <div class="lw-denom-c">1 ×</div>
+                <div class="lw-denom-t">$100</div>
+              </div>
+            </div>
+            <div class="lw-rows">
+              <div class="lw-row">
+                <div class="lw-row-l">
+                  <div class="lw-row-name">leigh.romeo@anaplan.com</div>
+                  <div class="lw-row-meta">May 19 · 3 × $50 top-ups</div>
+                </div>
+                <div class="lw-row-amt">$150</div>
+              </div>
+              <div class="lw-row">
+                <div class="lw-row-l">
+                  <div class="lw-row-name">alex.wilson2@anaplan.com</div>
+                  <div class="lw-row-meta">May 20 · $100 credit</div>
+                </div>
+                <div class="lw-row-amt">$100</div>
+              </div>
+              <div class="lw-row">
+                <div class="lw-row-l">
+                  <div class="lw-row-name">krunalsheth16@gmail.com</div>
+                  <div class="lw-row-meta">May 19 · 2 × $50 top-ups</div>
+                </div>
+                <div class="lw-row-amt">$100</div>
+              </div>
+              <div class="lw-row">
+                <div class="lw-row-l">
+                  <div class="lw-row-name">jarrod.daley@zawee.com.au</div>
+                  <div class="lw-row-meta">May 22 · $25</div>
+                </div>
+                <div class="lw-row-amt">$25</div>
+              </div>
+              <div class="lw-row">
+                <div class="lw-row-l">
+                  <div class="lw-row-name">bpan@prophet.com</div>
+                  <div class="lw-row-meta">May 21 · $25</div>
+                </div>
+                <div class="lw-row-amt">$25</div>
+              </div>
+              <div class="lw-row">
+                <div class="lw-row-l">
+                  <div class="lw-row-name">jchesnut.pws@gmail.com</div>
+                  <div class="lw-row-meta">May 17 · $25</div>
+                </div>
+                <div class="lw-row-amt">$25</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lw-alerts">
+          <div class="lw-alert">
+            <div class="lw-alert-tag">At-risk</div>
+            <div class="lw-alert-body">
+              <strong>raphael.opiyo@opentechglobal.co.ke</strong>
+              — $20 Architect renewal failed (insufficient funds) on May 15. Existing $20/mo subscriber, needs follow-up.
+            </div>
+          </div>
+          <div class="lw-alert info">
+            <div class="lw-alert-tag info">New users · add to Sheet13</div>
+            <div class="lw-alert-body">
+              <strong>krunalsheth16</strong> · <strong>jchesnut.pws</strong> · <strong>jarrod.daley@zawee.com.au</strong> · <strong>bpan@prophet.com</strong> · <strong>alex.wilson2@anaplan.com</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- GROWTH AT A GLANCE -->
     <section class="page alt" id="s1">
       <div class="wrap">
