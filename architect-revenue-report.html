@@ -2220,7 +2220,7 @@
           </h2>
           <p class="section-sub">
             New users, active base, and top-up spend tracked month-over-month
-            with change deltas. Month 4 is a partial 22-day window.
+            with change deltas. Month 4 is a partial 25-day window.
           </p>
         </div>
 
@@ -2315,11 +2315,11 @@
             <div class="growth-eyebrow">Top-up <em>purchases</em></div>
             <div class="growth-hero">
               <div class="growth-big">
-                $3,050<span class="growth-big-sup">Total</span>
+                $3,075<span class="growth-big-sup">Total</span>
               </div>
             </div>
             <div class="growth-hero-note">
-              <strong>81</strong> total top-ups across 4 months
+              <strong>82</strong> total top-ups across 4 months
             </div>
             <div class="growth-bars" data-max="1525">
               <div class="gb">
@@ -2343,9 +2343,9 @@
                 <div class="gb-lbl">Apr</div>
               </div>
               <div class="gb">
-                <div class="gb-fill curr" style="--h: 44%; --c: var(--rose)">
-                  <span class="gb-num">$675</span
-                  ><span class="gb-tag down">−4%</span>
+                <div class="gb-fill curr" style="--h: 46%; --c: var(--rose)">
+                  <span class="gb-num">$700</span
+                  ><span class="gb-tag down">0%</span>
                 </div>
                 <div class="gb-lbl">May<span>partial</span></div>
               </div>
@@ -2494,9 +2494,9 @@
                 <div class="mom-card-month">
                   Month 4<span style="color: var(--primary)">*</span>
                 </div>
-                <div class="mom-card-range">May 1 — May 22</div>
+                <div class="mom-card-range">May 1 — May 25</div>
               </div>
-              <span class="mom-chip partial">Partial · 22 days</span>
+              <span class="mom-chip partial">Partial · 25 days</span>
             </div>
             <div class="mom-rows">
               <div class="mom-row">
@@ -2671,7 +2671,7 @@
                 <div class="sub-mom-month">
                   Month 4<span style="color: var(--primary)">*</span>
                 </div>
-                <div class="sub-mom-range">May 1 — May 22 · partial</div>
+                <div class="sub-mom-range">May 1 — May 25 · partial</div>
               </div>
               <div class="sub-mom-total">4<span>new</span></div>
             </div>
@@ -2797,8 +2797,8 @@
           <div class="topup-card">
             <div class="topup-denom">$25 denomination</div>
             <div class="topup-row">
-              <span class="topup-count">54</span
-              ><span class="topup-total">× $25 = <strong>$1,350</strong></span>
+              <span class="topup-count">55</span
+              ><span class="topup-total">× $25 = <strong>$1,375</strong></span>
             </div>
           </div>
           <div class="topup-card">
@@ -3212,7 +3212,7 @@
 
     <footer>
       Architect — Revenue &amp; Traction Report · Source: Stripe &amp; internal
-      analytics · Snapshot through <em>May 22</em>.
+      analytics · Snapshot through <em>May 25</em>.
     </footer>
 
     <script>
@@ -3222,7 +3222,7 @@
         "Feb 16 – Feb 28",
         "Mar 1 – Mar 31",
         "Apr 1 – Apr 30",
-        "May 1 – May 22*",
+        "May 1 – May 25*",
       ];
       const TRACTION_MONTHS = MONTHS.slice(0, 3);
 
@@ -3936,10 +3936,10 @@
       new Chart(document.getElementById("topupLifetime"), {
         type: "doughnut",
         data: {
-          labels: ["$25 × 54 = $1,350", "$50 × 20 = $1,000", "$100 × 7 = $700"],
+          labels: ["$25 × 55 = $1,375", "$50 × 20 = $1,000", "$100 × 7 = $700"],
           datasets: [
             {
-              data: [1350, 1000, 700],
+              data: [1375, 1000, 700],
               backgroundColor: [COL.primary, COL.primary2, COL.warm],
               borderWidth: 0,
               hoverOffset: 6,
@@ -3964,7 +3964,7 @@
             tooltip: {
               callbacks: {
                 label: (c) =>
-                  c.label + " (" + ((c.raw / 3050) * 100).toFixed(1) + "%)",
+                  c.label + " (" + ((c.raw / 3075) * 100).toFixed(1) + "%)",
               },
             },
             datalabels: {
@@ -3990,7 +3990,7 @@
           datasets: [
             {
               label: "$25",
-              data: [50, 725, 400, 175],
+              data: [50, 725, 400, 200],
               backgroundColor: COL.primary,
               borderRadius: 6,
             },
