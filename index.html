@@ -796,7 +796,7 @@
       /* SUB TIERS */
       .tier-grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
         gap: 14px;
         margin-top: 28px;
       }
@@ -2015,21 +2015,21 @@
 
         <div class="hero-metrics">
           <div class="hm">
-            <span class="hm-lbl">LTR</span><span class="hm-val">$7,395</span
+            <span class="hm-lbl">LTR</span><span class="hm-val">$7,554</span
             ><span class="hm-note">Lifetime revenue</span>
           </div>
           <div class="hm">
-            <span class="hm-lbl">ARR</span><span class="hm-val">$16,840</span
+            <span class="hm-lbl">ARR</span><span class="hm-val">$18,748</span
             ><span class="hm-note">Annualized</span>
           </div>
           <div class="hm">
-            <span class="hm-lbl">MRR</span><span class="hm-val">$1,403.33</span
+            <span class="hm-lbl">MRR</span><span class="hm-val">$1,562.33</span
             ><span class="hm-note">Monthly recurring</span>
           </div>
           <div class="hm">
             <span class="hm-lbl">Paid Subs</span
-            ><span class="hm-val">50<sup>↑</sup></span
-            ><span class="hm-note">42 active · 8 cancelled</span>
+            ><span class="hm-val">53<sup>↑</sup></span
+            ><span class="hm-note">45 active · 8 cancelled</span>
           </div>
           <div class="hm">
             <span class="hm-lbl">Studio → Architect</span
@@ -2046,39 +2046,77 @@
         <div class="sec-head">
           <span class="eyebrow">Last week · May 22–29, 2026</span>
           <h2 class="section-title">
-            <em>$425</em> confirmed over <em>7 days.</em>
+            <em>$584</em> brought in over <em>7 days.</em>
           </h2>
           <p class="section-sub">
-            Confirmed Architect revenue recorded on Stripe between May 22 and
-            May 29. No new subscriptions this week; two renewals remain
-            unconfirmed pending Sheet13 verification.
+            New subscriptions, renewals, and credit top-ups recorded on Stripe
+            between May 22 and May 29.
           </p>
         </div>
 
         <div class="lw-summary">
           <div class="lw-stat">
+            <div class="lw-stat-lbl">New subscriptions</div>
+            <div class="lw-stat-val">$99</div>
+            <div class="lw-stat-sub">1 user · $99/mo</div>
+          </div>
+          <div class="lw-stat">
+            <div class="lw-stat-lbl">Subscription renewals</div>
+            <div class="lw-stat-val">$60</div>
+            <div class="lw-stat-sub">2 users</div>
+          </div>
+          <div class="lw-stat">
             <div class="lw-stat-lbl">Top-up revenue</div>
             <div class="lw-stat-val">$425</div>
             <div class="lw-stat-sub">6 paid transactions</div>
           </div>
-          <div class="lw-stat">
-            <div class="lw-stat-lbl">Renewals</div>
-            <div class="lw-stat-val">$0</div>
-            <div class="lw-stat-sub">2 unconfirmed · $60 pending</div>
-          </div>
-          <div class="lw-stat">
-            <div class="lw-stat-lbl">New subscriptions</div>
-            <div class="lw-stat-val">0</div>
-            <div class="lw-stat-sub">none this week</div>
-          </div>
           <div class="lw-stat total">
-            <div class="lw-stat-lbl">Total · confirmed</div>
-            <div class="lw-stat-val"><em>$425</em></div>
+            <div class="lw-stat-lbl">Total · week</div>
+            <div class="lw-stat-val"><em>$584</em></div>
             <div class="lw-stat-sub">May 22 — May 29</div>
           </div>
         </div>
 
         <div class="lw-grid">
+          <div class="lw-card">
+            <div class="lw-card-head">
+              <div class="lw-card-title">New <em>subscriber</em></div>
+              <div class="lw-card-meta">1 · $99</div>
+            </div>
+            <div class="lw-rows">
+              <div class="lw-row">
+                <div class="lw-row-l">
+                  <div class="lw-row-name">everton.wgbnet@gmail.com</div>
+                  <div class="lw-row-meta">May 24 · $99/mo plan + $25 top-up same day</div>
+                </div>
+                <div class="lw-row-amt">$99</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lw-card">
+            <div class="lw-card-head">
+              <div class="lw-card-title">Subscription <em>renewals</em></div>
+              <div class="lw-card-meta">2 · $60</div>
+            </div>
+            <div class="lw-rows">
+              <div class="lw-row">
+                <div class="lw-row-l">
+                  <div class="lw-row-name">kevin@repeatable.ai</div>
+                  <div class="lw-row-meta">May 22 · $40/mo renewal</div>
+                </div>
+                <div class="lw-row-amt">$40</div>
+              </div>
+              <div class="lw-row">
+                <div class="lw-row-l">
+                  <div class="lw-row-name">sorobitg@gmail.com</div>
+                  <div class="lw-row-meta">May 29 · $20/mo renewal</div>
+                </div>
+                <div class="lw-row-amt">$20</div>
+              </div>
+            </div>
+          </div>
+
           <div class="lw-card">
             <div class="lw-card-head">
               <div class="lw-card-title">Top-up <em>transactions</em></div>
@@ -2112,7 +2150,7 @@
               <div class="lw-row">
                 <div class="lw-row-l">
                   <div class="lw-row-name">melissa.rojo@ltm.com</div>
-                  <div class="lw-row-meta">May 28 · $100 credit (2 prior attempts failed)</div>
+                  <div class="lw-row-meta">May 28 · $100 credit</div>
                 </div>
                 <div class="lw-row-amt">$100</div>
               </div>
@@ -2143,52 +2181,6 @@
                   <div class="lw-row-meta">May 22 · $25</div>
                 </div>
                 <div class="lw-row-amt">$25</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="lw-card">
-            <div class="lw-card-head">
-              <div class="lw-card-title">Renewals <em>· unconfirmed</em></div>
-              <div class="lw-card-meta">2 · $60 pending</div>
-            </div>
-            <div class="lw-rows">
-              <div class="lw-row">
-                <div class="lw-row-l">
-                  <div class="lw-row-name">kevin@repeatable.ai</div>
-                  <div class="lw-row-meta">May 22 · not in Sheet13 — verify</div>
-                </div>
-                <div class="lw-row-amt">$40</div>
-              </div>
-              <div class="lw-row">
-                <div class="lw-row-l">
-                  <div class="lw-row-name">sorobitg@gmail.com</div>
-                  <div class="lw-row-meta">May 29 · not in Sheet13 — verify</div>
-                </div>
-                <div class="lw-row-amt">$20</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="lw-card">
-            <div class="lw-card-head">
-              <div class="lw-card-title">New users <em>to add</em></div>
-              <div class="lw-card-meta">Sheet13</div>
-            </div>
-            <div class="lw-rows">
-              <div class="lw-row">
-                <div class="lw-row-l">
-                  <div class="lw-row-name">benoit.desjardins@gmail.com</div>
-                  <div class="lw-row-meta">$50 Architect top-up</div>
-                </div>
-                <div class="lw-row-amt">new</div>
-              </div>
-              <div class="lw-row">
-                <div class="lw-row-l">
-                  <div class="lw-row-name">everton.wgbnet@gmail.com</div>
-                  <div class="lw-row-meta">$25 Architect top-up</div>
-                </div>
-                <div class="lw-row-amt">new</div>
               </div>
             </div>
           </div>
@@ -2258,21 +2250,21 @@
             </div>
             <div class="growth-hero">
               <div class="growth-big">
-                42<span class="growth-big-sup">Total</span>
+                45<span class="growth-big-sup">Total</span>
               </div>
             </div>
             <div class="growth-hero-note">
               <strong>−8</strong> churned all-time (all in March)
             </div>
-            <div class="growth-bars" data-max="42">
+            <div class="growth-bars" data-max="45">
               <div class="gb">
-                <div class="gb-fill" style="--h: 33%; --c: var(--primary)">
+                <div class="gb-fill" style="--h: 31%; --c: var(--primary)">
                   <span class="gb-num">14</span>
                 </div>
                 <div class="gb-lbl">Feb<span>baseline</span></div>
               </div>
               <div class="gb">
-                <div class="gb-fill" style="--h: 71%; --c: var(--primary)">
+                <div class="gb-fill" style="--h: 67%; --c: var(--primary)">
                   <span class="gb-num">30</span
                   ><span class="gb-tag up">+24 new</span
                   ><span class="gb-tag churn">−8 churn</span>
@@ -2280,7 +2272,7 @@
                 <div class="gb-lbl">Mar</div>
               </div>
               <div class="gb">
-                <div class="gb-fill" style="--h: 90%; --c: var(--primary)">
+                <div class="gb-fill" style="--h: 84%; --c: var(--primary)">
                   <span class="gb-num">38</span
                   ><span class="gb-tag up">+8</span>
                 </div>
@@ -2288,8 +2280,8 @@
               </div>
               <div class="gb">
                 <div class="gb-fill curr" style="--h: 100%; --c: var(--rose)">
-                  <span class="gb-num">42</span
-                  ><span class="gb-tag up">+4</span>
+                  <span class="gb-num">45</span
+                  ><span class="gb-tag up">+7</span>
                 </div>
                 <div class="gb-lbl">May<span>partial</span></div>
               </div>
@@ -2499,11 +2491,11 @@
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">MRR</span
-                ><span class="mom-row-val">$1,403.33</span>
+                ><span class="mom-row-val">$1,562.33</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">ARR</span
-                ><span class="mom-row-val">$16,840</span>
+                ><span class="mom-row-val">$18,748</span>
               </div>
             </div>
           </div>
@@ -2690,14 +2682,14 @@
         </div>
 
         <div style="margin-top: 48px">
-          <span class="eyebrow">Active subscriptions today · 42 total</span>
+          <span class="eyebrow">Active subscriptions today · 45 total</span>
           <div class="tier-grid">
             <div class="tier-card">
               <div class="tier-head">
                 <span class="tier-price"><em>$40</em></span
                 ><span class="tier-cycle">Monthly</span>
               </div>
-              <div class="tier-users">27</div>
+              <div class="tier-users">28</div>
               <div class="tier-users-lbl">active users</div>
               <div class="tier-bar">
                 <div class="tier-bar-fill" style="width: 100%"></div>
@@ -2708,10 +2700,21 @@
                 <span class="tier-price"><em>$20</em></span
                 ><span class="tier-cycle">Monthly</span>
               </div>
-              <div class="tier-users">11</div>
+              <div class="tier-users">12</div>
               <div class="tier-users-lbl">active users</div>
               <div class="tier-bar">
-                <div class="tier-bar-fill" style="width: 44%"></div>
+                <div class="tier-bar-fill" style="width: 43%"></div>
+              </div>
+            </div>
+            <div class="tier-card">
+              <div class="tier-head">
+                <span class="tier-price"><em>$99</em></span
+                ><span class="tier-cycle">Monthly</span>
+              </div>
+              <div class="tier-users">1</div>
+              <div class="tier-users-lbl">active users</div>
+              <div class="tier-bar">
+                <div class="tier-bar-fill" style="width: 4%"></div>
               </div>
             </div>
             <div class="tier-card">
@@ -2722,7 +2725,7 @@
               <div class="tier-users">2</div>
               <div class="tier-users-lbl">active users</div>
               <div class="tier-bar">
-                <div class="tier-bar-fill" style="width: 8%"></div>
+                <div class="tier-bar-fill" style="width: 7%"></div>
               </div>
             </div>
             <div class="tier-card">
@@ -2733,7 +2736,7 @@
               <div class="tier-users">2</div>
               <div class="tier-users-lbl">active users</div>
               <div class="tier-bar">
-                <div class="tier-bar-fill" style="width: 8%"></div>
+                <div class="tier-bar-fill" style="width: 7%"></div>
               </div>
             </div>
           </div>
