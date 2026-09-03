@@ -1603,7 +1603,7 @@
       .growth-delta.down{ background: rgba(240,148,85,.12); color: #a35c20; border: 1px solid rgba(240,148,85,.3); }
       .growth-bars {
         display: grid;
-        grid-template-columns: repeat(7, 1fr);
+        grid-template-columns: repeat(8, 1fr);
         gap: 6px;
         height: 168px;
         align-items: end;
@@ -1623,8 +1623,8 @@
         transition: all .4s var(--out);
       }
       .gb-fill.curr { box-shadow: 0 0 0 2px rgba(255,255,255,.5), 0 0 0 3px var(--c); }
-      .gb-num { font-family: var(--font-display); font-size: 11px; font-weight: 600; font-style: italic; color: #fff; line-height: 1; white-space: nowrap; }
-      .gb-tag { font-size: 7.5px; font-weight: 700; letter-spacing: .04em; padding: 2px 5px; border-radius: 9999px; margin-top: 3px; white-space: nowrap; line-height: 1; }
+      .gb-num { font-family: var(--font-display); font-size: 10px; font-weight: 600; font-style: italic; color: #fff; line-height: 1; white-space: nowrap; }
+      .gb-tag { font-size: 7px; font-weight: 700; letter-spacing: .04em; padding: 2px 5px; border-radius: 9999px; margin-top: 3px; white-space: nowrap; line-height: 1; }
       .gb-tag.up   { background: rgba(255,255,255,.92); color: hsl(140,55%,30%); }
       .gb-tag.down { background: rgba(255,255,255,.92); color: #a35c20; }
       .gb-lbl { font-size: 10px; font-weight: 600; color: var(--fg); text-align: center; letter-spacing: .02em; min-height: 28px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; line-height: 1.2; }
@@ -1685,33 +1685,32 @@
         </h1>
         <p class="hero-sub">
           Architect — month-on-month performance, retention, funnel and
-          paid-user insights. Source: Stripe export, Feb 16 – Aug 16. Excludes
+          paid-user insights. Source: Stripe export, Feb 16 – Sep 3. Excludes
           @lyzr.ai accounts, Studio/Sandbox plans, uncaptured charges and
-          refunds. Churn follows the standard convention: recognised when
-          billing stops.
+          refunds. Churn is taken from Stripe’s own <em>Ended At</em> timestamps.
         </p>
 
         <div class="hero-metrics">
           <div class="hm">
-            <span class="hm-lbl">LTR</span><span class="hm-val">$9,445</span
-            ><span class="hm-note">$4,520 subs + $4,925 top-ups</span>
+            <span class="hm-lbl">LTR</span><span class="hm-val">$9,720</span
+            ><span class="hm-note">$4,720 subs + $5,000 top-ups</span>
           </div>
           <div class="hm">
-            <span class="hm-lbl">ARR</span><span class="hm-val">$9,820</span
+            <span class="hm-lbl">ARR</span><span class="hm-val">$5,260</span
             ><span class="hm-note">Annualized</span>
           </div>
           <div class="hm">
-            <span class="hm-lbl">MRR</span><span class="hm-val">$818</span
+            <span class="hm-lbl">MRR</span><span class="hm-val">$438</span
             ><span class="hm-note">Monthly recurring</span>
           </div>
           <div class="hm">
             <span class="hm-lbl">Paid Subs</span
-            ><span class="hm-val">106</span
-            ><span class="hm-note">All-time · 82 churned (61 cancelled + 21 unpaid)</span>
+            ><span class="hm-val">109</span
+            ><span class="hm-note">All-time · 93 churned (70 cancelled + 23 unpaid)</span>
           </div>
           <div class="hm">
             <span class="hm-lbl">Active Customers</span
-            ><span class="hm-val">24<sup>↑</sup></span
+            ><span class="hm-val">16<sup>↓</sup></span
             ><span class="hm-note">Live subscriptions today</span>
           </div>
         </div>
@@ -1724,11 +1723,11 @@
         <div class="sec-head">
           <span class="eyebrow">Growth at a glance</span>
           <h2 class="section-title">
-            Seven months of <em>growth</em> in one view.
+            Eight months of <em>growth</em> in one view.
           </h2>
           <p class="section-sub">
             New subscriptions, active base, and top-up spend tracked
-            month-over-month with change deltas. Month 7 (Aug 1–16) is a partial
+            month-over-month with change deltas. Month 8 (Sep 1–3) is a partial
             month.
           </p>
         </div>
@@ -1738,7 +1737,7 @@
           <div class="growth-card">
             <div class="growth-eyebrow">New subscriptions <em>added</em></div>
             <div class="growth-hero">
-              <div class="growth-big">106<span class="growth-big-sup">Total</span></div>
+              <div class="growth-big">109<span class="growth-big-sup">Total</span></div>
             </div>
             <div class="growth-hero-note" aria-hidden="true"></div>
             <div class="growth-bars" data-max="30">
@@ -1755,7 +1754,7 @@
                 <div class="gb-lbl">Apr</div>
               </div>
               <div class="gb">
-                <div class="gb-fill" style="--h:23%;--c:var(--primary)"><span class="gb-num">7</span><span class="gb-tag down">−13%</span></div>
+                <div class="gb-fill" style="--h:23%;--c:var(--primary)"><span class="gb-num">7</span><span class="gb-tag down">−12%</span></div>
                 <div class="gb-lbl">May</div>
               </div>
               <div class="gb">
@@ -1767,8 +1766,12 @@
                 <div class="gb-lbl">Jul</div>
               </div>
               <div class="gb">
+                <div class="gb-fill" style="--h:10%;--c:var(--primary)"><span class="gb-num">3</span><span class="gb-tag down">−85%</span></div>
+                <div class="gb-lbl">Aug</div>
+              </div>
+              <div class="gb">
                 <div class="gb-fill curr" style="--h:4%;--c:var(--rose)"><span class="gb-num">0</span></div>
-                <div class="gb-lbl">Aug<span>partial</span></div>
+                <div class="gb-lbl">Sep<span>partial</span></div>
               </div>
             </div>
           </div>
@@ -1777,39 +1780,43 @@
           <div class="growth-card">
             <div class="growth-eyebrow"><em>Active</em> subscriptions at end of month</div>
             <div class="growth-hero">
-              <div class="growth-big">24<span class="growth-big-sup">Current</span></div>
+              <div class="growth-big">16<span class="growth-big-sup">Current</span></div>
             </div>
             <div class="growth-hero-note">
-              <strong>−82</strong> churned all-time · peak 47 in Jun
+              <strong>−93</strong> churned all-time · peak 54 in Jul
             </div>
-            <div class="growth-bars" data-max="47">
+            <div class="growth-bars" data-max="54">
               <div class="gb">
-                <div class="gb-fill" style="--h:32%;--c:var(--primary)"><span class="gb-num">15</span></div>
+                <div class="gb-fill" style="--h:28%;--c:var(--primary)"><span class="gb-num">15</span></div>
                 <div class="gb-lbl">Feb<span>baseline</span></div>
               </div>
               <div class="gb">
-                <div class="gb-fill" style="--h:85%;--c:var(--primary)"><span class="gb-num">40</span><span class="gb-tag up">+30</span><span class="gb-tag churn">−5</span></div>
+                <div class="gb-fill" style="--h:70%;--c:var(--primary)"><span class="gb-num">38</span><span class="gb-tag up">+30</span><span class="gb-tag churn">−7</span></div>
                 <div class="gb-lbl">Mar</div>
               </div>
               <div class="gb">
-                <div class="gb-fill" style="--h:57%;--c:var(--primary)"><span class="gb-num">27</span><span class="gb-tag up">+8</span><span class="gb-tag churn">−21</span></div>
+                <div class="gb-fill" style="--h:46%;--c:var(--primary)"><span class="gb-num">25</span><span class="gb-tag up">+8</span><span class="gb-tag churn">−21</span></div>
                 <div class="gb-lbl">Apr</div>
               </div>
               <div class="gb">
-                <div class="gb-fill" style="--h:66%;--c:var(--primary)"><span class="gb-num">31</span><span class="gb-tag up">+7</span><span class="gb-tag churn">−3</span></div>
+                <div class="gb-fill" style="--h:50%;--c:var(--primary)"><span class="gb-num">27</span><span class="gb-tag up">+7</span><span class="gb-tag churn">−5</span></div>
                 <div class="gb-lbl">May</div>
               </div>
               <div class="gb">
-                <div class="gb-fill" style="--h:100%;--c:var(--primary)"><span class="gb-num">47</span><span class="gb-tag up">+26</span><span class="gb-tag churn">−10</span></div>
+                <div class="gb-fill" style="--h:87%;--c:var(--primary)"><span class="gb-num">47</span><span class="gb-tag up">+26</span><span class="gb-tag churn">−6</span></div>
                 <div class="gb-lbl">Jun</div>
               </div>
               <div class="gb">
-                <div class="gb-fill" style="--h:89%;--c:var(--primary)"><span class="gb-num">42</span><span class="gb-tag up">+20</span><span class="gb-tag churn">−25</span></div>
+                <div class="gb-fill" style="--h:100%;--c:var(--primary)"><span class="gb-num">54</span><span class="gb-tag up">+20</span><span class="gb-tag churn">−13</span></div>
                 <div class="gb-lbl">Jul</div>
               </div>
               <div class="gb">
-                <div class="gb-fill curr" style="--h:51%;--c:var(--rose)"><span class="gb-num">24</span><span class="gb-tag churn">−18</span></div>
-                <div class="gb-lbl">Aug<span>partial</span></div>
+                <div class="gb-fill" style="--h:37%;--c:var(--primary)"><span class="gb-num">20</span><span class="gb-tag up">+3</span><span class="gb-tag churn">−37</span></div>
+                <div class="gb-lbl">Aug</div>
+              </div>
+              <div class="gb">
+                <div class="gb-fill curr" style="--h:30%;--c:var(--rose)"><span class="gb-num">16</span><span class="gb-tag churn">−4</span></div>
+                <div class="gb-lbl">Sep<span>partial</span></div>
               </div>
             </div>
           </div>
@@ -1818,10 +1825,10 @@
           <div class="growth-card">
             <div class="growth-eyebrow">Top-up <em>purchases</em></div>
             <div class="growth-hero">
-              <div class="growth-big">$4,925<span class="growth-big-sup">Total</span></div>
+              <div class="growth-big">$5,000<span class="growth-big-sup">Total</span></div>
             </div>
             <div class="growth-hero-note">
-              <strong>112</strong> total top-ups across 7 months
+              <strong>114</strong> total top-ups across 8 months
             </div>
             <div class="growth-bars" data-max="1525">
               <div class="gb">
@@ -1845,12 +1852,16 @@
                 <div class="gb-lbl">Jun</div>
               </div>
               <div class="gb">
-                <div class="gb-fill" style="--h:24%;--c:var(--primary)"><span class="gb-num">$375</span><span class="gb-tag down">−71%</span></div>
+                <div class="gb-fill" style="--h:25%;--c:var(--primary)"><span class="gb-num">$375</span><span class="gb-tag down">−71%</span></div>
                 <div class="gb-lbl">Jul</div>
               </div>
               <div class="gb">
-                <div class="gb-fill curr" style="--h:7%;--c:var(--rose)"><span class="gb-num">$100</span></div>
-                <div class="gb-lbl">Aug<span>partial</span></div>
+                <div class="gb-fill" style="--h:11%;--c:var(--primary)"><span class="gb-num">$175</span><span class="gb-tag down">−53%</span></div>
+                <div class="gb-lbl">Aug</div>
+              </div>
+              <div class="gb">
+                <div class="gb-fill curr" style="--h:4%;--c:var(--rose)"><span class="gb-num">$0</span></div>
+                <div class="gb-lbl">Sep<span>partial</span></div>
               </div>
             </div>
           </div>
@@ -1864,7 +1875,7 @@
         <div class="sec-head">
           <span class="eyebrow">01 · MOM Revenue</span>
           <h2 class="section-title">
-            Seven months of <em>revenue & subscriptions.</em>
+            Eight months of <em>revenue & subscriptions.</em>
           </h2>
           <p class="section-sub">
             Month-on-month comparison — each metric reflects that month only,
@@ -1921,7 +1932,7 @@
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">Cancellations requested</span
-                ><span class="mom-row-val">5</span>
+                ><span class="mom-row-val">2</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">MRR</span
@@ -1952,19 +1963,19 @@
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">Churned · billing ended</span
-                ><span class="mom-row-val">5</span>
+                ><span class="mom-row-val">7</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">Cancellations requested</span
-                ><span class="mom-row-val">21</span>
+                ><span class="mom-row-val">19</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">MRR</span
-                ><span class="mom-row-val">$1,556.33</span>
+                ><span class="mom-row-val">$1,476.33</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">ARR</span
-                ><span class="mom-row-val">$18,676</span>
+                ><span class="mom-row-val">$17,716</span>
               </div>
             </div>
           </div>
@@ -1991,15 +2002,15 @@
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">Cancellations requested</span
-                ><span class="mom-row-val">3</span>
+                ><span class="mom-row-val">8</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">MRR</span
-                ><span class="mom-row-val">$917.33</span>
+                ><span class="mom-row-val">$778.33</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">ARR</span
-                ><span class="mom-row-val">$11,008</span>
+                ><span class="mom-row-val">$9,340</span>
               </div>
             </div>
           </div>
@@ -2022,19 +2033,19 @@
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">Churned · billing ended</span
-                ><span class="mom-row-val">3</span>
+                ><span class="mom-row-val">5</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">Cancellations requested</span
-                ><span class="mom-row-val">10</span>
+                ><span class="mom-row-val">9</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">MRR</span
-                ><span class="mom-row-val">$978.33</span>
+                ><span class="mom-row-val">$858.33</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">ARR</span
-                ><span class="mom-row-val">$11,740</span>
+                ><span class="mom-row-val">$10,300</span>
               </div>
             </div>
           </div>
@@ -2057,11 +2068,11 @@
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">Churned · billing ended</span
-                ><span class="mom-row-val">10</span>
+                ><span class="mom-row-val">6</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">Cancellations requested</span
-                ><span class="mom-row-val">8</span>
+                ><span class="mom-row-val">5</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">MRR</span
@@ -2092,34 +2103,69 @@
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">Churned · billing ended</span
-                ><span class="mom-row-val">25</span>
+                ><span class="mom-row-val">13</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">Cancellations requested</span
-                ><span class="mom-row-val">28</span>
+                ><span class="mom-row-val">21</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">MRR</span
-                ><span class="mom-row-val">$1,458.33</span>
+                ><span class="mom-row-val">$1,898.33</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">ARR</span
-                ><span class="mom-row-val">$17,500</span>
+                ><span class="mom-row-val">$22,780</span>
+              </div>
+            </div>
+          </div>
+          <div class="mom-card">
+            <div class="mom-card-head">
+              <div>
+                <div class="mom-card-month">Month 7</div>
+                <div class="mom-card-range">Aug 1 — Aug 31</div>
+              </div>
+              <span class="mom-chip">Full month</span>
+            </div>
+            <div class="mom-rows">
+              <div class="mom-row">
+                <span class="mom-row-lbl">Revenue</span
+                ><span class="mom-row-val big"><em>$475</em></span>
+              </div>
+              <div class="mom-row">
+                <span class="mom-row-lbl">New subscriptions</span
+                ><span class="mom-row-val">3</span>
+              </div>
+              <div class="mom-row">
+                <span class="mom-row-lbl">Churned · billing ended</span
+                ><span class="mom-row-val">37</span>
+              </div>
+              <div class="mom-row">
+                <span class="mom-row-lbl">Cancellations requested</span
+                ><span class="mom-row-val">25</span>
+              </div>
+              <div class="mom-row">
+                <span class="mom-row-lbl">MRR</span
+                ><span class="mom-row-val">$578.33</span>
+              </div>
+              <div class="mom-row">
+                <span class="mom-row-lbl">ARR</span
+                ><span class="mom-row-val">$6,940</span>
               </div>
             </div>
           </div>
           <div class="mom-card partial">
             <div class="mom-card-head">
               <div>
-                <div class="mom-card-month">Month 7</div>
-                <div class="mom-card-range">Aug 1 — Aug 16</div>
+                <div class="mom-card-month">Month 8</div>
+                <div class="mom-card-range">Sep 1 — Sep 3</div>
               </div>
-              <span class="mom-chip">Aug 16 snapshot</span>
+              <span class="mom-chip partial">Sep 3 snapshot</span>
             </div>
             <div class="mom-rows">
               <div class="mom-row">
                 <span class="mom-row-lbl">Revenue</span
-                ><span class="mom-row-val big"><em>$240</em></span>
+                ><span class="mom-row-val big"><em>$40</em></span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">New subscriptions</span
@@ -2127,19 +2173,19 @@
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">Churned · billing ended</span
-                ><span class="mom-row-val">18</span>
+                ><span class="mom-row-val">4</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">Cancellations requested</span
-                ><span class="mom-row-val">7</span>
+                ><span class="mom-row-val">4</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">MRR</span
-                ><span class="mom-row-val">$818.33</span>
+                ><span class="mom-row-val">$438.33</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">ARR</span
-                ><span class="mom-row-val">$9,820</span>
+                ><span class="mom-row-val">$5,260</span>
               </div>
             </div>
           </div>
@@ -2168,7 +2214,7 @@
               </div>
               <div class="sub-mom-total">15<span>new</span></div>
             </div>
-            <div class="sub-dots"><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span></div>
+            <div class="sub-dots"><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span></div>
             <div class="sub-tiers">
               <div class="sub-tier">
                 <span class="sub-tier-swatch p1"></span
@@ -2388,11 +2434,49 @@
             </div>
           </div>
 
-          <div class="sub-mom-card partial">
+          <div class="sub-mom-card">
             <div class="sub-mom-head">
               <div>
                 <div class="sub-mom-month">Month 7</div>
-                <div class="sub-mom-range">Aug 1 — Aug 16</div>
+                <div class="sub-mom-range">Aug 1 — Aug 31</div>
+              </div>
+              <div class="sub-mom-total">3<span>new</span></div>
+            </div>
+            <div class="sub-dots"><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p2" title="$20/mo"></span></div>
+            <div class="sub-tiers">
+              <div class="sub-tier">
+                <span class="sub-tier-swatch p2"></span
+                ><span class="sub-tier-name">$20/mo</span
+                ><span class="sub-tier-count">3</span>
+              </div>
+              <div class="sub-tier muted">
+                <span class="sub-tier-swatch p1"></span
+                ><span class="sub-tier-name">$40/mo</span
+                ><span class="sub-tier-count">0</span>
+              </div>
+              <div class="sub-tier muted">
+                <span class="sub-tier-swatch p3"></span
+                ><span class="sub-tier-name">$420/yr</span
+                ><span class="sub-tier-count">0</span>
+              </div>
+              <div class="sub-tier muted">
+                <span class="sub-tier-swatch p4"></span
+                ><span class="sub-tier-name">$200/yr</span
+                ><span class="sub-tier-count">0</span>
+              </div>
+              <div class="sub-tier muted">
+                <span class="sub-tier-swatch p5"></span
+                ><span class="sub-tier-name">$99/mo</span
+                ><span class="sub-tier-count">0</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub-mom-card partial">
+            <div class="sub-mom-head">
+              <div>
+                <div class="sub-mom-month">Month 8</div>
+                <div class="sub-mom-range">Sep 1 — Sep 3</div>
               </div>
               <div class="sub-mom-total">0<span>new</span></div>
             </div>
@@ -2428,14 +2512,14 @@
         </div>
 
         <div style="margin-top: 48px">
-          <span class="eyebrow">Active subscriptions today · 24 total</span>
+          <span class="eyebrow">Active subscriptions today · 16 total</span>
           <div class="tier-grid" style="grid-template-columns: repeat(5, 1fr)">
             <div class="tier-card">
               <div class="tier-head">
-                <span class="tier-price"><em>$40</em></span
+                <span class="tier-price"><em>$20</em></span
                 ><span class="tier-cycle">Monthly</span>
               </div>
-              <div class="tier-users">15</div>
+              <div class="tier-users">7</div>
               <div class="tier-users-lbl">active subscriptions</div>
               <div class="tier-bar">
                 <div class="tier-bar-fill" style="width: 100%"></div>
@@ -2443,13 +2527,13 @@
             </div>
             <div class="tier-card">
               <div class="tier-head">
-                <span class="tier-price"><em>$20</em></span
+                <span class="tier-price"><em>$40</em></span
                 ><span class="tier-cycle">Monthly</span>
               </div>
               <div class="tier-users">4</div>
               <div class="tier-users-lbl">active subscriptions</div>
               <div class="tier-bar">
-                <div class="tier-bar-fill" style="width: 25%"></div>
+                <div class="tier-bar-fill" style="width: 57%"></div>
               </div>
             </div>
             <div class="tier-card">
@@ -2460,7 +2544,7 @@
               <div class="tier-users">3</div>
               <div class="tier-users-lbl">active subscriptions</div>
               <div class="tier-bar">
-                <div class="tier-bar-fill" style="width: 19%"></div>
+                <div class="tier-bar-fill" style="width: 43%"></div>
               </div>
             </div>
             <div class="tier-card">
@@ -2471,7 +2555,7 @@
               <div class="tier-users">2</div>
               <div class="tier-users-lbl">active subscriptions</div>
               <div class="tier-bar">
-                <div class="tier-bar-fill" style="width: 13%"></div>
+                <div class="tier-bar-fill" style="width: 29%"></div>
               </div>
             </div>
             <div class="tier-card">
@@ -2532,15 +2616,15 @@
           <div class="topup-card">
             <div class="topup-denom">$25 denomination</div>
             <div class="topup-row">
-              <span class="topup-count">67</span
-              ><span class="topup-total">× $25 = <strong>$1,675</strong></span>
+              <span class="topup-count">68</span
+              ><span class="topup-total">× $25 = <strong>$1,700</strong></span>
             </div>
           </div>
           <div class="topup-card">
             <div class="topup-denom">$50 denomination</div>
             <div class="topup-row">
-              <span class="topup-count">25</span
-              ><span class="topup-total">× $50 = <strong>$1,250</strong></span>
+              <span class="topup-count">26</span
+              ><span class="topup-total">× $50 = <strong>$1,300</strong></span>
             </div>
           </div>
           <div class="topup-card">
@@ -2599,8 +2683,8 @@
           </div>
           <div class="kv">
             <div class="kv-lbl">Paid Subscriptions</div>
-            <div class="kv-val"><em>106</em></div>
-            <div class="kv-note">0.91% of sign-ups</div>
+            <div class="kv-val"><em>109</em></div>
+            <div class="kv-note">0.94% of sign-ups</div>
           </div>
         </div>
       </div>
@@ -2757,7 +2841,7 @@
       <div class="wrap">
         <div class="sec-head">
           <span class="eyebrow light">06 · Lifetime funnel</span>
-          <h2 class="section-title wh">Full funnel <em>since Feb 16 – Aug 16.</em></h2>
+          <h2 class="section-title wh">Full funnel <em>since Feb 16 – Sep 3.</em></h2>
           <p class="section-sub wh">
             Top-of-funnel → paid conversion across the entire lifetime of
             Architect.
@@ -2824,10 +2908,10 @@
                 ></div>
               </div>
               <div class="funnel-conv">
-                0.91% of sign-ups · 2.20% of app builders
+                0.94% of sign-ups · 2.26% of app builders
               </div>
             </div>
-            <div class="funnel-num-big"><em>106</em></div>
+            <div class="funnel-num-big"><em>109</em></div>
           </div>
         </div>
       </div>
@@ -2963,7 +3047,7 @@
           <h2 class="section-title">The <em>first renewal</em> is the problem.</h2>
           <p class="section-sub">
             Monthly churn rates swing wildly at this volume, so cohort retention
-            and billing-period survival are the honest views. 47% of monthly
+            and billing-period survival are the honest views. 46% of monthly
             subscriptions never reach a second billing period.
           </p>
         </div>
@@ -2971,23 +3055,23 @@
         <div class="kv-strip">
           <div class="kv">
             <div class="kv-lbl">Never renewed</div>
-            <div class="kv-val"><em>47%</em></div>
-            <div class="kv-note">47 of 101 monthly subs</div>
+            <div class="kv-val"><em>46%</em></div>
+            <div class="kv-note">48 of 104 monthly subs</div>
           </div>
           <div class="kv">
             <div class="kv-lbl">Reached 3rd period</div>
-            <div class="kv-val"><em>18%</em></div>
-            <div class="kv-note">18 of 101 monthly subs</div>
+            <div class="kv-val"><em>27%</em></div>
+            <div class="kv-note">28 of 104 monthly subs</div>
           </div>
           <div class="kv">
             <div class="kv-lbl">Voluntary churn</div>
-            <div class="kv-val"><em>61</em></div>
-            <div class="kv-note">74% of all churn · cancelled</div>
+            <div class="kv-val"><em>70</em></div>
+            <div class="kv-note">75% of all churn · cancelled</div>
           </div>
           <div class="kv">
             <div class="kv-lbl">Involuntary churn</div>
-            <div class="kv-val"><em>21</em></div>
-            <div class="kv-note">26% of all churn · failed cards</div>
+            <div class="kv-val"><em>23</em></div>
+            <div class="kv-note">25% of all churn · failed cards</div>
           </div>
         </div>
 
@@ -2996,7 +3080,7 @@
             <div class="src-head">
               <div class="chart-title">Billing-period <em>survival</em></div>
               <div class="chart-meta" style="margin-top: 4px">
-                Share of 101 monthly subs reaching period N
+                Share of 104 monthly subs reaching period N
               </div>
             </div>
             <div class="src-row">
@@ -3006,13 +3090,13 @@
             </div>
             <div class="src-row">
               <span class="src-name">Period 2</span>
-              <div class="src-bar"><div class="src-bar-fill" style="width:53%"></div></div>
-              <span class="src-count">53%</span>
+              <div class="src-bar"><div class="src-bar-fill" style="width:54%"></div></div>
+              <span class="src-count">54%</span>
             </div>
             <div class="src-row">
               <span class="src-name">Period 3</span>
-              <div class="src-bar"><div class="src-bar-fill" style="width:18%"></div></div>
-              <span class="src-count">18%</span>
+              <div class="src-bar"><div class="src-bar-fill" style="width:27%"></div></div>
+              <span class="src-count">27%</span>
             </div>
             <div class="src-row">
               <span class="src-name">Period 4</span>
@@ -3021,13 +3105,18 @@
             </div>
             <div class="src-row">
               <span class="src-name">Period 5</span>
-              <div class="src-bar"><div class="src-bar-fill" style="width:12%"></div></div>
-              <span class="src-count">12%</span>
+              <div class="src-bar"><div class="src-bar-fill" style="width:13%"></div></div>
+              <span class="src-count">13%</span>
             </div>
             <div class="src-row">
               <span class="src-name">Period 6</span>
-              <div class="src-bar"><div class="src-bar-fill" style="width:8%"></div></div>
-              <span class="src-count">8%</span>
+              <div class="src-bar"><div class="src-bar-fill" style="width:11%"></div></div>
+              <span class="src-count">11%</span>
+            </div>
+            <div class="src-row">
+              <span class="src-name">Period 7</span>
+              <div class="src-bar"><div class="src-bar-fill" style="width:4%"></div></div>
+              <span class="src-count">4%</span>
             </div>
           </div>
 
@@ -3035,7 +3124,7 @@
             <div class="src-head">
               <div class="chart-title">Cohort <em>retention</em></div>
               <div class="chart-meta" style="margin-top: 4px">
-                Subs created in each month still active on Aug 16
+                Subs created in each month still active on Sep 3
               </div>
             </div>
             <div class="email-scroll">
@@ -3052,8 +3141,8 @@
             <tr>
               <td class="email-name">Feb cohort</td>
               <td class="email-num">15</td>
-              <td class="email-num">2</td>
-              <td class="email-pct lo">13%</td>
+              <td class="email-num">1</td>
+              <td class="email-pct lo">7%</td>
             </tr>
             <tr>
               <td class="email-name">Mar cohort</td>
@@ -3076,14 +3165,20 @@
             <tr>
               <td class="email-name">Jun cohort</td>
               <td class="email-num">26</td>
-              <td class="email-num">7</td>
-              <td class="email-pct ">27%</td>
+              <td class="email-num">0</td>
+              <td class="email-pct lo">0%</td>
             </tr>
             <tr>
               <td class="email-name">Jul cohort</td>
               <td class="email-num">20</td>
-              <td class="email-num">7</td>
-              <td class="email-pct hi">35%</td>
+              <td class="email-num">4</td>
+              <td class="email-pct ">20%</td>
+            </tr>
+            <tr>
+              <td class="email-name">Aug cohort</td>
+              <td class="email-num">3</td>
+              <td class="email-num">3</td>
+              <td class="email-pct hi">100%</td>
             </tr>
                 </tbody>
               </table>
@@ -3098,7 +3193,7 @@
                 Voluntary vs <em>involuntary</em> churn
               </div>
               <div class="comp-head-meta">
-                Recognised when billing stopped · involuntary churn is
+                Taken from Stripe’s <em>Ended At</em> · involuntary churn is
                 recoverable through dunning
               </div>
             </div>
@@ -3122,9 +3217,9 @@
             </tr>
             <tr>
               <td class="email-name">Mar</td>
-              <td class="email-num">5</td>
+              <td class="email-num">7</td>
               <td class="email-num">0</td>
-              <td class="email-pct">5</td>
+              <td class="email-pct">7</td>
             </tr>
             <tr>
               <td class="email-name">Apr</td>
@@ -3134,27 +3229,33 @@
             </tr>
             <tr>
               <td class="email-name">May</td>
-              <td class="email-num">3</td>
+              <td class="email-num">5</td>
               <td class="email-num">0</td>
-              <td class="email-pct">3</td>
+              <td class="email-pct">5</td>
             </tr>
             <tr>
               <td class="email-name">Jun</td>
-              <td class="email-num">10</td>
+              <td class="email-num">6</td>
               <td class="email-num">0</td>
-              <td class="email-pct">10</td>
+              <td class="email-pct">6</td>
             </tr>
             <tr>
               <td class="email-name">Jul</td>
-              <td class="email-num">11</td>
-              <td class="email-num">14</td>
-              <td class="email-pct">25</td>
+              <td class="email-num">13</td>
+              <td class="email-num">0</td>
+              <td class="email-pct">13</td>
             </tr>
             <tr>
               <td class="email-name">Aug</td>
-              <td class="email-num">11</td>
-              <td class="email-num">7</td>
-              <td class="email-pct">18</td>
+              <td class="email-num">18</td>
+              <td class="email-num">19</td>
+              <td class="email-pct">37</td>
+            </tr>
+            <tr>
+              <td class="email-name">Sep</td>
+              <td class="email-num">0</td>
+              <td class="email-num">4</td>
+              <td class="email-pct">4</td>
             </tr>
               </tbody>
             </table>
@@ -3170,9 +3271,11 @@
           <span class="eyebrow">11 · Methodology</span>
           <h2 class="section-title">How these numbers are <em>counted.</em></h2>
           <p class="section-sub">
-            Derived from two Stripe exports covering Feb 16 – Aug 16:
-            <code>transactions_16feb-16aug.csv</code> (876 rows) and
-            <code>subscriptions_no_filter_16feb-16aug.csv</code> (2,973 rows).
+            Derived from Stripe exports covering Feb 16 – Sep 3: two
+            transaction files merged and de-duplicated (914 rows) plus
+            <code>subscriptions_16feb-3sept.csv</code> (3,157 rows), which
+            carries Stripe's <code>Canceled At</code> and <code>Ended At</code>
+            timestamps.
           </p>
         </div>
 
@@ -3219,14 +3322,15 @@
             <div class="mp-body">
               <div class="mp-title">Churn timing — the standard</div>
               <div class="mp-desc">
-                Revenue churn is recognised when <strong>billing actually stops</strong>
-                (Stripe's <code>ended_at</code>), not when the user clicks cancel.
-                A customer who paid on Jul 18 and cancelled Jul 20 still counts
-                toward July MRR — they are paid through Aug 18. This is the
-                convention used by ChartMogul, Baremetrics and ProfitWell.
-                The <em>cancellation requested</em> row tracks the same events at
-                the moment of the cancel decision — a leading indicator for
-                retention, reported alongside MRR rather than driving it.
+Churn now uses Stripe's real <code>Ended At</code> timestamp —
+                no longer a proxy. Revenue churn is recognised when billing
+                actually stops, not when the user clicks cancel; the
+                <em>cancellations requested</em> row carries the exact
+                <code>Canceled At</code> date as a leading indicator. Median lag
+                between the two is <strong>22 days</strong> (12 cancelled
+                immediately, 58 rode out the paid period). <em>unpaid</em> subs
+                carry no Ended At, so their churn is dated at the failed
+                renewal.
               </div>
             </div>
           </div>
@@ -3240,9 +3344,9 @@
                 dunning and may recover), <em>unpaid</em> and <em>canceled</em>
                 do not. Yearly plans are normalised at 1/12 per month; ARR = MRR
                 × 12. One-time top-ups are never counted in MRR. The series
-                lands on the true live state: 24 active, $818.33 MRR — 19 of
-                which have captured at least one payment ($618.33 MRR); the
-                other 5 are past_due cards still in dunning.
+                lands on the true live state: 16 active, $438.33 MRR — all 16
+                have captured at least one payment. No subscription is in
+                past_due as of Sep 3.
               </div>
             </div>
           </div>
@@ -3273,7 +3377,7 @@
 
     <footer>
       Architect — Revenue &amp; Traction Report · Source: Stripe export Feb 16 –
-      Aug 16 &amp; internal analytics · Snapshot through <em>Aug 16</em>.
+      Sep 3 &amp; internal analytics · Snapshot through <em>Sep 3</em>.
     </footer>
 
     <script>
@@ -3286,7 +3390,8 @@
         "Month 4 · May 1–31",
         "Month 5 · Jun 1–30",
         "Month 6 · Jul 1–31",
-        "Month 7 · Aug 1–16",
+        "Month 7 · Aug 1–31",
+        "Month 8 · Sep 1–3",
       ];
 
       // Top companies
@@ -3844,8 +3949,8 @@
           datasets: [
             {
               label: "Revenue",
-              data: [670, 3885, 1060, 1235, 1520, 835, 240],
-              backgroundColor: [COL.primary, COL.primary2, COL.warm, COL.rosem, COL.rose, COL.primary, COL.warm],
+              data: [670, 3885, 1060, 1235, 1520, 835, 475, 40],
+              backgroundColor: [COL.primary, COL.primary2, COL.warm, COL.rosem, COL.rose, COL.primary, COL.primary2, COL.warm],
               borderRadius: 10,
               barPercentage: 0.65,
             },
@@ -3897,7 +4002,7 @@
           datasets: [
             {
               label: "MRR",
-              data: [600, 1556.33, 917.33, 978.33, 1698.33, 1458.33, 818.33],
+              data: [600, 1476.33, 778.33, 858.33, 1698.33, 1898.33, 578.33, 438.33],
               borderColor: COL.primary,
               backgroundColor: "rgba(107,76,76,.12)",
               tension: 0.4,
@@ -3910,7 +4015,7 @@
             },
             {
               label: "ARR",
-              data: [7200, 18676, 11008, 11740, 20380, 17500, 9820],
+              data: [7200, 17716, 9340, 10300, 20380, 22780, 6940, 5260],
               borderColor: COL.rose,
               backgroundColor: "transparent",
               borderDash: [4, 4],
@@ -3999,10 +4104,10 @@
       new Chart(document.getElementById("topupLifetime"), {
         type: "doughnut",
         data: {
-          labels: ["$25 × 67 = $1,675", "$50 × 25 = $1,250", "$100 × 20 = $2,000"],
+          labels: ["$25 × 68 = $1,700", "$50 × 26 = $1,300", "$100 × 20 = $2,000"],
           datasets: [
             {
-              data: [1675, 1250, 2000],
+              data: [1700, 1300, 2000],
               backgroundColor: [COL.primary, COL.primary2, COL.warm],
               borderWidth: 0,
               hoverOffset: 6,
@@ -4027,7 +4132,7 @@
             tooltip: {
               callbacks: {
                 label: (c) =>
-                  c.label + " (" + ((c.raw / 4925) * 100).toFixed(1) + "%)",
+                  c.label + " (" + ((c.raw / 5000) * 100).toFixed(1) + "%)",
               },
             },
             datalabels: {
@@ -4053,8 +4158,8 @@
           datasets: [
             {
               label: "Top-up Revenue",
-              data: [150, 1525, 700, 775, 1300, 375, 100],
-              backgroundColor: [COL.primary, COL.primary2, COL.warm, COL.rosem, COL.rose, COL.primary, COL.warm],
+              data: [150, 1525, 700, 775, 1300, 375, 175, 0],
+              backgroundColor: [COL.primary, COL.primary2, COL.warm, COL.rosem, COL.rose, COL.primary, COL.primary2, COL.warm],
               borderRadius: 10,
               barPercentage: 0.65,
             },
@@ -4105,25 +4210,25 @@
           datasets: [
             {
               label: "Total Visits",
-              data: [17035, 21919, 12535, 3136, 3134, 2567, 0],
+              data: [17035, 21919, 12535, 3136, 3134, 2567, 0, 0],
               backgroundColor: COL.primary,
               borderRadius: 6,
             },
             {
               label: "New Sign Ups",
-              data: [2103, 5315, 2313, 592, 604, 711, 0],
+              data: [2103, 5315, 2313, 592, 604, 711, 0, 0],
               backgroundColor: COL.primary2,
               borderRadius: 6,
             },
             {
               label: "Apps Built",
-              data: [872, 1885, 968, 432, 333, 326, 0],
+              data: [872, 1885, 968, 432, 333, 326, 0, 0],
               backgroundColor: COL.warm,
               borderRadius: 6,
             },
             {
               label: "Paid Subscriptions",
-              data: [15, 30, 8, 7, 26, 20, 0],
+              data: [15, 30, 8, 7, 26, 20, 3, 0],
               backgroundColor: COL.rose,
               borderRadius: 6,
             },
