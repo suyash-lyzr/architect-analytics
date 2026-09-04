@@ -1656,6 +1656,7 @@
           <button class="nav-link" data-target="s8">Profiles</button>
           <button class="nav-link" data-target="s9">Insights</button>
           <button class="nav-link" data-target="s10">Retention</button>
+          <button class="nav-link" data-target="s10b">Never billed</button>
           <button class="nav-link" data-target="s11">Method</button>
         </div>
       </div>
@@ -1704,9 +1705,9 @@
             ><span class="hm-note">Monthly recurring</span>
           </div>
           <div class="hm">
-            <span class="hm-lbl">Paid Subs</span
-            ><span class="hm-val">109</span
-            ><span class="hm-note">All-time · 93 churned (70 cancelled + 23 unpaid)</span>
+            <span class="hm-lbl">Paying Subs</span
+            ><span class="hm-val">59</span
+            ><span class="hm-note">Paying subs · 43 churned · 16 active</span>
           </div>
           <div class="hm">
             <span class="hm-lbl">Active Customers</span
@@ -1726,47 +1727,48 @@
             Eight months of <em>growth</em> in one view.
           </h2>
           <p class="section-sub">
-            New subscriptions, active base, and top-up spend tracked
+            Paying subscriptions, active base, and top-up spend tracked
             month-over-month with change deltas. Month 8 (Sep 1–3) is a partial
             month.
           </p>
         </div>
 
         <div class="growth-grid">
-          <!-- New subscriptions added -->
           <div class="growth-card">
-            <div class="growth-eyebrow">New subscriptions <em>added</em></div>
+            <div class="growth-eyebrow">New <em>paying</em> subscriptions</div>
             <div class="growth-hero">
-              <div class="growth-big">109<span class="growth-big-sup">Total</span></div>
+              <div class="growth-big">59<span class="growth-big-sup">Total</span></div>
             </div>
-            <div class="growth-hero-note" aria-hidden="true"></div>
-            <div class="growth-bars" data-max="30">
+            <div class="growth-hero-note">
+              excludes <strong>50</strong> created but never billed — see §10
+            </div>
+            <div class="growth-bars" data-max="24">
               <div class="gb">
-                <div class="gb-fill" style="--h:50%;--c:var(--primary)"><span class="gb-num">15</span></div>
+                <div class="gb-fill" style="--h:58%;--c:var(--primary)"><span class="gb-num">14</span></div>
                 <div class="gb-lbl">Feb<span>launch</span></div>
               </div>
               <div class="gb">
-                <div class="gb-fill" style="--h:100%;--c:var(--primary)"><span class="gb-num">30</span><span class="gb-tag up">+100%</span></div>
+                <div class="gb-fill" style="--h:100%;--c:var(--primary)"><span class="gb-num">24</span><span class="gb-tag up">+71%</span></div>
                 <div class="gb-lbl">Mar</div>
               </div>
               <div class="gb">
-                <div class="gb-fill" style="--h:27%;--c:var(--primary)"><span class="gb-num">8</span><span class="gb-tag down">−73%</span></div>
+                <div class="gb-fill" style="--h:12%;--c:var(--primary)"><span class="gb-num">3</span><span class="gb-tag down">−88%</span></div>
                 <div class="gb-lbl">Apr</div>
               </div>
               <div class="gb">
-                <div class="gb-fill" style="--h:23%;--c:var(--primary)"><span class="gb-num">7</span><span class="gb-tag down">−12%</span></div>
+                <div class="gb-fill" style="--h:17%;--c:var(--primary)"><span class="gb-num">4</span><span class="gb-tag up">+33%</span></div>
                 <div class="gb-lbl">May</div>
               </div>
               <div class="gb">
-                <div class="gb-fill" style="--h:87%;--c:var(--primary)"><span class="gb-num">26</span><span class="gb-tag up">+271%</span></div>
+                <div class="gb-fill" style="--h:21%;--c:var(--primary)"><span class="gb-num">5</span><span class="gb-tag up">+25%</span></div>
                 <div class="gb-lbl">Jun</div>
               </div>
               <div class="gb">
-                <div class="gb-fill" style="--h:67%;--c:var(--primary)"><span class="gb-num">20</span><span class="gb-tag down">−23%</span></div>
+                <div class="gb-fill" style="--h:25%;--c:var(--primary)"><span class="gb-num">6</span><span class="gb-tag up">+20%</span></div>
                 <div class="gb-lbl">Jul</div>
               </div>
               <div class="gb">
-                <div class="gb-fill" style="--h:10%;--c:var(--primary)"><span class="gb-num">3</span><span class="gb-tag down">−85%</span></div>
+                <div class="gb-fill" style="--h:12%;--c:var(--primary)"><span class="gb-num">3</span><span class="gb-tag down">−50%</span></div>
                 <div class="gb-lbl">Aug</div>
               </div>
               <div class="gb">
@@ -1776,52 +1778,50 @@
             </div>
           </div>
 
-          <!-- Active subs at end of month -->
           <div class="growth-card">
             <div class="growth-eyebrow"><em>Active</em> subscriptions at end of month</div>
             <div class="growth-hero">
               <div class="growth-big">16<span class="growth-big-sup">Current</span></div>
             </div>
             <div class="growth-hero-note">
-              <strong>−93</strong> churned all-time · peak 38 in Mar
+              <strong>−43</strong> churned all-time · peak 33 in Mar
             </div>
-            <div class="growth-bars" data-max="38">
+            <div class="growth-bars" data-max="33">
               <div class="gb">
-                <div class="gb-fill" style="--h:39%;--c:var(--primary)"><span class="gb-num">15</span></div>
+                <div class="gb-fill" style="--h:42%;--c:var(--primary)"><span class="gb-num">14</span></div>
                 <div class="gb-lbl">Feb<span>baseline</span></div>
               </div>
               <div class="gb">
-                <div class="gb-fill" style="--h:100%;--c:var(--primary)"><span class="gb-num">38</span><span class="gb-tag up">+30</span><span class="gb-tag churn">−7</span></div>
+                <div class="gb-fill" style="--h:100%;--c:var(--primary)"><span class="gb-num">33</span><span class="gb-tag up">+24</span><span class="gb-tag churn">−5</span></div>
                 <div class="gb-lbl">Mar</div>
               </div>
               <div class="gb">
-                <div class="gb-fill" style="--h:45%;--c:var(--primary)"><span class="gb-num">17</span><span class="gb-tag up">+8</span><span class="gb-tag churn">−29</span></div>
+                <div class="gb-fill" style="--h:48%;--c:var(--primary)"><span class="gb-num">16</span><span class="gb-tag up">+3</span><span class="gb-tag churn">−20</span></div>
                 <div class="gb-lbl">Apr</div>
               </div>
               <div class="gb">
-                <div class="gb-fill" style="--h:50%;--c:var(--primary)"><span class="gb-num">19</span><span class="gb-tag up">+7</span><span class="gb-tag churn">−5</span></div>
+                <div class="gb-fill" style="--h:58%;--c:var(--primary)"><span class="gb-num">19</span><span class="gb-tag up">+4</span><span class="gb-tag churn">−1</span></div>
                 <div class="gb-lbl">May</div>
               </div>
               <div class="gb">
-                <div class="gb-fill" style="--h:76%;--c:var(--primary)"><span class="gb-num">29</span><span class="gb-tag up">+26</span><span class="gb-tag churn">−16</span></div>
+                <div class="gb-fill" style="--h:48%;--c:var(--primary)"><span class="gb-num">16</span><span class="gb-tag up">+5</span><span class="gb-tag churn">−8</span></div>
                 <div class="gb-lbl">Jun</div>
               </div>
               <div class="gb">
-                <div class="gb-fill" style="--h:82%;--c:var(--primary)"><span class="gb-num">31</span><span class="gb-tag up">+20</span><span class="gb-tag churn">−18</span></div>
+                <div class="gb-fill" style="--h:61%;--c:var(--primary)"><span class="gb-num">20</span><span class="gb-tag up">+6</span><span class="gb-tag churn">−2</span></div>
                 <div class="gb-lbl">Jul</div>
               </div>
               <div class="gb">
-                <div class="gb-fill" style="--h:42%;--c:var(--primary)"><span class="gb-num">16</span><span class="gb-tag up">+3</span><span class="gb-tag churn">−18</span></div>
+                <div class="gb-fill" style="--h:48%;--c:var(--primary)"><span class="gb-num">16</span><span class="gb-tag up">+3</span><span class="gb-tag churn">−7</span></div>
                 <div class="gb-lbl">Aug</div>
               </div>
               <div class="gb">
-                <div class="gb-fill curr" style="--h:42%;--c:var(--rose)"><span class="gb-num">16</span></div>
+                <div class="gb-fill curr" style="--h:48%;--c:var(--rose)"><span class="gb-num">16</span></div>
                 <div class="gb-lbl">Sep<span>partial</span></div>
               </div>
             </div>
           </div>
 
-          <!-- Top-up purchases -->
           <div class="growth-card">
             <div class="growth-eyebrow">Top-up <em>purchases</em></div>
             <div class="growth-hero">
@@ -1833,7 +1833,7 @@
             <div class="growth-bars" data-max="1525">
               <div class="gb">
                 <div class="gb-fill" style="--h:10%;--c:var(--primary)"><span class="gb-num">$150</span></div>
-                <div class="gb-lbl">Feb</div>
+                <div class="gb-lbl">Feb<span>launch</span></div>
               </div>
               <div class="gb">
                 <div class="gb-fill" style="--h:100%;--c:var(--primary)"><span class="gb-num">$1,525</span><span class="gb-tag up">+917%</span></div>
@@ -1923,8 +1923,8 @@
                 ><span class="mom-row-val big"><em>$670</em></span>
               </div>
               <div class="mom-row">
-                <span class="mom-row-lbl">New subscriptions</span
-                ><span class="mom-row-val">15</span>
+                <span class="mom-row-lbl">New paying subs</span
+                ><span class="mom-row-val">14</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">Churned · billing ended</span
@@ -1936,11 +1936,11 @@
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">MRR</span
-                ><span class="mom-row-val">$600</span>
+                ><span class="mom-row-val">$560</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">ARR</span
-                ><span class="mom-row-val">$7,200</span>
+                ><span class="mom-row-val">$6,720</span>
               </div>
             </div>
           </div>
@@ -1958,24 +1958,24 @@
                 ><span class="mom-row-val big"><em>$3,885</em></span>
               </div>
               <div class="mom-row">
-                <span class="mom-row-lbl">New subscriptions</span
-                ><span class="mom-row-val">30</span>
+                <span class="mom-row-lbl">New paying subs</span
+                ><span class="mom-row-val">24</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">Churned · billing ended</span
-                ><span class="mom-row-val">7</span>
+                ><span class="mom-row-val">5</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">Cancellations requested</span
-                ><span class="mom-row-val">19</span>
+                ><span class="mom-row-val">13</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">MRR</span
-                ><span class="mom-row-val">$1,476.33</span>
+                ><span class="mom-row-val">$1,218.33</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">ARR</span
-                ><span class="mom-row-val">$17,716</span>
+                ><span class="mom-row-val">$14,620</span>
               </div>
             </div>
           </div>
@@ -1993,24 +1993,24 @@
                 ><span class="mom-row-val big"><em>$1,060</em></span>
               </div>
               <div class="mom-row">
-                <span class="mom-row-lbl">New subscriptions</span
-                ><span class="mom-row-val">8</span>
+                <span class="mom-row-lbl">New paying subs</span
+                ><span class="mom-row-val">3</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">Churned · billing ended</span
-                ><span class="mom-row-val">29</span>
+                ><span class="mom-row-val">20</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">Cancellations requested</span
-                ><span class="mom-row-val">8</span>
+                ><span class="mom-row-val">6</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">MRR</span
-                ><span class="mom-row-val">$538.33</span>
+                ><span class="mom-row-val">$518.33</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">ARR</span
-                ><span class="mom-row-val">$6,460</span>
+                ><span class="mom-row-val">$6,220</span>
               </div>
             </div>
           </div>
@@ -2028,16 +2028,16 @@
                 ><span class="mom-row-val big"><em>$1,235</em></span>
               </div>
               <div class="mom-row">
-                <span class="mom-row-lbl">New subscriptions</span
-                ><span class="mom-row-val">7</span>
+                <span class="mom-row-lbl">New paying subs</span
+                ><span class="mom-row-val">4</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">Churned · billing ended</span
-                ><span class="mom-row-val">5</span>
+                ><span class="mom-row-val">1</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">Cancellations requested</span
-                ><span class="mom-row-val">9</span>
+                ><span class="mom-row-val">6</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">MRR</span
@@ -2063,24 +2063,24 @@
                 ><span class="mom-row-val big"><em>$1,520</em></span>
               </div>
               <div class="mom-row">
-                <span class="mom-row-lbl">New subscriptions</span
-                ><span class="mom-row-val">26</span>
-              </div>
-              <div class="mom-row">
-                <span class="mom-row-lbl">Churned · billing ended</span
-                ><span class="mom-row-val">16</span>
-              </div>
-              <div class="mom-row">
-                <span class="mom-row-lbl">Cancellations requested</span
+                <span class="mom-row-lbl">New paying subs</span
                 ><span class="mom-row-val">5</span>
               </div>
               <div class="mom-row">
+                <span class="mom-row-lbl">Churned · billing ended</span
+                ><span class="mom-row-val">8</span>
+              </div>
+              <div class="mom-row">
+                <span class="mom-row-lbl">Cancellations requested</span
+                ><span class="mom-row-val">2</span>
+              </div>
+              <div class="mom-row">
                 <span class="mom-row-lbl">MRR</span
-                ><span class="mom-row-val">$1,058.33</span>
+                ><span class="mom-row-val">$538.33</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">ARR</span
-                ><span class="mom-row-val">$12,700</span>
+                ><span class="mom-row-val">$6,460</span>
               </div>
             </div>
           </div>
@@ -2098,24 +2098,24 @@
                 ><span class="mom-row-val big"><em>$835</em></span>
               </div>
               <div class="mom-row">
-                <span class="mom-row-lbl">New subscriptions</span
-                ><span class="mom-row-val">20</span>
+                <span class="mom-row-lbl">New paying subs</span
+                ><span class="mom-row-val">6</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">Churned · billing ended</span
-                ><span class="mom-row-val">18</span>
+                ><span class="mom-row-val">2</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">Cancellations requested</span
-                ><span class="mom-row-val">21</span>
+                ><span class="mom-row-val">5</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">MRR</span
-                ><span class="mom-row-val">$1,058.33</span>
+                ><span class="mom-row-val">$618.33</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">ARR</span
-                ><span class="mom-row-val">$12,700</span>
+                ><span class="mom-row-val">$7,420</span>
               </div>
             </div>
           </div>
@@ -2133,16 +2133,16 @@
                 ><span class="mom-row-val big"><em>$475</em></span>
               </div>
               <div class="mom-row">
-                <span class="mom-row-lbl">New subscriptions</span
+                <span class="mom-row-lbl">New paying subs</span
                 ><span class="mom-row-val">3</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">Churned · billing ended</span
-                ><span class="mom-row-val">18</span>
+                ><span class="mom-row-val">7</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">Cancellations requested</span
-                ><span class="mom-row-val">6</span>
+                ><span class="mom-row-val">3</span>
               </div>
               <div class="mom-row">
                 <span class="mom-row-lbl">MRR</span
@@ -2168,7 +2168,7 @@
                 ><span class="mom-row-val big"><em>$40</em></span>
               </div>
               <div class="mom-row">
-                <span class="mom-row-lbl">New subscriptions</span
+                <span class="mom-row-lbl">New paying subs</span
                 ><span class="mom-row-val">0</span>
               </div>
               <div class="mom-row">
@@ -2200,8 +2200,9 @@
           <span class="eyebrow">02 · Subscriptions</span>
           <h2 class="section-title">New subscriptions <em>by plan.</em></h2>
           <p class="section-sub">
-            Distribution of newly-acquired subscriptions across Architect's
-            five pricing tiers, by month.
+            Distribution of newly-acquired <strong>paying</strong> subscriptions
+            across Architect's five pricing tiers, by month. Subscriptions that
+            were never billed are excluded — see §10.
           </p>
         </div>
 
@@ -2212,14 +2213,14 @@
                 <div class="sub-mom-month">Month 1</div>
                 <div class="sub-mom-range">Feb 16 — Feb 28</div>
               </div>
-              <div class="sub-mom-total">15<span>new</span></div>
+              <div class="sub-mom-total">14<span>new</span></div>
             </div>
-            <div class="sub-dots"><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span></div>
+            <div class="sub-dots"><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span></div>
             <div class="sub-tiers">
               <div class="sub-tier">
                 <span class="sub-tier-swatch p1"></span
                 ><span class="sub-tier-name">$40/mo</span
-                ><span class="sub-tier-count">15</span>
+                ><span class="sub-tier-count">14</span>
               </div>
               <div class="sub-tier muted">
                 <span class="sub-tier-swatch p2"></span
@@ -2250,19 +2251,14 @@
                 <div class="sub-mom-month">Month 2</div>
                 <div class="sub-mom-range">Mar 1 — Mar 31</div>
               </div>
-              <div class="sub-mom-total">30<span>new</span></div>
+              <div class="sub-mom-total">24<span>new</span></div>
             </div>
-            <div class="sub-dots"><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p3" title="$420/yr"></span><span class="sd sd-p3" title="$420/yr"></span><span class="sd sd-p3" title="$420/yr"></span><span class="sd sd-p4" title="$200/yr"></span><span class="sd sd-p4" title="$200/yr"></span><span class="sd sd-p5" title="$99/mo"></span><span class="sd sd-p5" title="$99/mo"></span></div>
+            <div class="sub-dots"><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p3" title="$420/yr"></span><span class="sd sd-p3" title="$420/yr"></span><span class="sd sd-p3" title="$420/yr"></span><span class="sd sd-p4" title="$200/yr"></span><span class="sd sd-p4" title="$200/yr"></span><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p2" title="$20/mo"></span></div>
             <div class="sub-tiers">
               <div class="sub-tier">
                 <span class="sub-tier-swatch p1"></span
                 ><span class="sub-tier-name">$40/mo</span
-                ><span class="sub-tier-count">18</span>
-              </div>
-              <div class="sub-tier">
-                <span class="sub-tier-swatch p2"></span
-                ><span class="sub-tier-name">$20/mo</span
-                ><span class="sub-tier-count">5</span>
+                ><span class="sub-tier-count">17</span>
               </div>
               <div class="sub-tier">
                 <span class="sub-tier-swatch p3"></span
@@ -2275,9 +2271,14 @@
                 ><span class="sub-tier-count">2</span>
               </div>
               <div class="sub-tier">
+                <span class="sub-tier-swatch p2"></span
+                ><span class="sub-tier-name">$20/mo</span
+                ><span class="sub-tier-count">2</span>
+              </div>
+              <div class="sub-tier muted">
                 <span class="sub-tier-swatch p5"></span
                 ><span class="sub-tier-name">$99/mo</span
-                ><span class="sub-tier-count">2</span>
+                ><span class="sub-tier-count">0</span>
               </div>
             </div>
           </div>
@@ -2288,14 +2289,14 @@
                 <div class="sub-mom-month">Month 3</div>
                 <div class="sub-mom-range">Apr 1 — Apr 30</div>
               </div>
-              <div class="sub-mom-total">8<span>new</span></div>
+              <div class="sub-mom-total">3<span>new</span></div>
             </div>
-            <div class="sub-dots"><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p1" title="$40/mo"></span></div>
+            <div class="sub-dots"><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p1" title="$40/mo"></span></div>
             <div class="sub-tiers">
               <div class="sub-tier">
                 <span class="sub-tier-swatch p2"></span
                 ><span class="sub-tier-name">$20/mo</span
-                ><span class="sub-tier-count">7</span>
+                ><span class="sub-tier-count">2</span>
               </div>
               <div class="sub-tier">
                 <span class="sub-tier-swatch p1"></span
@@ -2326,19 +2327,19 @@
                 <div class="sub-mom-month">Month 4</div>
                 <div class="sub-mom-range">May 1 — May 31</div>
               </div>
-              <div class="sub-mom-total">7<span>new</span></div>
+              <div class="sub-mom-total">4<span>new</span></div>
             </div>
-            <div class="sub-dots"><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p2" title="$20/mo"></span></div>
+            <div class="sub-dots"><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p2" title="$20/mo"></span></div>
             <div class="sub-tiers">
               <div class="sub-tier">
                 <span class="sub-tier-swatch p1"></span
                 ><span class="sub-tier-name">$40/mo</span
-                ><span class="sub-tier-count">4</span>
+                ><span class="sub-tier-count">2</span>
               </div>
               <div class="sub-tier">
                 <span class="sub-tier-swatch p2"></span
                 ><span class="sub-tier-name">$20/mo</span
-                ><span class="sub-tier-count">3</span>
+                ><span class="sub-tier-count">2</span>
               </div>
               <div class="sub-tier muted">
                 <span class="sub-tier-swatch p3"></span
@@ -2364,14 +2365,14 @@
                 <div class="sub-mom-month">Month 5</div>
                 <div class="sub-mom-range">Jun 1 — Jun 30</div>
               </div>
-              <div class="sub-mom-total">26<span>new</span></div>
+              <div class="sub-mom-total">5<span>new</span></div>
             </div>
-            <div class="sub-dots"><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span></div>
+            <div class="sub-dots"><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span></div>
             <div class="sub-tiers">
               <div class="sub-tier">
                 <span class="sub-tier-swatch p1"></span
                 ><span class="sub-tier-name">$40/mo</span
-                ><span class="sub-tier-count">26</span>
+                ><span class="sub-tier-count">5</span>
               </div>
               <div class="sub-tier muted">
                 <span class="sub-tier-swatch p2"></span
@@ -2402,19 +2403,19 @@
                 <div class="sub-mom-month">Month 6</div>
                 <div class="sub-mom-range">Jul 1 — Jul 31</div>
               </div>
-              <div class="sub-mom-total">20<span>new</span></div>
+              <div class="sub-mom-total">6<span>new</span></div>
             </div>
-            <div class="sub-dots"><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p1" title="$40/mo"></span><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p2" title="$20/mo"></span></div>
+            <div class="sub-dots"><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p2" title="$20/mo"></span><span class="sd sd-p1" title="$40/mo"></span></div>
             <div class="sub-tiers">
-              <div class="sub-tier">
-                <span class="sub-tier-swatch p1"></span
-                ><span class="sub-tier-name">$40/mo</span
-                ><span class="sub-tier-count">15</span>
-              </div>
               <div class="sub-tier">
                 <span class="sub-tier-swatch p2"></span
                 ><span class="sub-tier-name">$20/mo</span
                 ><span class="sub-tier-count">5</span>
+              </div>
+              <div class="sub-tier">
+                <span class="sub-tier-swatch p1"></span
+                ><span class="sub-tier-name">$40/mo</span
+                ><span class="sub-tier-count">1</span>
               </div>
               <div class="sub-tier muted">
                 <span class="sub-tier-swatch p3"></span
@@ -2480,7 +2481,7 @@
               </div>
               <div class="sub-mom-total">0<span>new</span></div>
             </div>
-            <div class="sub-dots"><span style="font-size:12px;color:var(--muted)">No new subscriptions</span></div>
+            <div class="sub-dots"><span style="font-size:12px;color:var(--muted)">No new paying subs</span></div>
             <div class="sub-tiers">
               <div class="sub-tier muted">
                 <span class="sub-tier-swatch p1"></span
@@ -2682,9 +2683,9 @@
             <div class="kv-note">41.4% of sign-ups</div>
           </div>
           <div class="kv">
-            <div class="kv-lbl">Paid Subscriptions</div>
-            <div class="kv-val"><em>109</em></div>
-            <div class="kv-note">0.94% of sign-ups</div>
+            <div class="kv-lbl">Paying Subscriptions</div>
+            <div class="kv-val"><em>59</em></div>
+            <div class="kv-note">0.51% of sign-ups</div>
           </div>
         </div>
       </div>
@@ -2897,10 +2898,10 @@
                     font-family: var(--font-display);
                     font-weight: 400;
                   "
-                  >Paid Subscriptions</em
+                  >Paying Subscriptions</em
                 >
               </div>
-              <div class="funnel-lbl-sub">Subscription purchased</div>
+              <div class="funnel-lbl-sub">Subscription created and paid for</div>
               <div class="funnel-bar" style="margin-top: 12px">
                 <div
                   class="funnel-bar-fill"
@@ -2908,10 +2909,10 @@
                 ></div>
               </div>
               <div class="funnel-conv">
-                0.94% of sign-ups · 2.26% of app builders
+                0.51% of sign-ups · 1.23% of app builders
               </div>
             </div>
-            <div class="funnel-num-big"><em>109</em></div>
+            <div class="funnel-num-big"><em>59</em></div>
           </div>
         </div>
       </div>
@@ -3043,78 +3044,74 @@
     <section class="page alt" id="s10">
       <div class="wrap">
         <div class="sec-head">
-          <span class="eyebrow">10 · Retention</span>
+          <span class="eyebrow">09 · Retention</span>
           <h2 class="section-title">The <em>first renewal</em> is the problem.</h2>
           <p class="section-sub">
             Monthly churn rates swing wildly at this volume, so cohort retention
-            and billing-period survival are the honest views. 46% of monthly
-            subscriptions never reach a second billing period.
+            and payment survival are the honest views. Counts here cover the
+            <strong>59 subscriptions that actually paid</strong>; 67% of them
+            paid exactly once and never again.
           </p>
         </div>
 
         <div class="kv-strip">
           <div class="kv">
-            <div class="kv-lbl">Never renewed</div>
-            <div class="kv-val"><em>46%</em></div>
-            <div class="kv-note">48 of 104 monthly subs</div>
+            <div class="kv-lbl">Paid once only</div>
+            <div class="kv-val"><em>67%</em></div>
+            <div class="kv-note">36 of 54 paying monthly subs</div>
           </div>
           <div class="kv">
-            <div class="kv-lbl">Reached 3rd period</div>
-            <div class="kv-val"><em>27%</em></div>
-            <div class="kv-note">28 of 104 monthly subs</div>
+            <div class="kv-lbl">Made 3+ payments</div>
+            <div class="kv-val"><em>17%</em></div>
+            <div class="kv-note">9 of 54 made 3+ payments</div>
           </div>
           <div class="kv">
             <div class="kv-lbl">Voluntary churn</div>
-            <div class="kv-val"><em>70</em></div>
-            <div class="kv-note">75% of all churn · cancelled</div>
+            <div class="kv-val"><em>37</em></div>
+            <div class="kv-note">86% of real churn · cancelled</div>
           </div>
           <div class="kv">
             <div class="kv-lbl">Involuntary churn</div>
-            <div class="kv-val"><em>23</em></div>
-            <div class="kv-note">25% of all churn · failed cards</div>
+            <div class="kv-val"><em>6</em></div>
+            <div class="kv-note">14% of real churn · failed cards</div>
           </div>
         </div>
 
         <div class="sources-grid">
           <div class="src-card">
             <div class="src-head">
-              <div class="chart-title">Billing-period <em>survival</em></div>
+              <div class="chart-title">Payment <em>survival</em></div>
               <div class="chart-meta" style="margin-top: 4px">
-                Share of 104 monthly subs reaching period N
+                Share of 54 paying monthly subs making N or more payments
               </div>
             </div>
             <div class="src-row">
-              <span class="src-name">Period 1</span>
+              <span class="src-name">1 payment</span>
               <div class="src-bar"><div class="src-bar-fill" style="width:100%"></div></div>
               <span class="src-count">100%</span>
             </div>
             <div class="src-row">
-              <span class="src-name">Period 2</span>
-              <div class="src-bar"><div class="src-bar-fill" style="width:54%"></div></div>
-              <span class="src-count">54%</span>
+              <span class="src-name">2 payments</span>
+              <div class="src-bar"><div class="src-bar-fill" style="width:33%"></div></div>
+              <span class="src-count">33%</span>
             </div>
             <div class="src-row">
-              <span class="src-name">Period 3</span>
-              <div class="src-bar"><div class="src-bar-fill" style="width:27%"></div></div>
-              <span class="src-count">27%</span>
+              <span class="src-name">3 payments</span>
+              <div class="src-bar"><div class="src-bar-fill" style="width:17%"></div></div>
+              <span class="src-count">17%</span>
             </div>
             <div class="src-row">
-              <span class="src-name">Period 4</span>
-              <div class="src-bar"><div class="src-bar-fill" style="width:15%"></div></div>
-              <span class="src-count">15%</span>
-            </div>
-            <div class="src-row">
-              <span class="src-name">Period 5</span>
-              <div class="src-bar"><div class="src-bar-fill" style="width:13%"></div></div>
-              <span class="src-count">13%</span>
-            </div>
-            <div class="src-row">
-              <span class="src-name">Period 6</span>
+              <span class="src-name">4 payments</span>
               <div class="src-bar"><div class="src-bar-fill" style="width:11%"></div></div>
               <span class="src-count">11%</span>
             </div>
             <div class="src-row">
-              <span class="src-name">Period 7</span>
+              <span class="src-name">6 payments</span>
+              <div class="src-bar"><div class="src-bar-fill" style="width:9%"></div></div>
+              <span class="src-count">9%</span>
+            </div>
+            <div class="src-row">
+              <span class="src-name">7 payments</span>
               <div class="src-bar"><div class="src-bar-fill" style="width:4%"></div></div>
               <span class="src-count">4%</span>
             </div>
@@ -3124,7 +3121,7 @@
             <div class="src-head">
               <div class="chart-title">Cohort <em>retention</em></div>
               <div class="chart-meta" style="margin-top: 4px">
-                Subs created in each month still active on Sep 3
+                Paying subs created in each month, still active on Sep 3
               </div>
             </div>
             <div class="email-scroll">
@@ -3140,39 +3137,39 @@
                 <tbody>
             <tr>
               <td class="email-name">Feb cohort</td>
-              <td class="email-num">15</td>
+              <td class="email-num">14</td>
               <td class="email-num">1</td>
               <td class="email-pct lo">7%</td>
             </tr>
             <tr>
               <td class="email-name">Mar cohort</td>
-              <td class="email-num">30</td>
+              <td class="email-num">24</td>
               <td class="email-num">8</td>
-              <td class="email-pct ">27%</td>
+              <td class="email-pct hi">33%</td>
             </tr>
             <tr>
               <td class="email-name">Apr cohort</td>
-              <td class="email-num">8</td>
+              <td class="email-num">3</td>
               <td class="email-num">0</td>
               <td class="email-pct lo">0%</td>
             </tr>
             <tr>
               <td class="email-name">May cohort</td>
-              <td class="email-num">7</td>
+              <td class="email-num">4</td>
               <td class="email-num">0</td>
               <td class="email-pct lo">0%</td>
             </tr>
             <tr>
               <td class="email-name">Jun cohort</td>
-              <td class="email-num">26</td>
+              <td class="email-num">5</td>
               <td class="email-num">0</td>
               <td class="email-pct lo">0%</td>
             </tr>
             <tr>
               <td class="email-name">Jul cohort</td>
-              <td class="email-num">20</td>
+              <td class="email-num">6</td>
               <td class="email-num">4</td>
-              <td class="email-pct ">20%</td>
+              <td class="email-pct hi">67%</td>
             </tr>
             <tr>
               <td class="email-name">Aug cohort</td>
@@ -3217,39 +3214,39 @@
             </tr>
             <tr>
               <td class="email-name">Mar</td>
-              <td class="email-num">7</td>
-              <td class="email-num">0</td>
-              <td class="email-pct">7</td>
-            </tr>
-            <tr>
-              <td class="email-name">Apr</td>
-              <td class="email-num">21</td>
-              <td class="email-num">8</td>
-              <td class="email-pct">29</td>
-            </tr>
-            <tr>
-              <td class="email-name">May</td>
               <td class="email-num">5</td>
               <td class="email-num">0</td>
               <td class="email-pct">5</td>
             </tr>
             <tr>
+              <td class="email-name">Apr</td>
+              <td class="email-num">16</td>
+              <td class="email-num">4</td>
+              <td class="email-pct">20</td>
+            </tr>
+            <tr>
+              <td class="email-name">May</td>
+              <td class="email-num">1</td>
+              <td class="email-num">0</td>
+              <td class="email-pct">1</td>
+            </tr>
+            <tr>
               <td class="email-name">Jun</td>
               <td class="email-num">6</td>
-              <td class="email-num">10</td>
-              <td class="email-pct">16</td>
+              <td class="email-num">2</td>
+              <td class="email-pct">8</td>
             </tr>
             <tr>
               <td class="email-name">Jul</td>
-              <td class="email-num">13</td>
-              <td class="email-num">5</td>
-              <td class="email-pct">18</td>
+              <td class="email-num">2</td>
+              <td class="email-num">0</td>
+              <td class="email-pct">2</td>
             </tr>
             <tr>
               <td class="email-name">Aug</td>
-              <td class="email-num">18</td>
+              <td class="email-num">7</td>
               <td class="email-num">0</td>
-              <td class="email-pct">18</td>
+              <td class="email-pct">7</td>
             </tr>
             <tr>
               <td class="email-name">Sep</td>
@@ -3259,6 +3256,153 @@
             </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEVER BILLED -->
+    <section class="page" id="s10b">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">10 · Created but never billed</span>
+          <h2 class="section-title">
+            The <em>50 subscriptions</em> that never paid.
+          </h2>
+          <p class="section-sub">
+            Separate from churn, because nothing was ever lost. These
+            subscriptions were created in Stripe, went active with a full
+            billing period, and no payment was ever captured. They are excluded
+            from every revenue, MRR and churn figure in this report.
+          </p>
+        </div>
+
+        <div class="kv-strip">
+          <div class="kv">
+            <div class="kv-lbl">Never billed</div>
+            <div class="kv-val"><em>50</em></div>
+            <div class="kv-note">46% of all 109 subscriptions created</div>
+          </div>
+          <div class="kv">
+            <div class="kv-lbl">No charge attempted</div>
+            <div class="kv-val"><em>20</em></div>
+            <div class="kv-note">not even a failed charge</div>
+          </div>
+          <div class="kv">
+            <div class="kv-lbl">MRR never realised</div>
+            <div class="kv-val"><em>$1,938</em></div>
+            <div class="kv-note">if each had paid one month</div>
+          </div>
+          <div class="kv">
+            <div class="kv-lbl">Still active today</div>
+            <div class="kv-val"><em>0</em></div>
+            <div class="kv-note">all 50 have lapsed</div>
+          </div>
+        </div>
+
+        <div class="sources-grid">
+          <div class="src-card">
+            <div class="src-head">
+              <div class="chart-title">Plan <em>they signed up on</em></div>
+              <div class="chart-meta" style="margin-top: 4px">
+                Never-billed subscriptions by tier
+              </div>
+            </div>
+            <div class="src-row">
+              <span class="src-name">$40/mo Pro</span>
+              <div class="src-bar"><div class="src-bar-fill" style="width:100%"></div></div>
+              <span class="src-count">39</span>
+            </div>
+            <div class="src-row">
+              <span class="src-name">$20/mo Starter</span>
+              <div class="src-bar"><div class="src-bar-fill" style="width:23%"></div></div>
+              <span class="src-count">9</span>
+            </div>
+            <div class="src-row">
+              <span class="src-name">$99/mo Max</span>
+              <div class="src-bar"><div class="src-bar-fill" style="width:5%"></div></div>
+              <span class="src-count">2</span>
+            </div>
+            <div style="margin-top:24px;padding-top:20px;border-top:1px solid rgba(42,28,24,.08)">
+              <div class="mp-desc">
+                <strong>How this happens.</strong> The subscription is created in
+                Stripe before payment is confirmed, so it goes active with a full
+                billing period and no charge. Stripe only attempts to bill at the
+                first renewal — a month later. No trial and no coupon is set on
+                any of them, and they use the same price IDs as paying
+                customers, so it is not a pricing or plan issue.
+              </div>
+            </div>
+          </div>
+
+          <div class="src-card">
+            <div class="src-head">
+              <div class="chart-title">Share of signups <em>by month</em></div>
+              <div class="chart-meta" style="margin-top: 4px">
+                Never-billed as a share of all subscriptions created
+              </div>
+            </div>
+            <div class="email-scroll">
+              <table class="email">
+                <thead>
+                  <tr>
+                    <th>Month</th>
+                    <th>Never billed</th>
+                    <th>Total created</th>
+                    <th>Share</th>
+                  </tr>
+                </thead>
+                <tbody>
+            <tr>
+              <td class="email-name">Feb</td>
+              <td class="email-num">1</td>
+              <td class="email-num">15</td>
+              <td class="email-pct ">7%</td>
+            </tr>
+            <tr>
+              <td class="email-name">Mar</td>
+              <td class="email-num">6</td>
+              <td class="email-num">30</td>
+              <td class="email-pct ">20%</td>
+            </tr>
+            <tr>
+              <td class="email-name">Apr</td>
+              <td class="email-num">5</td>
+              <td class="email-num">8</td>
+              <td class="email-pct lo">62%</td>
+            </tr>
+            <tr>
+              <td class="email-name">May</td>
+              <td class="email-num">3</td>
+              <td class="email-num">7</td>
+              <td class="email-pct ">43%</td>
+            </tr>
+            <tr>
+              <td class="email-name">Jun</td>
+              <td class="email-num">21</td>
+              <td class="email-num">26</td>
+              <td class="email-pct lo">81%</td>
+            </tr>
+            <tr>
+              <td class="email-name">Jul</td>
+              <td class="email-num">14</td>
+              <td class="email-num">20</td>
+              <td class="email-pct lo">70%</td>
+            </tr>
+            <tr>
+              <td class="email-name">Aug</td>
+              <td class="email-num">0</td>
+              <td class="email-num">3</td>
+              <td class="email-pct ">0%</td>
+            </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="mp-desc" style="margin-top:18px">
+              June and July are the problem months — <strong>81% and 70%</strong>
+              of subscriptions created never produced a payment. Those are the
+              same months that looked strongest on signup volume.
+            </div>
           </div>
         </div>
       </div>
@@ -3301,7 +3445,10 @@
                 charges matched to an Architect plan the customer holds, plus
                 one-time top-ups from confirmed Architect users. Only captured,
                 positive, <em>Paid</em> charges — refunded amounts are netted
-                out.
+                out. Every subscription metric covers only the <strong>59 subs
+                that captured at least one charge</strong>; the 50 that never
+                billed are reported separately in §10 and counted nowhere
+                else.
               </div>
             </div>
           </div>
@@ -3329,9 +3476,10 @@ Cancelled subs use Stripe's exact <code>Ended At</code> and
                 Stripe rolls their period forward every cycle even while
                 invoices fail, so period dates are unusable; their churn is
                 dated at <strong>last successful payment + one billing
-                period</strong>, or at signup for the 17 that never paid at all.
-                Involuntary churn is never counted as a cancellation
-                <em>request</em> — nobody asked to leave.
+                period</strong>. Involuntary churn is never counted as a
+                cancellation <em>request</em> — nobody asked to leave. Of the 26
+                subscriptions that entered dunning, <strong>zero recovered</strong>,
+                so treating them as churn matches the observed outcome.
               </div>
             </div>
           </div>
@@ -3345,9 +3493,9 @@ Cancelled subs use Stripe's exact <code>Ended At</code> and
                 dunning and may recover), <em>unpaid</em> and <em>canceled</em>
                 do not. Yearly plans are normalised at 1/12 per month; ARR = MRR
                 × 12. One-time top-ups are never counted in MRR. The series
-                lands on the true live state: 16 active, $438.33 MRR — all 16
-                have captured at least one payment. No subscription is in
-                past_due as of Sep 3.
+                lands on the true live state: 16 active, $438.33 MRR. Real
+                churn is <strong>43 of 59 paying subs (73%)</strong>, not 93 of
+                109 — the difference is the never-billed cohort in §10.
               </div>
             </div>
           </div>
@@ -4003,7 +4151,7 @@ Cancelled subs use Stripe's exact <code>Ended At</code> and
           datasets: [
             {
               label: "MRR",
-              data: [600, 1476.33, 538.33, 618.33, 1058.33, 1058.33, 438.33, 438.33],
+              data: [560, 1218.33, 518.33, 618.33, 538.33, 618.33, 438.33, 438.33],
               borderColor: COL.primary,
               backgroundColor: "rgba(107,76,76,.12)",
               tension: 0.4,
@@ -4016,7 +4164,7 @@ Cancelled subs use Stripe's exact <code>Ended At</code> and
             },
             {
               label: "ARR",
-              data: [7200, 17716, 6460, 7420, 12700, 12700, 5260, 5260],
+              data: [6720, 14620, 6220, 7420, 6460, 7420, 5260, 5260],
               borderColor: COL.rose,
               backgroundColor: "transparent",
               borderDash: [4, 4],
@@ -4229,7 +4377,7 @@ Cancelled subs use Stripe's exact <code>Ended At</code> and
             },
             {
               label: "Paid Subscriptions",
-              data: [15, 30, 8, 7, 26, 20, 3, 0],
+              data: [14, 24, 3, 4, 5, 6, 3, 0],
               backgroundColor: COL.rose,
               borderRadius: 6,
             },
